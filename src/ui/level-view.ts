@@ -3,7 +3,7 @@ import { HOLE_LETTER, matchTrace, type Word } from '../core/puzzle.ts';
 import { steer } from '../core/steer.ts';
 import type { Session } from '../game/session.ts';
 import { artUrl } from '../core/levels.ts';
-import { h, reducedMotion, svg } from './dom.ts';
+import { h, reducedMotion, svg, unit } from './dom.ts';
 import { buzz, centreOf, confetti, replay, sparkles } from './fx.ts';
 import { ICONS } from './icons.ts';
 import { PAINT_STAGGER_MS, paintDuration, PieceLayer } from './pieces.ts';
@@ -499,10 +499,11 @@ export class LevelView {
     const above = this.heading.offsetHeight + this.wordList.offsetHeight + this.traceEl.offsetHeight;
     const width = this.stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     const height = this.stage.clientHeight - parseFloat(ss.paddingTop) - parseFloat(ss.paddingBottom) - above - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-    const gap = width < 480 ? 6 : 8;
+    const u = unit();
+    const gap = Math.round((width < 480 * u ? 6 : 8) * u);
     const byWidth = (width - gap * (p.cols - 1)) / p.cols;
-    const byHeight = (height - 8 - gap * (p.rows - 1)) / p.rows;
-    let size = Math.max(34, Math.min(84, Math.floor(Math.min(byWidth, byHeight))));
+    const byHeight = (height - 8 * u - gap * (p.rows - 1)) / p.rows;
+    let size = Math.max(Math.round(34 * u), Math.min(Math.round(84 * u), Math.floor(Math.min(byWidth, byHeight))));
     // Once framed, the painting keeps its size (the words making way would otherwise grow it).
     if (this.el.classList.contains('is-framed') && this.cellPx) size = Math.min(size, this.cellPx);
     this.cellPx = size;

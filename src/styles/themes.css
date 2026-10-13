@@ -8,7 +8,7 @@
 
 [data-theme] .trail-top { background: var(--bar); border-bottom-color: rgb(0 0 0 / 0.12); color: var(--on-wall); backdrop-filter: none; }
 [data-theme] .wordmark b { color: var(--sun); }
-[data-theme] .wordmark-mark { background: var(--sun); box-shadow: 0 3px 0 var(--sun-edge); color: var(--sun-ink); }
+[data-theme] .wordmark-mark { background: var(--sun); box-shadow: 0 0.1875rem 0 var(--sun-edge); color: var(--sun-ink); }
 [data-theme] .icon-btn { color: var(--on-wall-soft); }
 
 [data-theme] .btn { --face: var(--accent); --edge: var(--accent-edge); }
@@ -16,7 +16,7 @@
 [data-theme] .room-banner { color: #fff; }
 [data-theme] .room-banner.is-locked {
   background: color-mix(in srgb, var(--room) 32%, var(--wall));
-  box-shadow: 0 5px 0 color-mix(in srgb, var(--room) 32%, color-mix(in srgb, var(--wall) 80%, #000));
+  box-shadow: 0 0.3125rem 0 color-mix(in srgb, var(--room) 32%, color-mix(in srgb, var(--wall) 80%, #000));
   color: color-mix(in srgb, var(--on-wall) 85%, transparent);
 }
 [data-theme] .room-banner.is-locked .room-gate { background: rgb(0 0 0 / 0.1); }
@@ -30,7 +30,7 @@
 }
 [data-theme] .chip { color: var(--ink); }
 [data-theme] .node.is-next { outline-color: color-mix(in srgb, var(--room) 40%, transparent); }
-[data-theme] .node-bubble { border-color: var(--panel-edge); background: var(--panel); box-shadow: 0 3px 0 var(--panel-edge); color: var(--room-edge); }
+[data-theme] .node-bubble { border-color: var(--panel-edge); background: var(--panel); box-shadow: 0 0.1875rem 0 var(--panel-edge); color: var(--room-edge); }
 [data-theme] .node-bubble::after { border-top-color: var(--panel); }
 
 [data-theme] .lesson-title { color: var(--on-wall); }
@@ -38,7 +38,7 @@
 [data-theme] .progress { background: var(--track); }
 [data-theme] .trace-pill { color: var(--sun-ink); }
 [data-theme] .piece-base { fill: rgb(0 0 0 / 0.14); }
-[data-theme] .result-banner { background: var(--panel); color: var(--ink); box-shadow: 0 -4px 0 var(--panel-edge); }
+[data-theme] .result-banner { background: var(--panel); color: var(--ink); box-shadow: 0 -0.25rem 0 var(--panel-edge); }
 [data-theme] .result-badge { background: var(--green); color: #fff; }
 
 [data-theme] .story-ribbon { color: var(--on-wall); }
@@ -158,7 +158,7 @@
 :root[data-theme='woodblock'],
 [data-theme='mix'] [data-room='woodblocks'] {
   --wall: #e6d6b8;
-  --wall-art: repeating-linear-gradient(0deg, rgb(120 90 40 / 0.035) 0 2px, transparent 2px 5px), radial-gradient(140% 100% at 50% 110%, rgb(120 90 40 / 0.18), transparent 60%);
+  --wall-art: repeating-linear-gradient(0deg, rgb(120 90 40 / 0.035) 0 0.125rem, transparent 0.125rem 0.3125rem), radial-gradient(140% 100% at 50% 110%, rgb(120 90 40 / 0.18), transparent 60%);
   --bar: #dccaa8;
   --on-wall: #1e2f4d;
   --on-wall-soft: #5a5f6e;
@@ -225,11 +225,11 @@
 
 [data-theme='mix'] .room,
 [data-theme='mix'] .screen[data-room] { background: var(--wall-art, none), var(--wall); }
-[data-theme='mix'] .room { margin: 0 -16px; padding: 0 16px 26px; }
-[data-theme='mix'] .room:first-child { margin-bottom: -28px; padding-bottom: 54px; }
+[data-theme='mix'] .room { margin: 0 -1rem; padding: 0 1rem 1.625rem; }
+[data-theme='mix'] .room:first-child { margin-bottom: -1.75rem; padding-bottom: 3.375rem; }
 [data-theme='mix'] .trail-scroll { padding-top: 0; }
-[data-theme='mix'] .room:last-child { padding-top: 24px; }
-[data-theme='mix'] .trail-nodes { padding-bottom: 28px; }
+[data-theme='mix'] .room:last-child { padding-top: 1.5rem; }
+[data-theme='mix'] .trail-nodes { padding-bottom: 1.75rem; }
 
 /* ── Surface effects (?fx=…), on top of any palette ─────────────────────────────
    grain: washi paper fibres over everything · mount: the board sits on a mounted print ·
@@ -257,32 +257,32 @@
 }
 
 /* mount: the letters and the painting live on a print mounted in a thin wooden frame */
-[data-fx~='mount'] .board-wrap { padding: 22px 32px 40px; }
+[data-fx~='mount'] .board-wrap { padding: 1.375rem 2rem 2.5rem; }
 [data-fx~='mount'] .board::before {
   content: '';
   position: absolute;
   z-index: -2;
   inset: calc(var(--cell) * -0.3);
-  border-radius: 5px;
-  background: var(--seigaiha) 0 0 / 36px 18px;
+  border-radius: 0.3125rem;
+  background: var(--seigaiha) 0 0 / 2.25rem 1.125rem;
   box-shadow:
-    inset 0 2px 8px rgb(0 0 0 / 0.35),
-    0 0 0 3px #c9a46a,
-    0 0 0 9px var(--wood),
-    0 0 0 10px #3d2a17,
-    0 18px 28px rgb(40 25 10 / 0.4);
+    inset 0 0.125rem 0.5rem rgb(0 0 0 / 0.35),
+    0 0 0 0.1875rem #c9a46a,
+    0 0 0 0.5625rem var(--wood),
+    0 0 0 0.625rem #3d2a17,
+    0 1.125rem 1.75rem rgb(40 25 10 / 0.4);
 }
 [data-fx~='mount'] .board.is-complete { box-shadow: none; }
 [data-fx~='mount'] .board.is-complete::before {
   inset: calc(var(--cell) * -0.14);
-  box-shadow: 0 0 0 4px #fff3d6, 0 0 0 10px var(--gold), 0 0 0 12px var(--gold-edge), 0 18px 28px rgb(40 25 10 / 0.4);
+  box-shadow: 0 0 0 0.25rem #fff3d6, 0 0 0 0.625rem var(--gold), 0 0 0 0.75rem var(--gold-edge), 0 1.125rem 1.75rem rgb(40 25 10 / 0.4);
   transition: inset 0.6s ease, box-shadow 0.6s ease;
 }
 [data-fx~='mount'] .piece-base { fill: rgb(255 255 255 / 0.06); }
 
 /* pattern */
-:root[data-fx~='pattern'] body { background: var(--seigaiha) 0 0 / 56px 28px, var(--wall-art, none), var(--wall); }
-[data-fx~='pattern'] .room-banner { background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0)), var(--seigaiha); background-size: auto, 44px 22px; background-blend-mode: normal, soft-light; }
+:root[data-fx~='pattern'] body { background: var(--seigaiha) 0 0 / 3.5rem 1.75rem, var(--wall-art, none), var(--wall); }
+[data-fx~='pattern'] .room-banner { background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0)), var(--seigaiha); background-size: auto, 2.75rem 1.375rem; background-blend-mode: normal, soft-light; }
 
 /* backdrop: each level is washed in its own painting's colours */
 [data-fx~='backdrop'] .screen.lesson,
@@ -291,34 +291,34 @@
 [data-fx~='backdrop'] .screen.story::before {
   content: '';
   position: absolute;
-  inset: -60px;
+  inset: -3.75rem;
   z-index: -1;
   background: linear-gradient(color-mix(in srgb, var(--wall) 42%, transparent), color-mix(in srgb, var(--wall) 42%, transparent)), var(--art) center / cover;
-  filter: blur(26px) saturate(1.5);
+  filter: blur(1.625rem) saturate(1.5);
   pointer-events: none;
 }
-[data-fx~='backdrop'] .lesson-title { text-shadow: 0 1px 0 color-mix(in srgb, var(--wall) 70%, transparent); }
+[data-fx~='backdrop'] .lesson-title { text-shadow: 0 0.0625rem 0 color-mix(in srgb, var(--wall) 70%, transparent); }
 
 /* print: carved outlines and offset colour, like a woodblock pull */
-[data-fx~='print'] .tile { border-color: var(--ink-line); box-shadow: 0 calc(var(--cell) * 0.08) 0 var(--ink-line); background-image: var(--noise); background-size: 160px; }
+[data-fx~='print'] .tile { border-color: var(--ink-line); box-shadow: 0 calc(var(--cell) * 0.08) 0 var(--ink-line); background-image: var(--noise); background-size: 10rem; }
 [data-fx~='print'] .tile-letter { text-shadow: calc(var(--cell) * 0.035) calc(var(--cell) * 0.03) 0 rgb(226 85 58 / 0.6); }
 [data-fx~='print'] .tile.is-trace { border-color: transparent; box-shadow: none; background-image: none; }
 [data-fx~='print'] .tile.is-trace .tile-letter { text-shadow: none; }
 [data-fx~='print'] .trace-shadow { fill: var(--ink-line); }
-[data-fx~='print'] .word-chip { border-color: var(--ink-line); box-shadow: 0 3px 0 var(--ink-line); }
-[data-fx~='print'] .word-chip.is-found { border-color: var(--ink-line); box-shadow: 0 3px 0 var(--ink-line); }
-[data-fx~='print'] .trace-pill { outline: 2px solid var(--ink-line); box-shadow: 0 4px 0 var(--ink-line); }
-[data-fx~='print'] .btn { outline: 2.5px solid var(--ink-line); box-shadow: 0 5px 0 var(--ink-line); }
+[data-fx~='print'] .word-chip { border-color: var(--ink-line); box-shadow: 0 0.1875rem 0 var(--ink-line); }
+[data-fx~='print'] .word-chip.is-found { border-color: var(--ink-line); box-shadow: 0 0.1875rem 0 var(--ink-line); }
+[data-fx~='print'] .trace-pill { outline: 0.125rem solid var(--ink-line); box-shadow: 0 0.25rem 0 var(--ink-line); }
+[data-fx~='print'] .btn { outline: 0.1563rem solid var(--ink-line); box-shadow: 0 0.3125rem 0 var(--ink-line); }
 [data-fx~='print'] .btn:active { box-shadow: 0 0 0 var(--ink-line); }
-[data-fx~='print'] .node { outline: 2.5px solid var(--ink-line); box-shadow: 0 7px 0 var(--ink-line); }
-[data-fx~='print'] .node.is-locked { outline-color: color-mix(in srgb, var(--ink-line) 35%, transparent); box-shadow: 0 7px 0 color-mix(in srgb, var(--ink-line) 30%, var(--wall)); }
-[data-fx~='print'] .node.is-next { outline: 2.5px solid var(--ink-line); animation: none; }
+[data-fx~='print'] .node { outline: 0.1563rem solid var(--ink-line); box-shadow: 0 0.4375rem 0 var(--ink-line); }
+[data-fx~='print'] .node.is-locked { outline-color: color-mix(in srgb, var(--ink-line) 35%, transparent); box-shadow: 0 0.4375rem 0 color-mix(in srgb, var(--ink-line) 30%, var(--wall)); }
+[data-fx~='print'] .node.is-next { outline: 0.1563rem solid var(--ink-line); animation: none; }
 [data-fx~='print'] .node-bubble, [data-fx~='print'] .chip, [data-fx~='print'] .museum-label { border-color: var(--ink-line); }
-[data-fx~='print'] .node-bubble { box-shadow: 0 3px 0 var(--ink-line); }
-[data-fx~='print'] .room-banner { outline: 2.5px solid var(--ink-line); box-shadow: 0 5px 0 var(--ink-line); }
-[data-fx~='print'] .museum-label { box-shadow: 0 5px 0 var(--ink-line); }
-[data-fx~='print'] .wordmark-mark { border-radius: 6px; background: #c8402a; color: #fff3e0; box-shadow: 0 0 0 2px var(--ink-line); }
+[data-fx~='print'] .node-bubble { box-shadow: 0 0.1875rem 0 var(--ink-line); }
+[data-fx~='print'] .room-banner { outline: 0.1563rem solid var(--ink-line); box-shadow: 0 0.3125rem 0 var(--ink-line); }
+[data-fx~='print'] .museum-label { box-shadow: 0 0.3125rem 0 var(--ink-line); }
+[data-fx~='print'] .wordmark-mark { border-radius: 0.375rem; background: #c8402a; color: #fff3e0; box-shadow: 0 0 0 0.125rem var(--ink-line); }
 /* The Restored ribbon becomes a hanko seal stamped above the painting. */
-[data-fx~='print'] .story-ribbon { display: block; width: max-content; margin: 2px auto 16px; padding: 8px 14px 7px 18px; border: 3px solid #fff3e0; border-radius: 8px; outline: 3px solid #c8402a; background: #c8402a; color: #fff3e0; font-size: 18px; letter-spacing: 0.3em; transform: rotate(-4deg); }
+[data-fx~='print'] .story-ribbon { display: block; width: max-content; margin: 0.125rem auto 1rem; padding: 0.5rem 0.875rem 0.4375rem 1.125rem; border: 0.1875rem solid #fff3e0; border-radius: 0.5rem; outline: 0.1875rem solid #c8402a; background: #c8402a; color: #fff3e0; font-size: 1.125rem; letter-spacing: 0.3em; transform: rotate(-4deg); }
 [data-fx~='print'] .story-ribbon::before, [data-fx~='print'] .story-ribbon::after { display: none; }
-[data-fx~='print'] .result-badge { border-radius: 10px; background: #c8402a; transform: rotate(-5deg); box-shadow: 0 0 0 3px #fff3e0, 0 0 0 5px #c8402a; }
+[data-fx~='print'] .result-badge { border-radius: 0.625rem; background: #c8402a; transform: rotate(-5deg); box-shadow: 0 0 0 0.1875rem #fff3e0, 0 0 0 0.3125rem #c8402a; }

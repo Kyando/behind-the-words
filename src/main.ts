@@ -4,6 +4,7 @@ import './styles/themes.css';
 import './styles/theme-desk.css';
 import './styles/trail.css';
 import { App } from './ui/app.ts';
+import { unit } from './ui/dom.ts';
 
 // Palette preview: ?theme=gallery|starry|lilies|woodblock|terracotta|mix (see themes.css).
 const theme = new URLSearchParams(location.search).get('theme') ?? 'lttl';
@@ -26,6 +27,16 @@ if (theme) {
       noise.setAttribute('seed', String(seeds[i]));
     }, 240);
   }
+  // The wobble keeps its proportions as the layout scales up. On a low-density screen (most
+  // desktops) it is drawn gentler: there are fewer pixels to bend, so the same bend looks ragged.
+  const map = document.querySelector('#wobble feDisplacementMap');
+  const fit = () => {
+    const u = unit();
+    noise?.setAttribute('baseFrequency', String(0.016 / u));
+    map?.setAttribute('scale', String(3.4 * u * (devicePixelRatio < 1.5 ? 0.6 : 1)));
+  };
+  fit();
+  addEventListener('resize', fit);
 }
 // Surface effects on top of a palette: ?fx=grain,mount,pattern,backdrop,print (see themes.css).
 const fx = new URLSearchParams(location.search).get('fx');

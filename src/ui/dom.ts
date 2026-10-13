@@ -40,4 +40,7 @@ export function label(text: string, className: string, comfortable = 8): HTMLEle
   return h('span', { class: className, style: `--fit: ${scale.toFixed(2)}` }, text);
 }
 
+/** How much the layout is scaled up from its phone size: the root font size over 16px. */
+export const unit = (): number => parseFloat(getComputedStyle(document.documentElement).fontSize) / 16 || 1;
+
 export const reducedMotion = (): boolean => matchMedia('(prefers-reduced-motion: reduce)').matches;

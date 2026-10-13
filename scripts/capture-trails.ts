@@ -27,7 +27,7 @@ async function main(): Promise<void> {
   const browser = await chromium.launch({ channel: process.env.CAPTURE_CHANNEL ?? 'msedge' });
   try {
     for (const l of layouts) {
-      const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 2 });
+      const ctx = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: Number(process.env.DSF ?? 2) });
       await ctx.addInitScript((s) => localStorage.setItem('behind-the-words:v1', s), JSON.stringify(save));
       const page = await ctx.newPage();
       await page.goto(`http://localhost:${PORT}/`);

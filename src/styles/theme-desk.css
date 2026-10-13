@@ -31,7 +31,7 @@
   --track: #ece2d2;
   --tray: #c8dac3;
   --tape: rgb(244 226 170 / 0.85);
-  --drop: 3px 4px 0 rgb(75 58 53 / 0.18);
+  --drop: 0.1875rem 0.25rem 0 rgb(75 58 53 / 0.18);
   --r1: #f1c45f; --r1-edge: #4b3a35;
   --r2: #a9cbe0; --r2-edge: #4b3a35;
   --r3: #f2b8ab; --r3-edge: #4b3a35;
@@ -61,86 +61,86 @@
 [data-theme^='lttl'] .frame { filter: url(#wobble); }
 
 [data-theme^='lttl'] .trail-top { border-bottom: 0; }
-[data-theme^='lttl'] .wordmark { font-weight: 700; font-size: 20px; white-space: nowrap; }
+[data-theme^='lttl'] .wordmark { font-weight: 700; font-size: 1.25rem; white-space: nowrap; }
 [data-theme^='lttl'] .wordmark b { color: #d9785f; }
-[data-theme^='lttl'] .wordmark-mark { border: 2.5px solid var(--ink-line); background: var(--accent); box-shadow: var(--drop); color: var(--ink); }
-[data-theme^='lttl'] .chip { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); }
+[data-theme^='lttl'] .wordmark-mark { border: 0.1563rem solid var(--ink-line); background: var(--accent); box-shadow: var(--drop); color: var(--ink); }
+[data-theme^='lttl'] .chip { border: 0.1563rem solid var(--ink-line); box-shadow: var(--drop); }
 [data-theme^='lttl'] .chip-star svg { color: #e0a93a; }
 
-[data-theme^='lttl'] .btn { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); font-weight: 700; font-size: 20px; letter-spacing: 0.06em; }
-[data-theme^='lttl'] .btn:active { transform: translate(3px, 4px); box-shadow: none; }
+[data-theme^='lttl'] .btn { border: 0.1563rem solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); font-weight: 700; font-size: 1.25rem; letter-spacing: 0.06em; }
+[data-theme^='lttl'] .btn:active { transform: translate(0.1875rem, 0.25rem); box-shadow: none; }
 
 /* ── Trail ── */
-[data-theme^='lttl'] .room-banner { position: relative; border: 2.5px solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); transform: rotate(-1deg); }
-[data-theme^='lttl'] .room-banner h2 { font-size: 26px; font-weight: 700; }
-[data-theme^='lttl'] .room-eyebrow { font-weight: 700; font-size: 12.5px; letter-spacing: 0.12em; }
+[data-theme^='lttl'] .room-banner { position: relative; border: 0.1563rem solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); transform: rotate(-1deg); }
+[data-theme^='lttl'] .room-banner h2 { font-size: 1.625rem; font-weight: 700; }
+[data-theme^='lttl'] .room-eyebrow { font-weight: 700; font-size: 0.7813rem; letter-spacing: 0.12em; }
 [data-theme^='lttl'] .room-tagline { font-weight: 600; }
 [data-theme^='lttl'] .room-count,
-[data-theme^='lttl'] .room-gate { background: rgb(255 255 255 / 0.55); border: 2px solid var(--ink-line); font-weight: 700; font-size: 16px; }
-[data-theme^='lttl'] .room-banner::before { content: ''; position: absolute; top: -12px; left: 50%; width: 84px; height: 22px; background: var(--tape); transform: translateX(-50%) rotate(3deg); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+[data-theme^='lttl'] .room-gate { background: rgb(255 255 255 / 0.55); border: 0.125rem solid var(--ink-line); font-weight: 700; font-size: 1rem; }
+[data-theme^='lttl'] .room-banner::before { content: ''; position: absolute; top: -0.75rem; left: 50%; width: 5.25rem; height: 1.375rem; background: var(--tape); transform: translateX(-50%) rotate(3deg); box-shadow: 0 0.0625rem 0.125rem rgb(0 0 0 / 0.08); }
 [data-theme^='lttl'] .room-banner.is-locked { background: transparent; border-style: dashed; border-color: rgb(75 58 53 / 0.4); box-shadow: none; color: rgb(75 58 53 / 0.55); }
 [data-theme^='lttl'] .room-banner.is-locked::before { display: none; }
 [data-theme^='lttl'] .room-banner.is-locked .room-gate { background: transparent; border-color: rgb(75 58 53 / 0.3); }
 [data-theme^='lttl'] .room-banner.is-locked .room-gate span { color: inherit; }
 
-[data-theme^='lttl'] .node { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); }
-[data-theme^='lttl'] button.node:active { transform: translate(3px, 4px); box-shadow: none; }
+[data-theme^='lttl'] .node { border: 0.1563rem solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); }
+[data-theme^='lttl'] button.node:active { transform: translate(0.1875rem, 0.25rem); box-shadow: none; }
 /* What's still to come is an empty dashed slot, like the spot an object will go. */
-[data-theme^='lttl'] .node.is-locked { --face: transparent; border: 2.5px dashed rgb(75 58 53 / 0.32); box-shadow: none; color: rgb(75 58 53 / 0.3); outline: 0; }
-[data-theme^='lttl'] .node.is-done { --face: #fffaf1; padding: 6px; }
-[data-theme^='lttl'] .node-art { box-shadow: 0 0 0 2px var(--ink-line); }
-[data-theme^='lttl'] .node.is-next { outline: 3px dashed color-mix(in srgb, var(--ink-line) 45%, transparent); outline-offset: 7px; }
-[data-theme^='lttl'] .node-bubble { border: 2.5px solid var(--ink-line); background: var(--panel); box-shadow: var(--drop); color: var(--ink); font-weight: 700; font-size: 16px; }
+[data-theme^='lttl'] .node.is-locked { --face: transparent; border: 0.1563rem dashed rgb(75 58 53 / 0.32); box-shadow: none; color: rgb(75 58 53 / 0.3); outline: 0; }
+[data-theme^='lttl'] .node.is-done { --face: #fffaf1; padding: 0.375rem; }
+[data-theme^='lttl'] .node-art { box-shadow: 0 0 0 0.125rem var(--ink-line); }
+[data-theme^='lttl'] .node.is-next { outline: 0.1875rem dashed color-mix(in srgb, var(--ink-line) 45%, transparent); outline-offset: 0.4375rem; }
+[data-theme^='lttl'] .node-bubble { border: 0.1563rem solid var(--ink-line); background: var(--panel); box-shadow: var(--drop); color: var(--ink); font-weight: 700; font-size: 1rem; }
 [data-theme^='lttl'] .node-bubble::after { border-top-color: var(--ink-line); }
 
 /* ── Level ── */
-[data-theme^='lttl'] .lesson-title h1 { font-weight: 700; font-size: 25px; }
-[data-theme^='lttl'] .lesson-artist { font-weight: 600; font-size: 12.5px; letter-spacing: 0.1em; }
-[data-theme^='lttl'] .progress { border: 2.5px solid var(--ink-line); background: var(--panel); }
-[data-theme^='lttl'] .progress-fill { border-right: 2.5px solid var(--ink-line); }
+[data-theme^='lttl'] .lesson-title h1 { font-weight: 700; font-size: 1.5625rem; }
+[data-theme^='lttl'] .lesson-artist { font-weight: 600; font-size: 0.7813rem; letter-spacing: 0.1em; }
+[data-theme^='lttl'] .progress { border: 0.1563rem solid var(--ink-line); background: var(--panel); }
+[data-theme^='lttl'] .progress-fill { border-right: 0.1563rem solid var(--ink-line); }
 [data-theme^='lttl'] .progress-fill::after { display: none; }
 
 /* Words to find are paper labels; found ones fill with sage and get a tick. */
-[data-theme^='lttl'] .word-chip { padding: 4px 13px; border: 2.5px solid var(--ink-line); border-radius: 12px; box-shadow: var(--drop); font-weight: 600; font-size: 15.5px; letter-spacing: 0.07em; }
+[data-theme^='lttl'] .word-chip { padding: 0.25rem 0.8125rem; border: 0.1563rem solid var(--ink-line); border-radius: 0.75rem; box-shadow: var(--drop); font-weight: 600; font-size: 0.9688rem; letter-spacing: 0.07em; }
 [data-theme^='lttl'] .word-chip.is-found { border-color: var(--ink-line); box-shadow: var(--drop); color: var(--ink); }
 
-[data-theme^='lttl'] .trace-pill { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); font-weight: 700; font-size: 22px; }
+[data-theme^='lttl'] .trace-pill { border: 0.1563rem solid var(--ink-line); box-shadow: var(--drop); font-weight: 700; font-size: 1.375rem; }
 [data-theme^='lttl'] .trace-pill.is-found,
 [data-theme^='lttl'] .trace-pill.is-miss { box-shadow: var(--drop); color: var(--ink); }
 
 /* The board is a tray on the desk. */
-[data-theme^='lttl'] .board-wrap { padding: 16px 18px 26px; }
-[data-theme^='lttl'] .board::before { content: ''; position: absolute; z-index: -2; inset: calc(var(--cell) * -0.28); border: 3px solid var(--ink-line); border-radius: calc(var(--cell) * 0.4); background: var(--tray); box-shadow: inset 0 4px 0 rgb(75 58 53 / 0.1), 5px 7px 0 rgb(75 58 53 / 0.18); }
-[data-theme^='lttl'] .tile { border: 2.5px solid var(--ink-line); box-shadow: 2px 3px 0 rgb(75 58 53 / 0.22); }
+[data-theme^='lttl'] .board-wrap { padding: 1rem 1.125rem 1.625rem; }
+[data-theme^='lttl'] .board::before { content: ''; position: absolute; z-index: -2; inset: calc(var(--cell) * -0.28); border: 0.1875rem solid var(--ink-line); border-radius: calc(var(--cell) * 0.4); background: var(--tray); box-shadow: inset 0 0.25rem 0 rgb(75 58 53 / 0.1), 0.3125rem 0.4375rem 0 rgb(75 58 53 / 0.18); }
+[data-theme^='lttl'] .tile { border: 0.1563rem solid var(--ink-line); box-shadow: 0.125rem 0.1875rem 0 rgb(75 58 53 / 0.22); }
 [data-theme^='lttl'] .tile.is-trace { border-color: transparent; box-shadow: none; filter: none; }
 [data-theme^='lttl'] .tile-letter { font-weight: 700; font-size: calc(var(--cell) * 0.6); }
-[data-theme^='lttl'] .trace-shape { stroke: var(--ink-line); stroke-width: 2.5px; }
+[data-theme^='lttl'] .trace-shape { stroke: var(--ink-line); stroke-width: 0.1563rem; }
 [data-theme^='lttl'] .trace-shadow { fill: rgb(75 58 53 / 0.2); }
-[data-theme^='lttl'] .piece-line { stroke: var(--ink-line); stroke-width: 3px; }
+[data-theme^='lttl'] .piece-line { stroke: var(--ink-line); stroke-width: 0.1875rem; }
 [data-theme^='lttl'] .piece-base { fill: rgb(75 58 53 / 0.08); }
 [data-theme^='lttl'] .piece-letter { stroke: rgb(75 58 53 / 0.5); }
 [data-theme^='lttl'] .board.is-complete { box-shadow: none; transform: rotate(-1deg); }
-[data-theme^='lttl'] .board.is-complete::before { inset: -10px; border-width: 2.5px; border-radius: 4px; background: #fffaf1; box-shadow: 5px 7px 0 rgb(75 58 53 / 0.18); }
-[data-theme^='lttl'] .board.is-complete::after { content: ''; position: absolute; z-index: 3; top: -22px; left: 50%; width: 96px; height: 26px; background: var(--tape); transform: translateX(-50%) rotate(-3deg); }
+[data-theme^='lttl'] .board.is-complete::before { inset: -0.625rem; border-width: 0.1563rem; border-radius: 0.25rem; background: #fffaf1; box-shadow: 0.3125rem 0.4375rem 0 rgb(75 58 53 / 0.18); }
+[data-theme^='lttl'] .board.is-complete::after { content: ''; position: absolute; z-index: 3; top: -1.375rem; left: 50%; width: 6rem; height: 1.625rem; background: var(--tape); transform: translateX(-50%) rotate(-3deg); }
 
-[data-theme^='lttl'] .result-banner { border-top: 3px solid var(--ink-line); box-shadow: none; }
-[data-theme^='lttl'] .result-badge { border: 2.5px solid var(--ink-line); background: var(--green); color: var(--ink); }
-[data-theme^='lttl'] .result-text h2 { font-weight: 700; font-size: 23px; }
+[data-theme^='lttl'] .result-banner { border-top: 0.1875rem solid var(--ink-line); box-shadow: none; }
+[data-theme^='lttl'] .result-badge { border: 0.1563rem solid var(--ink-line); background: var(--green); color: var(--ink); }
+[data-theme^='lttl'] .result-text h2 { font-weight: 700; font-size: 1.4375rem; }
 [data-theme^='lttl'] .result-text p { font-weight: 600; }
 
 /* ── Story: the painting is a print taped to the wall, its label a card ── */
-[data-theme^='lttl'] .story-ribbon { font-weight: 700; font-size: 15px; letter-spacing: 0.24em; color: var(--ink); }
-[data-theme^='lttl'] .frame { position: relative; padding: 10px 10px 34px; border: 2.5px solid var(--ink-line); border-radius: 3px; background: #fffaf1; box-shadow: 5px 7px 0 rgb(75 58 53 / 0.18); transform: rotate(1.2deg); }
+[data-theme^='lttl'] .story-ribbon { font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.24em; color: var(--ink); }
+[data-theme^='lttl'] .frame { position: relative; padding: 0.625rem 0.625rem 2.125rem; border: 0.1563rem solid var(--ink-line); border-radius: 0.1875rem; background: #fffaf1; box-shadow: 0.3125rem 0.4375rem 0 rgb(75 58 53 / 0.18); transform: rotate(1.2deg); }
 [data-theme^='lttl'] .frame::before,
-[data-theme^='lttl'] .frame::after { content: ''; position: absolute; top: -12px; width: 70px; height: 22px; background: var(--tape); }
-[data-theme^='lttl'] .frame::before { left: -18px; transform: rotate(-32deg); }
-[data-theme^='lttl'] .frame::after { right: -18px; transform: rotate(32deg); }
-[data-theme^='lttl'] .frame img { box-shadow: 0 0 0 2px var(--ink-line); }
-[data-theme^='lttl'] .museum-label { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); }
-[data-theme^='lttl'] .museum-label h1 { font-weight: 700; font-size: 25px; }
+[data-theme^='lttl'] .frame::after { content: ''; position: absolute; top: -0.75rem; width: 4.375rem; height: 1.375rem; background: var(--tape); }
+[data-theme^='lttl'] .frame::before { left: -1.125rem; transform: rotate(-32deg); }
+[data-theme^='lttl'] .frame::after { right: -1.125rem; transform: rotate(32deg); }
+[data-theme^='lttl'] .frame img { box-shadow: 0 0 0 0.125rem var(--ink-line); }
+[data-theme^='lttl'] .museum-label { border: 0.1563rem solid var(--ink-line); box-shadow: var(--drop); }
+[data-theme^='lttl'] .museum-label h1 { font-weight: 700; font-size: 1.5625rem; }
 [data-theme^='lttl'] .label-artist { font-weight: 700; }
 [data-theme^='lttl'] .label-holder, [data-theme^='lttl'] .label-credit { font-weight: 600; }
-[data-theme^='lttl'] .story-text { font-weight: 600; font-size: 16px; line-height: 1.6; }
+[data-theme^='lttl'] .story-text { font-weight: 600; font-size: 1rem; line-height: 1.6; }
 [data-theme^='lttl'] .story-text mark { background: linear-gradient(transparent 45%, color-mix(in srgb, var(--sun) 80%, transparent) 45% 90%, transparent 90%); }
 [data-theme^='lttl'] .story-footer { border-top: 0; }
 
@@ -159,8 +159,8 @@
   content: '';
   position: absolute;
   z-index: -1;
-  inset: -2.5px;
-  border: 2.5px solid var(--ink-line);
+  inset: -0.1563rem;
+  border: 0.1563rem solid var(--ink-line);
   border-radius: inherit;
   background: var(--paper, var(--panel));
   box-shadow: var(--drop);
@@ -169,7 +169,7 @@
 }
 /* The layer is placed against its piece; the bubble and flying tiles keep their own positioning. */
 [data-theme^='lttl'] :is(.tile:not(.fly-tile), .word-chip, .btn, .chip, .trace-pill, .museum-label) { position: relative; }
-[data-theme^='lttl'] .tile::after { box-shadow: 2px 3px 0 rgb(75 58 53 / 0.22); }
+[data-theme^='lttl'] .tile::after { box-shadow: 0.125rem 0.1875rem 0 rgb(75 58 53 / 0.22); }
 [data-theme^='lttl'] .tile.is-trace::after { display: none; }
 [data-theme^='lttl'] .word-chip.is-found { --paper: var(--green); }
 [data-theme^='lttl'] .btn { --paper: var(--face); }
@@ -183,5 +183,5 @@
 [data-theme^='lttl'] .room-banner::before { z-index: 1; }
 
 /* Confetti and sparkles drawn like everything else: pastel paper with an ink edge. */
-[data-theme^='lttl'] .confetti { border: 1.5px solid var(--ink-line); }
+[data-theme^='lttl'] .confetti { border: 0.0938rem solid var(--ink-line); }
 [data-theme^='lttl'] .sparkle path { stroke: var(--ink-line); }

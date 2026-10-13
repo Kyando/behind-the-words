@@ -78,7 +78,7 @@ async function main(): Promise<void> {
   const browser = await chromium.launch({ channel: process.env.CAPTURE_CHANNEL ?? 'msedge' });
   try {
     for (const t of themes) {
-      const ctx = await browser.newContext({ viewport: VIEW, deviceScaleFactor: 2, hasTouch: false });
+      const ctx = await browser.newContext({ viewport: VIEW, deviceScaleFactor: Number(process.env.DSF ?? 2), hasTouch: false });
       await ctx.addInitScript((s) => localStorage.setItem('behind-the-words:v1', s), JSON.stringify(save));
       const page = await ctx.newPage();
       const shot = (name: string) => page.screenshot({ path: join(outDir, `${t.id}-${name}.png`) });

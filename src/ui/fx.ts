@@ -1,4 +1,4 @@
-import { reducedMotion } from './dom.ts';
+import { reducedMotion, unit } from './dom.ts';
 
 /** Restarts a CSS animation class. */
 export function replay(el: Element, className: string): void {
@@ -37,7 +37,7 @@ export function confetti(x: number, y: number, amount = 46): void {
     if (i % 3 === 0) s.style.borderRadius = '50%';
     document.body.append(s);
     const angle = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.3;
-    const dist = 140 + Math.random() * 220;
+    const dist = (140 + Math.random() * 220) * unit();
     const dx = Math.cos(angle) * dist;
     const dy = Math.sin(angle) * dist;
     const rot = (Math.random() - 0.5) * 900;
@@ -57,12 +57,14 @@ const STAR = 'M12 1.5c.9 5.4 2.8 8.4 10.5 10.5-7.7 2.1-9.6 5.1-10.5 10.5C11.1 17
 /** A burst of little four-point stars around a point, twinkling out. */
 export function sparkles(x: number, y: number, amount = 9, spread = 54): void {
   if (reducedMotion()) return;
+  const u = unit();
+  spread *= u;
   const colours = confettiColours();
   for (let i = 0; i < amount; i++) {
     const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     s.setAttribute('viewBox', '0 0 24 24');
     s.setAttribute('class', 'sparkle');
-    const size = 12 + Math.random() * 12;
+    const size = (12 + Math.random() * 12) * u;
     Object.assign(s.style, { left: `${x}px`, top: `${y}px`, width: `${size}px`, height: `${size}px` });
     s.innerHTML = `<path d="${STAR}" fill="${colours[i % colours.length]}" stroke-width="1.6" stroke-linejoin="round"/>`;
     document.body.append(s);
