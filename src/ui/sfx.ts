@@ -122,6 +122,68 @@ export class Sfx {
     }
   }
 
+  /** A press: a soft wooden tock with a whisper of paper. */
+  tap(): void {
+    this.tone(540, 0.05, 'triangle', 0.05, 0, 400);
+    this.rustle(0.03, 2400, 0.03);
+  }
+
+  /** A page turning: air sweeping up through the paper. */
+  whoosh(): void {
+    this.sweep(0.32, 500, 3200, 0.07);
+  }
+
+  /** A banner sliding up from the bottom: a low brush of paper. */
+  slide(): void {
+    this.sweep(0.26, 300, 1400, 0.06);
+  }
+
+  /** Sticky tape pressed onto the print: two quick crackles, then a soft pat. */
+  tape(delay = 0): void {
+    this.rustle(0.06, 5200, 0.06, delay, 'highpass');
+    this.rustle(0.08, 4200, 0.05, delay + 0.08, 'highpass');
+    this.rustle(0.05, 700, 0.07, delay + 0.18, 'lowpass');
+  }
+
+  /** Twinkling stars: a quick run of high, glassy notes. */
+  sparkle(delay = 0): void {
+    [1568, 2093, 2637, 3136].forEach((f, i) => this.tone(f, 0.18, 'sine', 0.03, delay + i * 0.05));
+  }
+
+  /** A star earned: a bright two-note ding. */
+  star(delay = 0): void {
+    this.tone(1319, 0.3, 'triangle', 0.06, delay);
+    this.tone(1976, 0.42, 'sine', 0.05, delay + 0.08);
+  }
+
+  /** Noise swept through a moving band-pass: wind, a page, a slide. */
+  private sweep(dur: number, from: number, to: number, gain: number, delay = 0): void {
+    if (!this.enabled) return;
+    try {
+      this.ctx ??= new AudioContext();
+      if (this.ctx.state === 'suspended') void this.ctx.resume();
+      const ctx = this.ctx;
+      const t = ctx.currentTime + Math.max(0, delay);
+      const buffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * dur), ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      // Swells in and fades out, so it reads as movement rather than a hiss.
+      for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * Math.sin((Math.PI * i) / data.length);
+      const src = ctx.createBufferSource();
+      src.buffer = buffer;
+      const band = ctx.createBiquadFilter();
+      band.type = 'bandpass';
+      band.Q.value = 1.1;
+      band.frequency.setValueAtTime(from, t);
+      band.frequency.exponentialRampToValueAtTime(to, t + dur);
+      const amp = ctx.createGain();
+      amp.gain.value = gain;
+      src.connect(band).connect(amp).connect(this.out(ctx));
+      src.start(t);
+    } catch {
+      // Audio unavailable; stay silent.
+    }
+  }
+
   pick(): void {
     this.tone(620, 0.07, 'triangle', 0.07, 0, 760);
   }

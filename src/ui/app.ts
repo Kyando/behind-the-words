@@ -20,6 +20,10 @@ export class App {
 
   constructor(root: HTMLElement) {
     this.root = root;
+    // Every press answers with a soft tock.
+    root.addEventListener('pointerdown', (e) => {
+      if ((e.target as Element).closest('.btn, button.node, .icon-btn')) this.sfx.tap();
+    });
     this.showTrail();
   }
 
@@ -36,6 +40,7 @@ export class App {
       next.shown?.();
     };
     const first = !this.screen;
+    if (!first) this.sfx.whoosh();
     if (!first && document.startViewTransition && !reducedMotion()) {
       document.startViewTransition(swap);
       return;
@@ -44,13 +49,16 @@ export class App {
     if (!first || !reducedMotion()) next.el.animate([{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], { duration: 260, easing: 'ease-out' });
   }
 
-  private showTrail(justDone?: string): void {
+  /** The trail; justDone is the painting just restored, earned when that won its star. */
+  private showTrail(justDone?: string, earned = false): void {
     this.show(
       new Trail({
         isDone: (id) => !!this.save.levels[id],
         stars: this.stars,
         sound: this.sfx.enabled,
+        sfx: this.sfx,
         justDone,
+        earned,
         onPlay: (level) => this.play(level),
         onToggleSound: () => {
           this.sfx.enabled = !this.sfx.enabled;
@@ -65,6 +73,7 @@ export class App {
   private play(level: LevelDef): void {
     // A restored painting is played again from scratch; only finished levels are saved.
     const progress = emptyProgress();
+    const wasDone = !!this.save.levels[level.id];
     const session = new Session(buildPuzzle(level), progress, () => {
       if (progress.done && !this.save.levels[level.id]) {
         this.save.levels[level.id] = { done: true };
@@ -77,7 +86,7 @@ export class App {
         sfx: this.sfx,
         intro: true,
         onClose: () => this.showTrail(),
-        onContinue: () => this.show(new StoryScreen({ level, onContinue: () => this.showTrail(level.id) })),
+        onContinue: () => this.show(new StoryScreen({ level, sfx: this.sfx, onContinue: () => this.showTrail(level.id, !wasDone) })),
       }),
     );
   }

@@ -4,7 +4,7 @@ import { steer } from '../core/steer.ts';
 import type { Session } from '../game/session.ts';
 import { artUrl } from '../core/levels.ts';
 import { h, reducedMotion, svg } from './dom.ts';
-import { buzz, confetti, replay } from './fx.ts';
+import { buzz, centreOf, confetti, replay, sparkles } from './fx.ts';
 import { ICONS } from './icons.ts';
 import { PAINT_STAGGER_MS, paintDuration, PieceLayer } from './pieces.ts';
 import { pieceOutline } from './shape.ts';
@@ -394,6 +394,8 @@ export class LevelView {
       this.flying.delete(word.index);
       this.render();
       replay(chip, 'pop');
+      const { x, y } = centreOf(chip);
+      sparkles(x, y, 7, 38);
       this.opts.sfx.found();
     });
   }
@@ -426,7 +428,10 @@ export class LevelView {
       ),
       h('button', { type: 'button', class: 'btn btn-green btn-block', onclick: () => this.opts.onContinue() }, 'Continue'),
     );
-    if (animate) banner.classList.add('is-rising');
+    if (animate) {
+      banner.classList.add('is-rising');
+      this.opts.sfx.slide();
+    }
     window.setTimeout(() => {
       if (this.destroyed) return;
       const before = this.board.getBoundingClientRect();

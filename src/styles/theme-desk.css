@@ -36,6 +36,7 @@
   --r2: #a9cbe0; --r2-edge: #4b3a35;
   --r3: #f2b8ab; --r3-edge: #4b3a35;
   --r4: #a3c398; --r4-edge: #4b3a35;
+  --confetti: #f1c45f, #a9cbe0, #f2b8ab, #a3c398, #fffaf1;
   --font-game: 'Mali', 'Fredoka', system-ui, sans-serif;
   --font-read: 'Mali', 'Nunito', system-ui, sans-serif;
   --trail-ink: rgb(75 58 53 / 0.38);
@@ -109,11 +110,11 @@
 [data-theme^='lttl'] .trace-pill.is-miss { box-shadow: var(--drop); color: var(--ink); }
 
 /* The board is a tray on the desk. */
-[data-theme^='lttl'] .board-wrap { padding: 18px 26px 30px; }
+[data-theme^='lttl'] .board-wrap { padding: 16px 18px 26px; }
 [data-theme^='lttl'] .board::before { content: ''; position: absolute; z-index: -2; inset: calc(var(--cell) * -0.28); border: 3px solid var(--ink-line); border-radius: calc(var(--cell) * 0.4); background: var(--tray); box-shadow: inset 0 4px 0 rgb(75 58 53 / 0.1), 5px 7px 0 rgb(75 58 53 / 0.18); }
 [data-theme^='lttl'] .tile { border: 2.5px solid var(--ink-line); box-shadow: 2px 3px 0 rgb(75 58 53 / 0.22); }
 [data-theme^='lttl'] .tile.is-trace { border-color: transparent; box-shadow: none; filter: none; }
-[data-theme^='lttl'] .tile-letter { font-weight: 700; }
+[data-theme^='lttl'] .tile-letter { font-weight: 700; font-size: calc(var(--cell) * 0.6); }
 [data-theme^='lttl'] .trace-shape { stroke: var(--ink-line); stroke-width: 2.5px; }
 [data-theme^='lttl'] .trace-shadow { fill: rgb(75 58 53 / 0.2); }
 [data-theme^='lttl'] .piece-line { stroke: var(--ink-line); stroke-width: 3px; }
@@ -181,3 +182,7 @@
 [data-theme^='lttl'] .room-banner.is-locked { --paper: transparent; }
 [data-theme^='lttl'] .room-banner.is-locked::after { border-style: dashed; border-color: rgb(75 58 53 / 0.4); box-shadow: none; }
 [data-theme^='lttl'] .room-banner::before { z-index: 1; }
+
+/* Confetti and sparkles drawn like everything else: pastel paper with an ink edge. */
+[data-theme^='lttl'] .confetti { border: 1.5px solid var(--ink-line); }
+[data-theme^='lttl'] .sparkle path { stroke: var(--ink-line); }

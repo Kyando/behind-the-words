@@ -1,9 +1,12 @@
 import { artUrl } from '../core/levels.ts';
 import type { LevelDef } from '../core/types.ts';
-import { h } from './dom.ts';
+import { h, reducedMotion } from './dom.ts';
+import { centreOf, sparkles } from './fx.ts';
+import type { Sfx } from './sfx.ts';
 
 export interface StoryOptions {
   level: LevelDef;
+  sfx: Sfx;
   onContinue(): void;
 }
 
@@ -13,8 +16,10 @@ export interface StoryOptions {
  */
 export class StoryScreen {
   readonly el: HTMLElement;
+  private readonly sfx: Sfx;
 
-  constructor({ level, onContinue }: StoryOptions) {
+  constructor({ level, sfx, onContinue }: StoryOptions) {
+    this.sfx = sfx;
     const art = level.art;
     // Found words that the story mentions show up in it, in the word chips' colour.
     const marked = new Set(level.words.map((w) => w.text));
@@ -45,5 +50,22 @@ export class StoryScreen {
       ),
       h('footer', { class: 'story-footer' }, h('button', { type: 'button', class: 'btn btn-green btn-block', onclick: onContinue }, 'Continue')),
     );
+  }
+
+  /** On screen: once the painting has travelled into its frame, it's taped up, with a twinkle. */
+  shown(): void {
+    const frame = this.el.querySelector('.frame');
+    if (!frame) return;
+    const wait = reducedMotion() ? 0 : 480;
+    this.sfx.tape(wait / 1000);
+    window.setTimeout(() => {
+      if (!this.el.isConnected) return;
+      const r = frame.getBoundingClientRect();
+      sparkles(r.left + 12, r.top + 4, 6, 40);
+      sparkles(r.right - 12, r.top + 4, 6, 40);
+      const { x, y } = centreOf(frame);
+      sparkles(x, y, 10, r.width * 0.6);
+      this.sfx.sparkle(0.05);
+    }, wait + 120);
   }
 }
