@@ -755,6 +755,16 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 .result-banner .btn,
 .story-footer .btn { animation: btn-breathe 2.2s ease-in-out 1s infinite; }
 
+/* ── Between screens (view transitions): a soft cross-fade, and the painting travels ──
+   from the finished board, to the story's frame, to its node on the trail. */
+.board.is-complete,
+.story .frame { view-transition-name: painting; }
+::view-transition-group(*) { animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.3, 1, 0.4, 1); }
+::view-transition-old(root) { animation: 0.28s ease-in both vt-out; }
+::view-transition-new(root) { animation: 0.36s ease-out 0.08s both vt-in; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-8px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(12px); } }
+
 /* ── Motion ───────────────────────────────────────────────────────────── */
 
 @keyframes drop-in { from { opacity: 0; translate: 0 -26px; scale: 0.6; } }

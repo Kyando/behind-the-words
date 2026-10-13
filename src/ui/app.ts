@@ -3,12 +3,13 @@ import { buildPuzzle } from '../core/puzzle.ts';
 import type { LevelDef } from '../core/types.ts';
 import { emptyProgress, loadSave, writeSave, type SaveData } from '../game/save.ts';
 import { Session } from '../game/session.ts';
+import { reducedMotion } from './dom.ts';
 import { LevelView } from './level-view.ts';
 import { Sfx } from './sfx.ts';
 import { StoryScreen } from './story.ts';
 import { Trail } from './trail.ts';
 
-type Screen = { el: HTMLElement; destroy?(): void };
+type Screen = { el: HTMLElement; shown?(): void; destroy?(): void };
 
 /** Screens and the save: trail → level → story → trail. */
 export class App {
@@ -27,11 +28,20 @@ export class App {
   }
 
   private show(next: Screen): void {
-    this.screen?.destroy?.();
-    this.screen?.el.remove();
-    this.screen = next;
-    this.root.append(next.el);
-    next.el.animate([{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], { duration: 260, easing: 'ease-out' });
+    const swap = () => {
+      this.screen?.destroy?.();
+      this.screen?.el.remove();
+      this.screen = next;
+      this.root.append(next.el);
+      next.shown?.();
+    };
+    const first = !this.screen;
+    if (!first && document.startViewTransition && !reducedMotion()) {
+      document.startViewTransition(swap);
+      return;
+    }
+    swap();
+    if (!first || !reducedMotion()) next.el.animate([{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], { duration: 260, easing: 'ease-out' });
   }
 
   private showTrail(justDone?: string): void {

@@ -373,7 +373,8 @@ export class LevelView {
       const spin = side * (120 + Math.random() * 160);
       const tilt = side * (4 + Math.random() * 5);
       // The tile keeps its pressable edge in flight; a soft drop shadow grows as it lifts off.
-      const edge = getComputedStyle(tile).boxShadow;
+      const own = getComputedStyle(tile).boxShadow;
+      const edge = own === 'none' ? '0 0 0 transparent' : own;
       const lifted = `${edge}, 0 14px 18px rgb(45 35 80 / 0.22)`;
       const frames: Keyframe[] = [
         { transform: 'translate(0, 0) rotate(0deg) scale(1)', boxShadow: `${edge}, 0 0 0 rgb(45 35 80 / 0)`, opacity: 1, offset: 0 },
@@ -428,10 +429,13 @@ export class LevelView {
     if (animate) banner.classList.add('is-rising');
     window.setTimeout(() => {
       if (this.destroyed) return;
+      const before = this.board.getBoundingClientRect();
       this.el.append(banner);
-      // The word list and trace make way, and the framed painting re-centres above the banner.
+      // The word list and trace make way, and the framed painting glides to its place above the banner.
       this.el.style.setProperty('--banner-h', `${banner.offsetHeight + 12}px`);
       this.el.classList.add('is-framed');
+      const after = this.board.getBoundingClientRect();
+      if (animate) this.board.animate([{ translate: `${before.left - after.left}px ${before.top - after.top}px` }, { translate: '0 0' }], { duration: 550, easing: 'cubic-bezier(0.3, 1.15, 0.5, 1)' });
     }, animate ? 900 : 0);
   }
 
@@ -493,7 +497,9 @@ export class LevelView {
     const gap = width < 480 ? 6 : 8;
     const byWidth = (width - gap * (p.cols - 1)) / p.cols;
     const byHeight = (height - 8 - gap * (p.rows - 1)) / p.rows;
-    const size = Math.max(34, Math.min(84, Math.floor(Math.min(byWidth, byHeight))));
+    let size = Math.max(34, Math.min(84, Math.floor(Math.min(byWidth, byHeight))));
+    // Once framed, the painting keeps its size (the words making way would otherwise grow it).
+    if (this.el.classList.contains('is-framed') && this.cellPx) size = Math.min(size, this.cellPx);
     this.cellPx = size;
     this.gapPx = gap;
     this.el.style.setProperty('--cell', `${size}px`);

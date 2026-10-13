@@ -16,7 +16,7 @@
   --ink-line: #4b3a35;
   --ink-soft: #8a776c;
   --ink-faint: #b3a497;
-  --sun: #a9cbe0;
+  --sun: #f8dc78;
   --sun-edge: #4b3a35;
   --sun-ink: #4b3a35;
   --accent: #f1c45f;
@@ -49,16 +49,9 @@
   --track: rgb(51 64 59 / 0.18);
 }
 
-/* Outlines drawn by hand: a little wobble, brown ink, a flat shadow. */
-[data-theme^='lttl'] .tile,
-[data-theme^='lttl'] .word-chip,
-[data-theme^='lttl'] .btn,
+/* Outlines drawn by hand: a little wobble, brown ink, a flat shadow. Pieces without words wobble
+   whole; pieces with words keep their text still (see "Outline layers" below). */
 [data-theme^='lttl'] .node,
-[data-theme^='lttl'] .chip,
-[data-theme^='lttl'] .room-banner,
-[data-theme^='lttl'] .trace-pill,
-[data-theme^='lttl'] .museum-label,
-[data-theme^='lttl'] .node-bubble,
 [data-theme^='lttl'] .progress,
 [data-theme^='lttl'] .wordmark-mark,
 [data-theme^='lttl'] .board::before,
@@ -146,7 +139,45 @@
 [data-theme^='lttl'] .museum-label { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); }
 [data-theme^='lttl'] .museum-label h1 { font-weight: 700; font-size: 25px; }
 [data-theme^='lttl'] .label-artist { font-weight: 700; }
-[data-theme^='lttl'] .label-holder, [data-theme^='lttl'] .label-credit { font-weight: 500; }
-[data-theme^='lttl'] .story-text { font-weight: 500; font-size: 16px; }
+[data-theme^='lttl'] .label-holder, [data-theme^='lttl'] .label-credit { font-weight: 600; }
+[data-theme^='lttl'] .story-text { font-weight: 600; font-size: 16px; line-height: 1.6; }
 [data-theme^='lttl'] .story-text mark { background: linear-gradient(transparent 45%, color-mix(in srgb, var(--sun) 80%, transparent) 45% 90%, transparent 90%); }
 [data-theme^='lttl'] .story-footer { border-top: 0; }
+
+/* ── Outline layers: the boil never touches text ──
+   The piece itself keeps its size and text; its paper, ink line and shadow move to a layer just
+   under it (covering the border box), and only that layer is filtered. --paper is its fill. */
+[data-theme^='lttl'] :is(.tile, .word-chip, .btn, .chip, .room-banner, .trace-pill, .museum-label, .node-bubble) {
+  isolation: isolate;
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none;
+}
+[data-theme^='lttl'] :is(.tile, .word-chip, .btn, .chip, .room-banner, .trace-pill, .museum-label)::after,
+[data-theme^='lttl'] .node-bubble::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -2.5px;
+  border: 2.5px solid var(--ink-line);
+  border-radius: inherit;
+  background: var(--paper, var(--panel));
+  box-shadow: var(--drop);
+  filter: url(#wobble);
+  pointer-events: none;
+}
+/* The layer is placed against its piece; the bubble and flying tiles keep their own positioning. */
+[data-theme^='lttl'] :is(.tile:not(.fly-tile), .word-chip, .btn, .chip, .trace-pill, .museum-label) { position: relative; }
+[data-theme^='lttl'] .tile::after { box-shadow: 2px 3px 0 rgb(75 58 53 / 0.22); }
+[data-theme^='lttl'] .tile.is-trace::after { display: none; }
+[data-theme^='lttl'] .word-chip.is-found { --paper: var(--green); }
+[data-theme^='lttl'] .btn { --paper: var(--face); }
+[data-theme^='lttl'] .btn:active::after { box-shadow: none; }
+[data-theme^='lttl'] .trace-pill { --paper: var(--sun); }
+[data-theme^='lttl'] .trace-pill.is-found { --paper: var(--green); }
+[data-theme^='lttl'] .trace-pill.is-miss { --paper: var(--red); }
+[data-theme^='lttl'] .room-banner { --paper: var(--room); }
+[data-theme^='lttl'] .room-banner.is-locked { --paper: transparent; }
+[data-theme^='lttl'] .room-banner.is-locked::after { border-style: dashed; border-color: rgb(75 58 53 / 0.4); box-shadow: none; }
+[data-theme^='lttl'] .room-banner::before { z-index: 1; }

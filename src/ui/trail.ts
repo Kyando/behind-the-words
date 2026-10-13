@@ -25,6 +25,8 @@ const WIND = [0, 0.55, 0.85, 0.55, 0, -0.55, -0.85, -0.55];
  */
 export class Trail {
   readonly el: HTMLElement;
+  private readonly focus: HTMLElement | null;
+  private readonly popIn: boolean;
 
   constructor(opts: TrailOptions) {
     const next = LEVELS.find((l) => !opts.isDone(l.id));
@@ -67,12 +69,19 @@ export class Trail {
       landing = requestAnimationFrame(() => this.drawLine(path, line));
     });
 
-    // Bring the next painting into view.
-    requestAnimationFrame(() => {
-      const target = this.el.querySelector<HTMLElement>(opts.justDone ? `[data-id="${opts.justDone}"]` : '.node.is-next') ?? this.el.querySelector<HTMLElement>('.node.is-next');
-      target?.scrollIntoView({ block: 'center' });
-      if (opts.justDone) this.el.querySelector(`[data-id="${opts.justDone}"]`)?.classList.add('is-new');
-    });
+    // The paintings drop in outward from the one in focus (just restored, or next), nearest first.
+    this.focus = this.el.querySelector<HTMLElement>(opts.justDone ? `[data-id="${opts.justDone}"]` : '.node.is-next') ?? this.el.querySelector<HTMLElement>('.node.is-next');
+    const slots = [...path.querySelectorAll<HTMLElement>('.node-slot')];
+    const at = slots.findIndex((s) => this.focus && s.contains(this.focus));
+    slots.forEach((s, i) => s.style.setProperty('--n', String(Math.abs(i - Math.max(0, at)))));
+    this.popIn = !!opts.justDone && !document.startViewTransition;
+  }
+
+  /** On screen: bring the painting in focus into view (before a view transition takes its picture). */
+  shown(): void {
+    this.focus?.scrollIntoView({ block: 'center' });
+    // Without view transitions the painting can't travel here, so its node pops in instead.
+    if (this.popIn) this.focus?.classList.add('is-new');
   }
 
   /** Curves from each node to the one above it, in trail order. */
@@ -115,19 +124,21 @@ export class Trail {
     );
   }
 
-  /** The n-th painting of the trail: its offset from the centre line, and its turn to drop in (--n). */
+  /** The n-th painting of the trail, offset from the centre line so the path winds. */
   private node(level: LevelDef | undefined, open: boolean, isNext: boolean, n: number, opts: TrailOptions, room: Room): HTMLElement {
-    const style = `--x: ${WIND[n % WIND.length]}; --n: ${n}; --room: ${room.color}; --room-edge: ${room.edge}`;
+    const style = `--x: ${WIND[n % WIND.length]}; --room: ${room.color}; --room-edge: ${room.edge}`;
     if (!level || !open) {
       return h('li', { class: 'node-slot', 'data-room': room.id, style }, h('span', { class: 'node is-locked', 'aria-label': level ? 'Locked painting' : 'Coming soon' }, svg(ICONS.lock)));
     }
     const done = opts.isDone(level.id);
+    const landing = opts.justDone === level.id;
     const btn = h(
       'button',
       {
         type: 'button',
         class: `node${done ? ' is-done' : ''}${isNext ? ' is-next' : ''}${!done && !isNext ? ' is-locked' : ''}`,
         'data-id': level.id,
+        style: landing ? 'view-transition-name: painting' : undefined,
         'aria-label': done ? `${level.art.title} (restored)` : isNext ? 'Next painting' : 'Locked painting',
         disabled: !done && !isNext,
         onclick: () => opts.onPlay(level),

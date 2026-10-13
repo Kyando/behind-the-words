@@ -90,12 +90,13 @@ async function main(): Promise<void> {
       await wait(1200);
     }
     await page.waitForSelector('.result-banner');
-    await wait(1200);
-    await record(page, 'restored', 3500);
+    await record(page, 'restored', 4000);
     // The button breathes, so it never holds still for Playwright's stability check.
     await page.click('.result-banner .btn', { force: true });
-    await wait(300);
-    await record(page, 'story', 4000);
+    await record(page, 'story', 3500);
+    // Back to the trail: the painting travels into its node.
+    await page.click('.story-footer .btn', { force: true });
+    await record(page, 'back-to-trail', 3000);
   } finally {
     await browser.close();
     await server.close();
