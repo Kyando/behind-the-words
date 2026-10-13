@@ -41,7 +41,6 @@ export class Trail {
     for (const room of ROOMS) {
       const levels = LEVELS.filter((l) => l.room === room.id);
       const open = opts.stars >= room.gate;
-      path.append(this.banner(room, levels, open, opts));
       const nodes = h('ol', { class: 'trail-nodes' });
       const count = Math.max(room.planned, levels.length);
       for (let i = 0; i < count; i++) {
@@ -49,7 +48,7 @@ export class Trail {
         const offset = WIND[index++ % WIND.length];
         nodes.append(this.node(level, open, level === next, offset, opts, room));
       }
-      path.append(nodes);
+      path.append(h('section', { class: 'room', 'data-room': room.id }, this.banner(room, levels, open, opts), nodes));
     }
     this.el = h('main', { class: 'screen trail' }, top, h('div', { class: 'trail-scroll' }, path));
 
@@ -65,8 +64,8 @@ export class Trail {
     const done = levels.filter((l) => opts.isDone(l.id)).length;
     const n = ROOMS.indexOf(room) + 1;
     return h(
-      'section',
-      { class: `room-banner${open ? '' : ' is-locked'}`, style: `--room: ${room.color}; --room-edge: ${room.edge}` },
+      'header',
+      { class: `room-banner${open ? '' : ' is-locked'}`, 'data-room': room.id, style: `--room: ${room.color}; --room-edge: ${room.edge}` },
       h('div', {}, h('p', { class: 'room-eyebrow' }, `Room ${n}`), h('h2', {}, room.name), h('p', { class: 'room-tagline' }, room.tagline)),
       open
         ? h('span', { class: 'room-count' }, `${done}/${Math.max(room.planned, levels.length)}`)
@@ -77,7 +76,7 @@ export class Trail {
   private node(level: LevelDef | undefined, open: boolean, isNext: boolean, offset: number, opts: TrailOptions, room: Room): HTMLElement {
     const style = `--x: ${offset}; --room: ${room.color}; --room-edge: ${room.edge}`;
     if (!level || !open) {
-      return h('li', { class: 'node-slot', style }, h('span', { class: 'node is-locked', 'aria-label': level ? 'Locked painting' : 'Coming soon' }, svg(ICONS.lock)));
+      return h('li', { class: 'node-slot', 'data-room': room.id, style }, h('span', { class: 'node is-locked', 'aria-label': level ? 'Locked painting' : 'Coming soon' }, svg(ICONS.lock)));
     }
     const done = opts.isDone(level.id);
     const btn = h(
@@ -92,6 +91,6 @@ export class Trail {
       },
       done ? h('span', { class: 'node-art', style: `background-image: url("${artUrl(level.art.slug)}")` }) : svg(isNext ? ICONS.palette : ICONS.lock),
     );
-    return h('li', { class: `node-slot${isNext ? ' has-bubble' : ''}`, style }, isNext ? h('span', { class: 'node-bubble' }, done ? 'Replay' : 'Start') : null, btn);
+    return h('li', { class: `node-slot${isNext ? ' has-bubble' : ''}`, 'data-room': room.id, style }, isNext ? h('span', { class: 'node-bubble' }, done ? 'Replay' : 'Start') : null, btn);
   }
 }

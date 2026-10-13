@@ -26,7 +26,7 @@ export class StoryScreen {
     }
     this.el = h(
       'main',
-      { class: 'screen story' },
+      { class: 'screen story', 'data-room': level.room, style: `--art: url("${artUrl(art.slug)}")` },
       h(
         'div',
         { class: 'story-scroll' },

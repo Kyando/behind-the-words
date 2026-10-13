@@ -182,7 +182,7 @@ button { font: inherit; color: inherit; }
 .trail-scroll::-webkit-scrollbar { display: none; }
 
 /* The trail climbs: each room's banner at its foot, its paintings rising above it. */
-.trail-path { display: flex; flex-direction: column-reverse; }
+.trail-path, .room { display: flex; flex-direction: column-reverse; }
 
 .room-banner {
   display: flex;

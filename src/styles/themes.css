@@ -1,0 +1,324 @@
+/* Palette previews (?theme=…). Each palette is a mid-tone "wall" the paintings hang on, cream game
+   pieces, and one or two accents taken from real art. The shared rules below re-point game.css at
+   the palette tokens; each palette then only sets tokens. "mix" paints every room in its own palette. */
+
+/* ── Shared: what changes when a palette is on ──────────────────────────── */
+
+:root[data-theme] body { background: var(--wall-art, none), var(--wall); }
+
+[data-theme] .trail-top { background: var(--bar); border-bottom-color: rgb(0 0 0 / 0.12); color: var(--on-wall); backdrop-filter: none; }
+[data-theme] .wordmark b { color: var(--sun); }
+[data-theme] .wordmark-mark { background: var(--sun); box-shadow: 0 3px 0 var(--sun-edge); color: var(--sun-ink); }
+[data-theme] .icon-btn { color: var(--on-wall-soft); }
+
+[data-theme] .btn { --face: var(--accent); --edge: var(--accent-edge); }
+
+[data-theme] .room-banner { color: #fff; }
+[data-theme] .room-banner.is-locked {
+  background: color-mix(in srgb, var(--room) 32%, var(--wall));
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--room) 32%, color-mix(in srgb, var(--wall) 80%, #000));
+  color: color-mix(in srgb, var(--on-wall) 85%, transparent);
+}
+[data-theme] .room-banner.is-locked .room-gate { background: rgb(0 0 0 / 0.1); }
+[data-theme] .room-banner.is-locked .room-gate span { color: var(--sun); }
+
+/* Locked paintings sit recessed into the wall, barely tinted by their room. */
+[data-theme] .node.is-locked {
+  --face: color-mix(in srgb, var(--room) 12%, color-mix(in srgb, var(--wall) 86%, #000));
+  --edge: color-mix(in srgb, var(--room) 12%, color-mix(in srgb, var(--wall) 70%, #000));
+  color: color-mix(in srgb, var(--wall) 55%, #fff);
+}
+[data-theme] .chip { color: var(--ink); }
+[data-theme] .node.is-next { outline-color: color-mix(in srgb, var(--room) 40%, transparent); }
+[data-theme] .node-bubble { border-color: var(--panel-edge); background: var(--panel); box-shadow: 0 3px 0 var(--panel-edge); color: var(--room-edge); }
+[data-theme] .node-bubble::after { border-top-color: var(--panel); }
+
+[data-theme] .lesson-title { color: var(--on-wall); }
+[data-theme] .lesson-artist { color: var(--on-wall-soft); }
+[data-theme] .progress { background: var(--track); }
+[data-theme] .trace-pill { color: var(--sun-ink); }
+[data-theme] .piece-base { fill: rgb(0 0 0 / 0.14); }
+[data-theme] .result-banner { background: var(--panel); color: var(--ink); box-shadow: 0 -4px 0 var(--panel-edge); }
+[data-theme] .result-badge { background: var(--green); color: #fff; }
+
+[data-theme] .story-ribbon { color: var(--on-wall); }
+[data-theme] .story-text mark { background: color-mix(in srgb, var(--sun) 45%, transparent); }
+[data-theme] .story-footer { background: var(--bar); border-top-color: rgb(0 0 0 / 0.12); backdrop-filter: none; }
+
+/* Rooms take their colours from the palette. */
+[data-theme] [data-room='icons'] { --room: var(--r1) !important; --room-edge: var(--r1-edge) !important; }
+[data-theme] [data-room='light'] { --room: var(--r2) !important; --room-edge: var(--r2-edge) !important; }
+[data-theme] [data-room='golden-age'] { --room: var(--r3) !important; --room-edge: var(--r3-edge) !important; }
+[data-theme] [data-room='woodblocks'] { --room: var(--r4) !important; --room-edge: var(--r4-edge) !important; }
+
+/* ── 1. Gallery wall: sage museum wall, cream tiles, gold and a deep gallery red ─── */
+
+:root[data-theme='gallery'],
+[data-theme='mix'] [data-room='icons'],
+:root[data-theme='mix'] {
+  --wall: #6f8f80;
+  --wall-art: radial-gradient(120% 80% at 50% 30%, rgb(255 255 255 / 0.08), transparent 60%), radial-gradient(140% 100% at 50% 110%, rgb(0 0 0 / 0.16), transparent 60%);
+  --bar: #5f7e70;
+  --on-wall: #fbf6ea;
+  --on-wall-soft: #dce6dd;
+  --panel: #f6eedc;
+  --panel-edge: #cbbe9e;
+  --line: #e4d8bd;
+  --ink: #2e3b33;
+  --ink-soft: #6b6a58;
+  --ink-faint: #9a957f;
+  --sun: #e9b949;
+  --sun-edge: #b98a24;
+  --sun-ink: #2e3b33;
+  --accent: #b54a3c;
+  --accent-edge: #8a3328;
+  --green: #5d8b45;
+  --green-edge: #436a30;
+  --red: #c4473a;
+  --red-edge: #8f2f26;
+  --gold: #e3b448;
+  --gold-edge: #a87b1d;
+  --gold-text: #8a6413;
+  --track: rgb(0 0 0 / 0.18);
+  --r1: #b54a3c; --r1-edge: #8a3328;
+  --r2: #4f7cac; --r2-edge: #375b82;
+  --r3: #c48a2c; --r3-edge: #93661a;
+  --r4: #3d6e78; --r4-edge: #284d55;
+}
+
+/* ── 2. Starry night: cobalt sky, chrome-yellow trace, orange buttons ─────────── */
+
+:root[data-theme='starry'] {
+  --wall: #2f5d9e;
+  --wall-art: radial-gradient(30% 18% at 82% 10%, rgb(245 197 24 / 0.28), transparent 70%), radial-gradient(60% 30% at 20% 30%, rgb(110 160 225 / 0.35), transparent 70%), radial-gradient(80% 40% at 70% 70%, rgb(80 130 200 / 0.3), transparent 70%), radial-gradient(140% 90% at 50% 120%, rgb(15 30 70 / 0.45), transparent 60%);
+  --bar: #26508c;
+  --on-wall: #fff6da;
+  --on-wall-soft: #c9d8f0;
+  --panel: #fff6da;
+  --panel-edge: #d9c48b;
+  --line: #ecdcae;
+  --ink: #1f2f57;
+  --ink-soft: #5d6a8a;
+  --ink-faint: #8f98b0;
+  --sun: #f5c518;
+  --sun-edge: #c99a00;
+  --sun-ink: #1f2f57;
+  --accent: #f08a24;
+  --accent-edge: #c2650c;
+  --green: #3ea06a;
+  --green-edge: #2a7a4e;
+  --red: #e0483e;
+  --red-edge: #a92f27;
+  --gold: #f5c518;
+  --gold-edge: #b88a00;
+  --gold-text: #8a6700;
+  --track: rgb(10 25 60 / 0.35);
+  --r1: #f08a24; --r1-edge: #c2650c;
+  --r2: #3ea06a; --r2-edge: #2a7a4e;
+  --r3: #d9534f; --r3-edge: #a83a36;
+  --r4: #4fb3c8; --r4-edge: #2f8698;
+}
+
+/* ── 3. Water lilies: soft pond green, rose trace, periwinkle buttons ─────────── */
+
+:root[data-theme='lilies'],
+[data-theme='mix'] [data-room='light'] {
+  --wall: #a9c3b6;
+  --wall-art: radial-gradient(40% 25% at 15% 20%, rgb(242 167 184 / 0.35), transparent 70%), radial-gradient(45% 30% at 90% 60%, rgb(140 150 220 / 0.32), transparent 70%), radial-gradient(50% 30% at 30% 95%, rgb(120 170 140 / 0.45), transparent 70%);
+  --bar: #9ab7a9;
+  --on-wall: #2f3560;
+  --on-wall-soft: #4f5a7a;
+  --panel: #fdfbf5;
+  --panel-edge: #cfd0e3;
+  --line: #e4e3ef;
+  --ink: #3b3f6b;
+  --ink-soft: #6f7394;
+  --ink-faint: #9a9db8;
+  --sun: #f2a7b8;
+  --sun-edge: #d9798f;
+  --sun-ink: #3b3f6b;
+  --accent: #6c7bd1;
+  --accent-edge: #4f5cb0;
+  --green: #4f9f80;
+  --green-edge: #367d62;
+  --red: #e0677a;
+  --red-edge: #b44a5b;
+  --gold: #e8bf5a;
+  --gold-edge: #b48c2c;
+  --gold-text: #8f6b18;
+  --track: rgb(47 53 96 / 0.16);
+  --r1: #6c7bd1; --r1-edge: #4f5cb0;
+  --r2: #e07f98; --r2-edge: #bb5c76;
+  --r3: #d9a44a; --r3-edge: #ad7d26;
+  --r4: #4f9a8a; --r4-edge: #357a6b;
+}
+
+/* ── 4. Woodblock paper: washi, indigo ink, vermilion trace, Prussian blue ────── */
+
+:root[data-theme='woodblock'],
+[data-theme='mix'] [data-room='woodblocks'] {
+  --wall: #e6d6b8;
+  --wall-art: repeating-linear-gradient(0deg, rgb(120 90 40 / 0.035) 0 2px, transparent 2px 5px), radial-gradient(140% 100% at 50% 110%, rgb(120 90 40 / 0.18), transparent 60%);
+  --bar: #dccaa8;
+  --on-wall: #1e2f4d;
+  --on-wall-soft: #5a5f6e;
+  --panel: #fbf4e6;
+  --panel-edge: #cdb98f;
+  --line: #e9dcc0;
+  --ink: #1e2f4d;
+  --ink-soft: #66697a;
+  --ink-faint: #9a9789;
+  --sun: #e2553a;
+  --sun-edge: #b23b24;
+  --sun-ink: #fff;
+  --accent: #2b4c7e;
+  --accent-edge: #1c3459;
+  --green: #5a7f4e;
+  --green-edge: #405e37;
+  --red: #b23b24;
+  --red-edge: #7d2615;
+  --gold: #d1a03f;
+  --gold-edge: #9c7323;
+  --gold-text: #7f5c16;
+  --track: rgb(30 47 77 / 0.14);
+  --r1: #e2553a; --r1-edge: #b23b24;
+  --r2: #2b4c7e; --r2-edge: #1c3459;
+  --r3: #c8963e; --r3-edge: #977026;
+  --r4: #3f7f7a; --r4-edge: #2a5e5a;
+}
+
+/* ── 5. Terracotta studio: warm clay wall, ochre trace, teal buttons ──────────── */
+
+:root[data-theme='terracotta'],
+[data-theme='mix'] [data-room='golden-age'] {
+  --wall: #c9704e;
+  --wall-art: radial-gradient(60% 40% at 20% 10%, rgb(255 210 160 / 0.22), transparent 70%), radial-gradient(140% 100% at 50% 115%, rgb(80 30 10 / 0.3), transparent 60%);
+  --bar: #b9623f;
+  --on-wall: #fff3e3;
+  --on-wall-soft: #f6d6c0;
+  --panel: #fff3e3;
+  --panel-edge: #e2c2a0;
+  --line: #f0dcc4;
+  --ink: #3a2418;
+  --ink-soft: #7a5a48;
+  --ink-faint: #a88b78;
+  --sun: #f4c152;
+  --sun-edge: #c9932a;
+  --sun-ink: #3a2418;
+  --accent: #2a9d8f;
+  --accent-edge: #1e7369;
+  --green: #6a994e;
+  --green-edge: #4d7536;
+  --red: #9b2c2c;
+  --red-edge: #6e1d1d;
+  --gold: #f4c152;
+  --gold-edge: #b9862a;
+  --gold-text: #8a5f12;
+  --track: rgb(60 20 5 / 0.22);
+  --r1: #2a9d8f; --r1-edge: #1e7369;
+  --r2: #3d5a80; --r2-edge: #2b4161;
+  --r3: #7a3b69; --r3-edge: #58284b;
+  --r4: #264653; --r4-edge: #1a313a;
+}
+
+/* ── 6. Mix: each room hangs on its own wall (rooms above reuse palettes 1, 3, 5, 4) ── */
+
+[data-theme='mix'] .room,
+[data-theme='mix'] .screen[data-room] { background: var(--wall-art, none), var(--wall); }
+[data-theme='mix'] .room { margin: 0 -16px; padding: 0 16px 26px; }
+[data-theme='mix'] .room:first-child { margin-bottom: -28px; padding-bottom: 54px; }
+[data-theme='mix'] .trail-scroll { padding-top: 0; }
+[data-theme='mix'] .room:last-child { padding-top: 24px; }
+[data-theme='mix'] .trail-nodes { padding-bottom: 28px; }
+
+/* ── Surface effects (?fx=…), on top of any palette ─────────────────────────────
+   grain: washi paper fibres over everything · mount: the board sits on a mounted print ·
+   pattern: seigaiha waves on the wall · backdrop: the level's painting, blurred into the paper ·
+   print: woodcut look, ink outlines, misregistered letters, red seals. */
+
+:root {
+  --seigaiha: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'><g fill='none' stroke='%231e2f4d' stroke-opacity='0.09' stroke-width='1.1'><circle cx='-40' cy='-20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-40' cy='-20' r='18'/><circle cx='-40' cy='-20' r='13'/><circle cx='-40' cy='-20' r='8'/><circle cx='-40' cy='-20' r='3.5'/><circle cx='0' cy='-20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='0' cy='-20' r='18'/><circle cx='0' cy='-20' r='13'/><circle cx='0' cy='-20' r='8'/><circle cx='0' cy='-20' r='3.5'/><circle cx='40' cy='-20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='40' cy='-20' r='18'/><circle cx='40' cy='-20' r='13'/><circle cx='40' cy='-20' r='8'/><circle cx='40' cy='-20' r='3.5'/><circle cx='80' cy='-20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='80' cy='-20' r='18'/><circle cx='80' cy='-20' r='13'/><circle cx='80' cy='-20' r='8'/><circle cx='80' cy='-20' r='3.5'/><circle cx='-20' cy='-10' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-20' cy='-10' r='18'/><circle cx='-20' cy='-10' r='13'/><circle cx='-20' cy='-10' r='8'/><circle cx='-20' cy='-10' r='3.5'/><circle cx='20' cy='-10' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='20' cy='-10' r='18'/><circle cx='20' cy='-10' r='13'/><circle cx='20' cy='-10' r='8'/><circle cx='20' cy='-10' r='3.5'/><circle cx='60' cy='-10' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='60' cy='-10' r='18'/><circle cx='60' cy='-10' r='13'/><circle cx='60' cy='-10' r='8'/><circle cx='60' cy='-10' r='3.5'/><circle cx='-40' cy='0' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-40' cy='0' r='18'/><circle cx='-40' cy='0' r='13'/><circle cx='-40' cy='0' r='8'/><circle cx='-40' cy='0' r='3.5'/><circle cx='0' cy='0' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='0' cy='0' r='18'/><circle cx='0' cy='0' r='13'/><circle cx='0' cy='0' r='8'/><circle cx='0' cy='0' r='3.5'/><circle cx='40' cy='0' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='40' cy='0' r='18'/><circle cx='40' cy='0' r='13'/><circle cx='40' cy='0' r='8'/><circle cx='40' cy='0' r='3.5'/><circle cx='80' cy='0' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='80' cy='0' r='18'/><circle cx='80' cy='0' r='13'/><circle cx='80' cy='0' r='8'/><circle cx='80' cy='0' r='3.5'/><circle cx='-20' cy='10' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-20' cy='10' r='18'/><circle cx='-20' cy='10' r='13'/><circle cx='-20' cy='10' r='8'/><circle cx='-20' cy='10' r='3.5'/><circle cx='20' cy='10' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='20' cy='10' r='18'/><circle cx='20' cy='10' r='13'/><circle cx='20' cy='10' r='8'/><circle cx='20' cy='10' r='3.5'/><circle cx='60' cy='10' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='60' cy='10' r='18'/><circle cx='60' cy='10' r='13'/><circle cx='60' cy='10' r='8'/><circle cx='60' cy='10' r='3.5'/><circle cx='-40' cy='20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-40' cy='20' r='18'/><circle cx='-40' cy='20' r='13'/><circle cx='-40' cy='20' r='8'/><circle cx='-40' cy='20' r='3.5'/><circle cx='0' cy='20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='0' cy='20' r='18'/><circle cx='0' cy='20' r='13'/><circle cx='0' cy='20' r='8'/><circle cx='0' cy='20' r='3.5'/><circle cx='40' cy='20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='40' cy='20' r='18'/><circle cx='40' cy='20' r='13'/><circle cx='40' cy='20' r='8'/><circle cx='40' cy='20' r='3.5'/><circle cx='80' cy='20' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='80' cy='20' r='18'/><circle cx='80' cy='20' r='13'/><circle cx='80' cy='20' r='8'/><circle cx='80' cy='20' r='3.5'/><circle cx='-20' cy='30' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-20' cy='30' r='18'/><circle cx='-20' cy='30' r='13'/><circle cx='-20' cy='30' r='8'/><circle cx='-20' cy='30' r='3.5'/><circle cx='20' cy='30' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='20' cy='30' r='18'/><circle cx='20' cy='30' r='13'/><circle cx='20' cy='30' r='8'/><circle cx='20' cy='30' r='3.5'/><circle cx='60' cy='30' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='60' cy='30' r='18'/><circle cx='60' cy='30' r='13'/><circle cx='60' cy='30' r='8'/><circle cx='60' cy='30' r='3.5'/><circle cx='-40' cy='40' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='-40' cy='40' r='18'/><circle cx='-40' cy='40' r='13'/><circle cx='-40' cy='40' r='8'/><circle cx='-40' cy='40' r='3.5'/><circle cx='0' cy='40' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='0' cy='40' r='18'/><circle cx='0' cy='40' r='13'/><circle cx='0' cy='40' r='8'/><circle cx='0' cy='40' r='3.5'/><circle cx='40' cy='40' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='40' cy='40' r='18'/><circle cx='40' cy='40' r='13'/><circle cx='40' cy='40' r='8'/><circle cx='40' cy='40' r='3.5'/><circle cx='80' cy='40' r='20' fill='%23e6d6b8' stroke='none'/><circle cx='80' cy='40' r='18'/><circle cx='80' cy='40' r='13'/><circle cx='80' cy='40' r='8'/><circle cx='80' cy='40' r='3.5'/></g></svg>");
+  --noise: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.31  0 0 0 0 0.16  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --fibres: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.03 0.09' numOctaves='3' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0 0.2  0 0 0 3 -1.9'/></filter><rect width='100%' height='100%' filter='url(%23f)'/></svg>");
+  --ink-line: #1e2f4d;
+  --wood: #6b4a2b;
+}
+
+/* grain */
+[data-fx~='grain'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  background: var(--fibres), var(--noise);
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+}
+
+/* mount: the letters and the painting live on a print mounted in a thin wooden frame */
+[data-fx~='mount'] .board-wrap { padding: 22px 32px 40px; }
+[data-fx~='mount'] .board::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: calc(var(--cell) * -0.3);
+  border-radius: 5px;
+  background: var(--seigaiha) 0 0 / 36px 18px;
+  box-shadow:
+    inset 0 2px 8px rgb(0 0 0 / 0.35),
+    0 0 0 3px #c9a46a,
+    0 0 0 9px var(--wood),
+    0 0 0 10px #3d2a17,
+    0 18px 28px rgb(40 25 10 / 0.4);
+}
+[data-fx~='mount'] .board.is-complete { box-shadow: none; }
+[data-fx~='mount'] .board.is-complete::before {
+  inset: calc(var(--cell) * -0.14);
+  box-shadow: 0 0 0 4px #fff3d6, 0 0 0 10px var(--gold), 0 0 0 12px var(--gold-edge), 0 18px 28px rgb(40 25 10 / 0.4);
+  transition: inset 0.6s ease, box-shadow 0.6s ease;
+}
+[data-fx~='mount'] .piece-base { fill: rgb(255 255 255 / 0.06); }
+
+/* pattern */
+:root[data-fx~='pattern'] body { background: var(--seigaiha) 0 0 / 56px 28px, var(--wall-art, none), var(--wall); }
+[data-fx~='pattern'] .room-banner { background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0)), var(--seigaiha); background-size: auto, 44px 22px; background-blend-mode: normal, soft-light; }
+
+/* backdrop: each level is washed in its own painting's colours */
+[data-fx~='backdrop'] .screen.lesson,
+[data-fx~='backdrop'] .screen.story { position: relative; overflow: hidden; z-index: 0; }
+[data-fx~='backdrop'] .screen.lesson::before,
+[data-fx~='backdrop'] .screen.story::before {
+  content: '';
+  position: absolute;
+  inset: -60px;
+  z-index: -1;
+  background: linear-gradient(color-mix(in srgb, var(--wall) 42%, transparent), color-mix(in srgb, var(--wall) 42%, transparent)), var(--art) center / cover;
+  filter: blur(26px) saturate(1.5);
+  pointer-events: none;
+}
+[data-fx~='backdrop'] .lesson-title { text-shadow: 0 1px 0 color-mix(in srgb, var(--wall) 70%, transparent); }
+
+/* print: carved outlines and offset colour, like a woodblock pull */
+[data-fx~='print'] .tile { border-color: var(--ink-line); box-shadow: 0 calc(var(--cell) * 0.08) 0 var(--ink-line); background-image: var(--noise); background-size: 160px; }
+[data-fx~='print'] .tile-letter { text-shadow: calc(var(--cell) * 0.035) calc(var(--cell) * 0.03) 0 rgb(226 85 58 / 0.6); }
+[data-fx~='print'] .tile.is-trace { border-color: transparent; box-shadow: none; background-image: none; }
+[data-fx~='print'] .tile.is-trace .tile-letter { text-shadow: none; }
+[data-fx~='print'] .trace-shadow { fill: var(--ink-line); }
+[data-fx~='print'] .word-chip { border-color: var(--ink-line); box-shadow: 0 3px 0 var(--ink-line); }
+[data-fx~='print'] .word-chip.is-found { border-color: var(--ink-line); box-shadow: 0 3px 0 var(--ink-line); }
+[data-fx~='print'] .trace-pill { outline: 2px solid var(--ink-line); box-shadow: 0 4px 0 var(--ink-line); }
+[data-fx~='print'] .btn { outline: 2.5px solid var(--ink-line); box-shadow: 0 5px 0 var(--ink-line); }
+[data-fx~='print'] .btn:active { box-shadow: 0 0 0 var(--ink-line); }
+[data-fx~='print'] .node { outline: 2.5px solid var(--ink-line); box-shadow: 0 7px 0 var(--ink-line); }
+[data-fx~='print'] .node.is-locked { outline-color: color-mix(in srgb, var(--ink-line) 35%, transparent); box-shadow: 0 7px 0 color-mix(in srgb, var(--ink-line) 30%, var(--wall)); }
+[data-fx~='print'] .node.is-next { outline: 2.5px solid var(--ink-line); animation: none; }
+[data-fx~='print'] .node-bubble, [data-fx~='print'] .chip, [data-fx~='print'] .museum-label { border-color: var(--ink-line); }
+[data-fx~='print'] .node-bubble { box-shadow: 0 3px 0 var(--ink-line); }
+[data-fx~='print'] .room-banner { outline: 2.5px solid var(--ink-line); box-shadow: 0 5px 0 var(--ink-line); }
+[data-fx~='print'] .museum-label { box-shadow: 0 5px 0 var(--ink-line); }
+[data-fx~='print'] .wordmark-mark { border-radius: 6px; background: #c8402a; color: #fff3e0; box-shadow: 0 0 0 2px var(--ink-line); }
+/* The Restored ribbon becomes a hanko seal stamped above the painting. */
+[data-fx~='print'] .story-ribbon { display: block; width: max-content; margin: 2px auto 16px; padding: 8px 14px 7px 18px; border: 3px solid #fff3e0; border-radius: 8px; outline: 3px solid #c8402a; background: #c8402a; color: #fff3e0; font-size: 18px; letter-spacing: 0.3em; transform: rotate(-4deg); }
+[data-fx~='print'] .story-ribbon::before, [data-fx~='print'] .story-ribbon::after { display: none; }
+[data-fx~='print'] .result-badge { border-radius: 10px; background: #c8402a; transform: rotate(-5deg); box-shadow: 0 0 0 3px #fff3e0, 0 0 0 5px #c8402a; }

@@ -1,0 +1,143 @@
+/* Palette preview: Tidy desk (after A Little to the Left). Cream paper, muted pastels, wobbly
+   brown outlines, flat offset shadows, and game pieces that feel like things on a desk: a tray
+   for the board, paper tags for the words, tape on the cards, dashed slots for what's to come.
+   ?theme=lttl is on paper, ?theme=lttl-desk on a sage desk. Builds on themes.css. */
+
+:root[data-theme^='lttl'] {
+  --wall: #f4ecdf;
+  --wall-art: var(--noise);
+  --bar: transparent;
+  --on-wall: #4b3a35;
+  --on-wall-soft: #8a776c;
+  --panel: #fffaf1;
+  --panel-edge: #4b3a35;
+  --line: #e7dccb;
+  --ink: #4b3a35;
+  --ink-line: #4b3a35;
+  --ink-soft: #8a776c;
+  --ink-faint: #b3a497;
+  --sun: #f2b8ab;
+  --sun-edge: #4b3a35;
+  --sun-ink: #4b3a35;
+  --accent: #f1c45f;
+  --accent-edge: #4b3a35;
+  --green: #a3c398;
+  --green-edge: #4b3a35;
+  --red: #e98f7e;
+  --red-edge: #4b3a35;
+  --gold: #e6bb5c;
+  --gold-edge: #4b3a35;
+  --gold-text: #9a6f1c;
+  --track: #ece2d2;
+  --tray: #c8dac3;
+  --tape: rgb(244 226 170 / 0.85);
+  --drop: 3px 4px 0 rgb(75 58 53 / 0.18);
+  --r1: #f1c45f; --r1-edge: #4b3a35;
+  --r2: #a9cbe0; --r2-edge: #4b3a35;
+  --r3: #f2b8ab; --r3-edge: #4b3a35;
+  --r4: #a3c398; --r4-edge: #4b3a35;
+  --font-game: 'Patrick Hand', 'Fredoka', system-ui, sans-serif;
+}
+
+:root[data-theme='lttl-desk'] {
+  --wall: #a9c1b5;
+  --on-wall: #33403b;
+  --on-wall-soft: #51625b;
+  --tray: #f4ecdf;
+  --track: rgb(51 64 59 / 0.18);
+}
+
+/* Outlines drawn by hand: a little wobble, brown ink, a flat shadow. */
+[data-theme^='lttl'] .tile,
+[data-theme^='lttl'] .word-chip,
+[data-theme^='lttl'] .btn,
+[data-theme^='lttl'] .node,
+[data-theme^='lttl'] .chip,
+[data-theme^='lttl'] .room-banner,
+[data-theme^='lttl'] .trace-pill,
+[data-theme^='lttl'] .museum-label,
+[data-theme^='lttl'] .node-bubble,
+[data-theme^='lttl'] .progress,
+[data-theme^='lttl'] .wordmark-mark,
+[data-theme^='lttl'] .board::before { filter: url(#wobble); }
+
+[data-theme^='lttl'] .trail-top { border-bottom: 0; }
+[data-theme^='lttl'] .wordmark { font-size: 25px; }
+[data-theme^='lttl'] .wordmark b { color: #d9785f; }
+[data-theme^='lttl'] .wordmark-mark { border: 2.5px solid var(--ink-line); background: var(--accent); box-shadow: var(--drop); color: var(--ink); }
+[data-theme^='lttl'] .chip { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); }
+[data-theme^='lttl'] .chip-star svg { color: #e0a93a; }
+
+[data-theme^='lttl'] .btn { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); font-size: 24px; letter-spacing: 0.04em; }
+[data-theme^='lttl'] .btn:active { transform: translate(3px, 4px); box-shadow: none; }
+
+/* ── Trail ── */
+[data-theme^='lttl'] .room-banner { position: relative; border: 2.5px solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); transform: rotate(-1deg); }
+[data-theme^='lttl'] .room-banner h2 { font-size: 30px; font-weight: 400; }
+[data-theme^='lttl'] .room-eyebrow { font-family: var(--font-game); font-weight: 400; font-size: 15px; }
+[data-theme^='lttl'] .room-count,
+[data-theme^='lttl'] .room-gate { background: rgb(255 255 255 / 0.55); border: 2px solid var(--ink-line); font-weight: 400; font-size: 19px; }
+[data-theme^='lttl'] .room-banner::before { content: ''; position: absolute; top: -12px; left: 50%; width: 84px; height: 22px; background: var(--tape); transform: translateX(-50%) rotate(3deg); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+[data-theme^='lttl'] .room-banner.is-locked { background: transparent; border-style: dashed; border-color: rgb(75 58 53 / 0.4); box-shadow: none; color: rgb(75 58 53 / 0.55); }
+[data-theme^='lttl'] .room-banner.is-locked::before { display: none; }
+[data-theme^='lttl'] .room-banner.is-locked .room-gate { background: transparent; border-color: rgb(75 58 53 / 0.3); }
+[data-theme^='lttl'] .room-banner.is-locked .room-gate span { color: inherit; }
+
+[data-theme^='lttl'] .node { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); color: var(--ink); }
+[data-theme^='lttl'] button.node:active { transform: translate(3px, 4px); box-shadow: none; }
+/* What's still to come is an empty dashed slot, like the spot an object will go. */
+[data-theme^='lttl'] .node.is-locked { --face: transparent; border: 2.5px dashed rgb(75 58 53 / 0.32); box-shadow: none; color: rgb(75 58 53 / 0.3); outline: 0; }
+[data-theme^='lttl'] .node.is-done { --face: #fffaf1; padding: 6px; }
+[data-theme^='lttl'] .node-art { box-shadow: 0 0 0 2px var(--ink-line); }
+[data-theme^='lttl'] .node.is-next { outline: 3px dashed color-mix(in srgb, var(--ink-line) 45%, transparent); outline-offset: 7px; animation: none; }
+[data-theme^='lttl'] .node-bubble { border: 2.5px solid var(--ink-line); background: var(--panel); box-shadow: var(--drop); color: var(--ink); font-weight: 400; font-size: 21px; }
+[data-theme^='lttl'] .node-bubble::after { border-top-color: var(--ink-line); }
+
+/* ── Level ── */
+[data-theme^='lttl'] .lesson-title h1 { font-weight: 400; font-size: 31px; }
+[data-theme^='lttl'] .lesson-artist { font-family: var(--font-game); font-weight: 400; font-size: 16px; letter-spacing: 0.06em; }
+[data-theme^='lttl'] .progress { border: 2.5px solid var(--ink-line); background: var(--panel); }
+[data-theme^='lttl'] .progress-fill { border-right: 2.5px solid var(--ink-line); }
+[data-theme^='lttl'] .progress-fill::after { display: none; }
+
+/* Words to find are paper tags with a string hole; found ones are crossed off. */
+[data-theme^='lttl'] .word-chip { position: relative; padding: 3px 13px 3px 22px; border: 2.5px solid var(--ink-line); border-radius: 7px 14px 14px 7px; box-shadow: var(--drop); font-weight: 400; font-size: 20px; letter-spacing: 0.05em; }
+[data-theme^='lttl'] .word-chip::before { content: ''; position: absolute; left: 8px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border: 2px solid var(--ink-line); border-radius: 50%; background: var(--wall); }
+[data-theme^='lttl'] .word-chip.is-found { border-color: var(--ink-line); box-shadow: var(--drop); color: var(--ink); }
+[data-theme^='lttl'] .word-chip.is-found span { text-decoration: line-through 2px; }
+[data-theme^='lttl'] .word-chip.is-found span::before { content: ''; }
+
+[data-theme^='lttl'] .trace-pill { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); font-weight: 400; font-size: 28px; }
+[data-theme^='lttl'] .trace-pill.is-found,
+[data-theme^='lttl'] .trace-pill.is-miss { box-shadow: var(--drop); color: var(--ink); }
+
+/* The board is a tray on the desk. */
+[data-theme^='lttl'] .board-wrap { padding: 20px 30px 36px; }
+[data-theme^='lttl'] .board::before { content: ''; position: absolute; z-index: -2; inset: calc(var(--cell) * -0.28); border: 3px solid var(--ink-line); border-radius: calc(var(--cell) * 0.4); background: var(--tray); box-shadow: inset 0 4px 0 rgb(75 58 53 / 0.1), 5px 7px 0 rgb(75 58 53 / 0.18); }
+[data-theme^='lttl'] .tile { border: 2.5px solid var(--ink-line); box-shadow: 2px 3px 0 rgb(75 58 53 / 0.22); }
+[data-theme^='lttl'] .tile.is-trace { border-color: transparent; box-shadow: none; filter: none; }
+[data-theme^='lttl'] .tile-letter { font-family: 'Fredoka', sans-serif; font-weight: 600; }
+[data-theme^='lttl'] .trace-shape { stroke: var(--ink-line); stroke-width: 2.5px; }
+[data-theme^='lttl'] .trace-shadow { fill: rgb(75 58 53 / 0.2); }
+[data-theme^='lttl'] .piece-line { stroke: var(--ink-line); stroke-width: 3px; }
+[data-theme^='lttl'] .piece-base { fill: rgb(75 58 53 / 0.08); }
+[data-theme^='lttl'] .piece-letter { stroke: rgb(75 58 53 / 0.5); }
+[data-theme^='lttl'] .board.is-complete { box-shadow: 0 0 0 3px var(--ink-line), 6px 8px 0 rgb(75 58 53 / 0.2); }
+[data-theme^='lttl'] .board.is-complete::before { display: none; }
+
+[data-theme^='lttl'] .result-banner { border-top: 3px solid var(--ink-line); box-shadow: none; }
+[data-theme^='lttl'] .result-badge { border: 2.5px solid var(--ink-line); background: var(--green); color: var(--ink); }
+[data-theme^='lttl'] .result-text h2 { font-weight: 400; font-size: 30px; }
+
+/* ── Story: the painting is a print taped to the wall, its label a card ── */
+[data-theme^='lttl'] .story-ribbon { font-weight: 400; font-size: 22px; letter-spacing: 0.12em; color: var(--ink); }
+[data-theme^='lttl'] .frame { position: relative; padding: 10px 10px 34px; border: 2.5px solid var(--ink-line); border-radius: 3px; background: #fffaf1; box-shadow: 5px 7px 0 rgb(75 58 53 / 0.18); transform: rotate(1.2deg); }
+[data-theme^='lttl'] .frame::before,
+[data-theme^='lttl'] .frame::after { content: ''; position: absolute; top: -12px; width: 70px; height: 22px; background: var(--tape); }
+[data-theme^='lttl'] .frame::before { left: -18px; transform: rotate(-32deg); }
+[data-theme^='lttl'] .frame::after { right: -18px; transform: rotate(32deg); }
+[data-theme^='lttl'] .frame img { box-shadow: 0 0 0 2px var(--ink-line); }
+[data-theme^='lttl'] .museum-label { border: 2.5px solid var(--ink-line); box-shadow: var(--drop); }
+[data-theme^='lttl'] .museum-label h1 { font-weight: 400; font-size: 32px; }
+[data-theme^='lttl'] .story-text mark { background: linear-gradient(transparent 45%, color-mix(in srgb, var(--sun) 80%, transparent) 45% 90%, transparent 90%); }
+[data-theme^='lttl'] .story-footer { border-top: 0; }

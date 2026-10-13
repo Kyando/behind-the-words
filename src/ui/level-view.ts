@@ -124,7 +124,7 @@ export class LevelView {
 
     this.traceEl = h('div', { class: 'trace', role: 'status', 'aria-live': 'polite' });
     this.boardWrap = h('div', { class: 'board-wrap' }, this.board);
-    this.el = h('main', { class: 'screen lesson' }, top, this.heading, this.wordList, this.traceEl, this.boardWrap);
+    this.el = h('main', { class: 'screen lesson', 'data-room': p.def.room, style: `--art: url("${artUrl(art.slug)}")` }, top, this.heading, this.wordList, this.traceEl, this.boardWrap);
 
     this.resizeObserver = new ResizeObserver(() => this.fit());
     this.resizeObserver.observe(this.boardWrap);
