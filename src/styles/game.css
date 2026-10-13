@@ -477,11 +477,20 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 .trace-pill.is-new { animation: pop 0.35s cubic-bezier(0.3, 1.7, 0.5, 1); }
 .trace-pill.is-miss.is-new { animation: shake 0.4s; }
 
-.board-wrap {
-  flex: 1 1 0;
-  min-height: 160px;
+/* Title, words, trace and board: one group centred under the progress bar, so the spare height
+   goes above and below it rather than between the words and the board. */
+.lesson-stage {
+  flex: 1;
+  min-height: 0;
   display: flex;
-  align-items: safe center;
+  flex-direction: column;
+  justify-content: safe center;
+  padding-bottom: 14px;
+}
+
+.board-wrap {
+  flex: none;
+  display: flex;
   justify-content: center;
   padding: 0 14px 18px;
 }
@@ -586,7 +595,8 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 /* Once the banner is up, only the title and the framed painting stay, centred above it. */
 .lesson.is-framed .word-list,
 .lesson.is-framed .trace { display: none; }
-.lesson.is-framed .board-wrap { padding-top: 16px; padding-bottom: var(--banner-h, 200px); }
+.lesson.is-framed .lesson-stage { padding-bottom: var(--banner-h, 200px); }
+.lesson.is-framed .board-wrap { padding-top: 16px; }
 
 .fly-tile {
   position: fixed;

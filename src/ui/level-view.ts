@@ -49,6 +49,8 @@ export class LevelView {
   readonly el: HTMLElement;
   private readonly s: Session;
   private readonly opts: LevelViewOptions;
+  /** Title, words, trace and board: one group, centred in the space under the progress bar. */
+  private readonly stage: HTMLElement;
   private readonly boardWrap: HTMLElement;
   private readonly board: HTMLElement;
   private readonly links: SVGSVGElement;
@@ -124,10 +126,11 @@ export class LevelView {
 
     this.traceEl = h('div', { class: 'trace', role: 'status', 'aria-live': 'polite' });
     this.boardWrap = h('div', { class: 'board-wrap' }, this.board);
-    this.el = h('main', { class: 'screen lesson', 'data-room': p.def.room, style: `--art: url("${artUrl(art.slug)}")` }, top, this.heading, this.wordList, this.traceEl, this.boardWrap);
+    this.stage = h('div', { class: 'lesson-stage' }, this.heading, this.wordList, this.traceEl, this.boardWrap);
+    this.el = h('main', { class: 'screen lesson', 'data-room': p.def.room, style: `--art: url("${artUrl(art.slug)}")` }, top, this.stage);
 
     this.resizeObserver = new ResizeObserver(() => this.fit());
-    this.resizeObserver.observe(this.boardWrap);
+    this.resizeObserver.observe(this.stage);
     this.render();
     if (this.s.solved) this.finish(false);
     else if (opts.intro && !reducedMotion()) {
@@ -479,12 +482,14 @@ export class LevelView {
     this.links.replaceChildren(shape('trace-shadow'), shape('trace-shape'));
   }
 
-  /** Sizes cells to the space available. */
+  /** Sizes cells to the space the stage leaves the board once the title, words and trace are in. */
   private fit(): void {
     const p = this.s.puzzle;
     const cs = getComputedStyle(this.boardWrap);
-    const width = this.boardWrap.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    const height = this.boardWrap.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const ss = getComputedStyle(this.stage);
+    const above = this.heading.offsetHeight + this.wordList.offsetHeight + this.traceEl.offsetHeight;
+    const width = this.stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const height = this.stage.clientHeight - parseFloat(ss.paddingTop) - parseFloat(ss.paddingBottom) - above - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
     const gap = width < 480 ? 6 : 8;
     const byWidth = (width - gap * (p.cols - 1)) / p.cols;
     const byHeight = (height - 8 - gap * (p.rows - 1)) / p.rows;

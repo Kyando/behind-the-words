@@ -13,6 +13,9 @@ import type { LevelDef } from '../src/core/types.ts';
 const root = join(import.meta.dirname, '..');
 const outDir = join(root, 'docs/palettes');
 const PORT = 5197;
+// Phone screen in CSS pixels, e.g. VIEW=412x780 (default 390x844).
+const [vw, vh] = (process.env.VIEW ?? '390x844').split('x').map(Number);
+const VIEW = { width: vw, height: vh };
 
 type Shot = { id: string; name: string; note: string; query?: string };
 const SETS: Record<string, Shot[]> = {
@@ -75,7 +78,7 @@ async function main(): Promise<void> {
   const browser = await chromium.launch({ channel: process.env.CAPTURE_CHANNEL ?? 'msedge' });
   try {
     for (const t of themes) {
-      const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: false });
+      const ctx = await browser.newContext({ viewport: VIEW, deviceScaleFactor: 2, hasTouch: false });
       await ctx.addInitScript((s) => localStorage.setItem('behind-the-words:v1', s), JSON.stringify(save));
       const page = await ctx.newPage();
       const shot = (name: string) => page.screenshot({ path: join(outDir, `${t.id}-${name}.png`) });
@@ -86,10 +89,10 @@ async function main(): Promise<void> {
       if (t.id === 'mix') {
         // The whole trail at once, every room on its own wall.
         const full = await page.evaluate(() => document.querySelector('.trail-scroll')!.scrollHeight + 70);
-        await page.setViewportSize({ width: 390, height: full });
+        await page.setViewportSize({ width: VIEW.width, height: full });
         await wait(500);
         await page.screenshot({ path: join(outDir, 'mix-full-trail.png') });
-        await page.setViewportSize({ width: 390, height: 844 });
+        await page.setViewportSize(VIEW);
         await wait(300);
         await page.evaluate(() => document.querySelector('[data-room="light"] .room-banner')?.scrollIntoView({ block: 'start' }));
         await page.evaluate(() => document.querySelector('.trail-scroll')!.scrollBy(0, -110));
@@ -120,7 +123,7 @@ async function main(): Promise<void> {
       await page.waitForSelector('.result-banner');
       await wait(1800);
       await shot('3-restored');
-      await page.click('.result-banner .btn');
+      await page.click('.result-banner .btn', { force: true }); // it breathes, so never "stable"
       await wait(1600);
       await shot('4-story');
       await ctx.close();
@@ -137,7 +140,7 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
 /** Per palette: its four screens side by side under a title. Plus one sheet of every palette's level. */
 async function sheets(): Promise<void> {
-  const W = 390, H = 844, gap = 28, pad = 40, head = 110;
+  const W = VIEW.width, H = VIEW.height, gap = 28, pad = 40, head = 110;
   const phone = async (file: string) =>
     sharp(file)
       .resize(W, H)
