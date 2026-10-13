@@ -47,8 +47,7 @@ export class Trail {
       const count = Math.max(room.planned, levels.length);
       for (let i = 0; i < count; i++) {
         const level = levels[i];
-        const offset = WIND[index++ % WIND.length];
-        nodes.append(this.node(level, open, level === next, offset, opts, room));
+        nodes.append(this.node(level, open, level === next, index++, opts, room));
       }
       path.append(h('section', { class: 'room', 'data-room': room.id }, this.banner(room, levels, open, opts), nodes));
     }
@@ -60,6 +59,13 @@ export class Trail {
     line.setAttribute('aria-hidden', 'true');
     path.prepend(line);
     new ResizeObserver(() => this.drawLine(path, line)).observe(path);
+    // The nodes drop in on arrival; draw again once they've landed.
+    let landing = 0;
+    path.addEventListener('animationend', (e) => {
+      if (e.animationName !== 'drop-in') return;
+      cancelAnimationFrame(landing);
+      landing = requestAnimationFrame(() => this.drawLine(path, line));
+    });
 
     // Bring the next painting into view.
     requestAnimationFrame(() => {
@@ -109,8 +115,9 @@ export class Trail {
     );
   }
 
-  private node(level: LevelDef | undefined, open: boolean, isNext: boolean, offset: number, opts: TrailOptions, room: Room): HTMLElement {
-    const style = `--x: ${offset}; --room: ${room.color}; --room-edge: ${room.edge}`;
+  /** The n-th painting of the trail: its offset from the centre line, and its turn to drop in (--n). */
+  private node(level: LevelDef | undefined, open: boolean, isNext: boolean, n: number, opts: TrailOptions, room: Room): HTMLElement {
+    const style = `--x: ${WIND[n % WIND.length]}; --n: ${n}; --room: ${room.color}; --room-edge: ${room.edge}`;
     if (!level || !open) {
       return h('li', { class: 'node-slot', 'data-room': room.id, style }, h('span', { class: 'node is-locked', 'aria-label': level ? 'Locked painting' : 'Coming soon' }, svg(ICONS.lock)));
     }

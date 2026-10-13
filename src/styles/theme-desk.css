@@ -93,7 +93,7 @@
 [data-theme^='lttl'] .node.is-locked { --face: transparent; border: 2.5px dashed rgb(75 58 53 / 0.32); box-shadow: none; color: rgb(75 58 53 / 0.3); outline: 0; }
 [data-theme^='lttl'] .node.is-done { --face: #fffaf1; padding: 6px; }
 [data-theme^='lttl'] .node-art { box-shadow: 0 0 0 2px var(--ink-line); }
-[data-theme^='lttl'] .node.is-next { outline: 3px dashed color-mix(in srgb, var(--ink-line) 45%, transparent); outline-offset: 7px; animation: none; }
+[data-theme^='lttl'] .node.is-next { outline: 3px dashed color-mix(in srgb, var(--ink-line) 45%, transparent); outline-offset: 7px; }
 [data-theme^='lttl'] .node-bubble { border: 2.5px solid var(--ink-line); background: var(--panel); box-shadow: var(--drop); color: var(--ink); font-weight: 700; font-size: 16px; }
 [data-theme^='lttl'] .node-bubble::after { border-top-color: var(--ink-line); }
 

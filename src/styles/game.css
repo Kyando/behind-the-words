@@ -716,7 +716,44 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   pointer-events: none;
 }
 
+/* ── Idle life: every screen keeps something moving, gently ───────────── */
+/* These use the separate translate/rotate/scale properties, so they add to (never replace) the
+   transforms that lay things out, press buttons or deal the tiles in. */
+
+/* Trail: the paintings drop in from the bottom up; the dots ahead march toward the next one; the
+   next one wiggles for attention; finished ones tilt now and then; the banners sway. */
+.node-slot { animation: drop-in 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) calc(var(--n, 0) * 45ms) backwards; }
+.trail-line .is-ahead { animation: march 1.4s linear infinite; }
+.node.is-next { animation: breathe 2.4s ease-in-out infinite, wiggle 3.2s ease-in-out 0.8s infinite; }
+.node.is-done { animation: tilt 7s ease-in-out calc(var(--n, 0) * -1.7s) infinite; }
+.node.is-done.is-new { animation: node-new 0.7s cubic-bezier(0.3, 1.6, 0.5, 1) 0.25s backwards, tilt 7s ease-in-out 1s infinite; }
+.room-banner { animation: sway 8s ease-in-out infinite; }
+.wordmark-mark { animation: tilt 5s ease-in-out infinite; }
+
+/* Level: now and then a tile fidgets. Mismatched periods keep it from looking like a pattern. */
+.board .tile { animation: fidget 7.3s ease-in-out infinite; }
+.board .tile:nth-child(3n) { animation-duration: 9.1s; animation-delay: -3.1s; }
+.board .tile:nth-child(5n + 1) { animation-duration: 11.7s; animation-delay: -6.4s; }
+.board .tile:nth-child(7n + 2) { animation-duration: 8.3s; animation-delay: -1.8s; }
+.board .tile:nth-child(4n + 3) { animation-delay: -4.9s; }
+.board.is-tracing .tile { animation: none; }
+.board .tile.miss { animation: shake 0.4s; }
+
+/* The restored painting and its print sway as if hung; the way on breathes. */
+.board.is-complete { animation: framed 0.7s cubic-bezier(0.3, 1.5, 0.5, 1) both, sway 6s ease-in-out 0.7s infinite; }
+.frame { animation: hang 0.8s cubic-bezier(0.3, 1.4, 0.5, 1) both, sway 6.5s ease-in-out 0.8s infinite; }
+.result-banner .btn,
+.story-footer .btn { animation: btn-breathe 2.2s ease-in-out 1s infinite; }
+
 /* ── Motion ───────────────────────────────────────────────────────────── */
+
+@keyframes drop-in { from { opacity: 0; translate: 0 -26px; scale: 0.6; } }
+@keyframes march { to { stroke-dashoffset: -13.5; } }
+@keyframes wiggle { 0%, 70%, 100% { rotate: 0deg; } 76% { rotate: -9deg; } 84% { rotate: 7deg; } 92% { rotate: -3deg; } }
+@keyframes tilt { 0%, 100% { rotate: 0deg; } 45% { rotate: 0deg; } 55% { rotate: -5deg; } 65% { rotate: 3deg; } 75% { rotate: 0deg; } }
+@keyframes sway { 0%, 100% { rotate: -0.6deg; } 50% { rotate: 0.6deg; } }
+@keyframes fidget { 0%, 88%, 100% { translate: 0 0; rotate: 0deg; } 91% { translate: 0 -3px; rotate: -4deg; } 94% { translate: 0 0; rotate: 3deg; } 97% { rotate: -1deg; } }
+@keyframes btn-breathe { 0%, 100% { scale: 1; } 50% { scale: 1.035; } }
 
 @keyframes pop { 0% { transform: scale(0.78); } 60% { transform: scale(1.1); } 100% { transform: scale(1); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
