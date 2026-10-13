@@ -1,0 +1,48 @@
+{
+  "id": "starry-night",
+  "room": "icons",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "STSSEGA",
+    "RAELLLL",
+    "TELHIIV",
+    "SEPSSNM",
+    "CYPREOO"
+  ],
+  "words": [
+    {
+      "text": "CYPRESS",
+      "path": [28, 29, 30, 31, 32, 25, 24]
+    },
+    {
+      "text": "MOON",
+      "path": [27, 34, 33, 26]
+    },
+    {
+      "text": "STARS",
+      "path": [2, 1, 8, 7, 0]
+    },
+    {
+      "text": "VILLAGE",
+      "path": [20, 19, 12, 13, 6, 5, 4]
+    },
+    {
+      "text": "STEEPLE",
+      "path": [21, 14, 15, 22, 23, 16, 9]
+    },
+    {
+      "text": "HILLS",
+      "path": [17, 18, 11, 10, 3]
+    }
+  ],
+  "art": {
+    "slug": "the-starry-night-gogh",
+    "title": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "holder": "Museum of Modern Art, New York",
+    "credit": "Public domain · image via Wikimedia Commons (Google Art Project)",
+    "story": "In June 1889 Vincent van Gogh painted the view from his window at the asylum in Saint-Rémy, just before dawn. But this sky is not quite what he saw: the stars swell into whirlpools of light, the moon blazes, and a dark cypress flickers upward like a flame. Below, a sleepy village keeps its lamps lit, its church steeple pointing at the storm of stars. Van Gogh thought the painting was a failure. Today it is one of the most loved pictures in the world."
+  }
+}

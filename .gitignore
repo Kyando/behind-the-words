@@ -1,0 +1,5 @@
+node_modules/
+art/images/
+art/originals/
+art/*.log
+dist/

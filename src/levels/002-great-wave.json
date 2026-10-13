@@ -1,0 +1,52 @@
+{
+  "id": "great-wave",
+  "room": "icons",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "BOFUSDN",
+    "TAEJIUE",
+    "SSVALOM",
+    "RPMWCOS",
+    "AYAOFAR"
+  ],
+  "words": [
+    {
+      "text": "WAVE",
+      "path": [24, 17, 16, 9]
+    },
+    {
+      "text": "FOAM",
+      "path": [32, 31, 30, 23]
+    },
+    {
+      "text": "FUJI",
+      "path": [2, 3, 10, 11]
+    },
+    {
+      "text": "BOATS",
+      "path": [0, 1, 8, 7, 14]
+    },
+    {
+      "text": "SPRAY",
+      "path": [15, 22, 21, 28, 29]
+    },
+    {
+      "text": "CLOUDS",
+      "path": [25, 18, 19, 12, 5, 4]
+    },
+    {
+      "text": "OARSMEN",
+      "path": [26, 33, 34, 27, 20, 13, 6]
+    }
+  ],
+  "art": {
+    "slug": "the-great-wave-off-kanagawa-hokusai",
+    "title": "The Great Wave off Kanagawa",
+    "artist": "Katsushika Hokusai",
+    "year": "c. 1831",
+    "holder": "The Metropolitan Museum of Art, New York",
+    "credit": "CC0 · The Met Open Access",
+    "story": "Hokusai was about seventy when he made this woodblock print of a giant wave about to crash over three fast boats off the coast of Kanagawa. The oarsmen bow their heads and hold on; the foam breaks into curling claws. Far behind, small and calm, sits Mount Fuji, the sacred mountain the whole series was about. Because prints were cheap, thousands of copies were sold, and the wave travelled the world, inspiring Van Gogh, Monet and Debussy."
+  }
+}

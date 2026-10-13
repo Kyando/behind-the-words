@@ -1,0 +1,705 @@
+/* Behind the Words: a museum at night. A deep violet gallery wall so the paintings glow; chunky,
+   pressable game pieces (cream tiles, 3D buttons and nodes) in the Duolingo manner; gold for
+   everything that belongs to the art (trace, frames, stars). */
+
+:root {
+  --bg-top: #3a2c74;
+  --bg: #221a3f;
+  --bg-deep: #160f2e;
+  --panel: #fff7e8;
+  --panel-edge: #e2cfa6;
+  --ink: #2d2350;
+  --ink-soft: #6f6795;
+  --text: #ffffff;
+  --text-soft: #c2b9e6;
+  --glass: rgb(255 255 255 / 0.1);
+  --glass-line: rgb(255 255 255 / 0.18);
+  --gold: #ffc23d;
+  --gold-edge: #d48f12;
+  --green: #58cc02;
+  --green-edge: #46a302;
+  --green-soft: #d7ffb8;
+  --green-dark: #3f8f00;
+  --red: #ff4b4b;
+  --red-edge: #d63a3a;
+  --locked: #4b4275;
+  --locked-edge: #332b57;
+  --font-game: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  --font-read: 'Nunito', system-ui, sans-serif;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--font-read);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background:
+    radial-gradient(120% 70% at 50% -10%, var(--bg-top) 0%, transparent 70%),
+    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.05) 0 1px, transparent 1.5px) 0 0 / 46px 46px,
+    radial-gradient(circle at 70% 80%, rgb(255 255 255 / 0.04) 0 1px, transparent 1.5px) 0 0 / 64px 64px,
+    linear-gradient(var(--bg), var(--bg-deep));
+}
+
+button { font: inherit; color: inherit; }
+
+.app {
+  height: 100dvh;
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--safe-top);
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+
+.icon-btn svg { width: 26px; height: 26px; }
+.icon-btn:active { transform: scale(0.92); }
+
+/* ── Buttons: pressable, with a solid edge underneath ─────────────────── */
+
+.btn {
+  --face: var(--green);
+  --edge: var(--green-edge);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 22px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--face);
+  box-shadow: 0 5px 0 var(--edge);
+  color: #fff;
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s, filter 0.15s;
+}
+
+.btn:hover { filter: brightness(1.05); }
+.btn:active { transform: translateY(5px); box-shadow: 0 0 0 var(--edge); }
+.btn-green { --face: var(--green); --edge: var(--green-edge); }
+.btn-block { width: 100%; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 9px;
+  border-radius: 999px;
+  background: var(--glass);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.chip svg { width: 22px; height: 22px; }
+.chip-star svg { color: var(--gold); }
+
+/* ── The trail ────────────────────────────────────────────────────────── */
+
+.trail-top {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px 10px 16px;
+  border-bottom: 2px solid var(--glass-line);
+  background: rgb(22 15 46 / 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.wordmark {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-game);
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.wordmark b { color: var(--gold); font-weight: 700; }
+
+.wordmark-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--gold);
+  box-shadow: 0 3px 0 var(--gold-edge);
+  color: var(--ink);
+  transform: rotate(-6deg);
+}
+
+.wordmark-mark svg { width: 22px; height: 22px; stroke-width: 2.6; }
+
+.trail-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px 16px calc(80px + var(--safe-bottom));
+  scrollbar-width: none;
+}
+
+.trail-scroll::-webkit-scrollbar { display: none; }
+
+.room-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 15px;
+  border-radius: 18px;
+  background: var(--room);
+  box-shadow: 0 5px 0 var(--room-edge);
+}
+
+.room-banner h2 {
+  margin: 1px 0 2px;
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 1.05;
+}
+
+.room-eyebrow {
+  margin: 0;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.room-tagline { margin: 0; font-weight: 700; font-size: 13.5px; opacity: 0.92; }
+
+.room-count, .room-gate {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 12px;
+  background: rgb(0 0 0 / 0.18);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.room-gate svg { width: 18px; height: 18px; }
+.room-gate span { display: inline-flex; align-items: center; gap: 3px; color: var(--gold); }
+
+.room-banner.is-locked {
+  background: var(--locked);
+  box-shadow: 0 5px 0 var(--locked-edge);
+  color: var(--text-soft);
+}
+
+.trail-nodes {
+  list-style: none;
+  margin: 0;
+  padding: 70px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.node-slot {
+  position: relative;
+  transform: translateX(calc(var(--x) * 78px));
+}
+
+.node {
+  --face: var(--room);
+  --edge: var(--room-edge);
+  width: 74px;
+  height: 74px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--face);
+  box-shadow: 0 7px 0 var(--edge);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.node svg { width: 34px; height: 34px; }
+button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge); }
+
+.node.is-locked {
+  --face: var(--locked);
+  --edge: var(--locked-edge);
+  color: rgb(255 255 255 / 0.32);
+  cursor: default;
+}
+
+.node.is-locked svg { width: 28px; height: 28px; }
+
+.node.is-done {
+  --face: var(--gold);
+  --edge: var(--gold-edge);
+  padding: 5px;
+}
+
+.node-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: center / cover no-repeat;
+  box-shadow: inset 0 0 0 2px rgb(0 0 0 / 0.15);
+}
+
+.node.is-next {
+  width: 86px;
+  height: 86px;
+  outline: 7px solid rgb(255 255 255 / 0.14);
+  outline-offset: 5px;
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+.node.is-next svg { width: 40px; height: 40px; }
+
+.node-bubble {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  padding: 7px 15px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 0 rgb(0 0 0 / 0.18);
+  color: var(--room-edge);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+.node-bubble::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  border: 8px solid transparent;
+  border-top-color: #fff;
+  transform: translateX(-50%);
+}
+
+.node.is-new { animation: node-new 0.7s cubic-bezier(0.3, 1.6, 0.5, 1) 0.25s backwards; }
+
+/* ── A level: the lesson ──────────────────────────────────────────────── */
+
+.lesson { padding-bottom: var(--safe-bottom); }
+
+.lesson-top {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 4px 8px;
+}
+
+.progress {
+  flex: 1;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--glass);
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 0;
+  min-width: 18px;
+  border-radius: inherit;
+  background: var(--green);
+  transition: width 0.5s cubic-bezier(0.3, 1.3, 0.5, 1);
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  top: 4px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgb(255 255 255 / 0.35);
+}
+
+.lesson-title {
+  flex: none;
+  padding: 8px 16px 2px;
+  text-align: center;
+}
+
+.lesson-title h1 {
+  margin: 0;
+  font-family: var(--font-game);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.lesson-artist {
+  margin: 0 0 3px;
+  color: var(--text-soft);
+  font-weight: 800;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.word-list {
+  flex: none;
+  list-style: none;
+  margin: 0;
+  padding: 10px 14px 2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+}
+
+.word-chip {
+  padding: 5px 12px;
+  border: 2px solid var(--glass-line);
+  border-radius: 999px;
+  background: var(--glass);
+  color: #fff;
+  font-family: var(--font-game);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.07em;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.word-chip.is-found {
+  border-color: var(--green-edge);
+  background: var(--green);
+  box-shadow: 0 3px 0 var(--green-edge);
+}
+
+.word-chip.is-found span::before { content: '✓ '; }
+.word-chip.pop { animation: pop 0.42s cubic-bezier(0.3, 1.7, 0.5, 1); }
+
+.trace {
+  flex: none;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trace-pill {
+  padding: 4px 18px;
+  border-radius: 14px;
+  background: var(--gold);
+  box-shadow: 0 4px 0 var(--gold-edge);
+  color: var(--ink);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: 0.12em;
+}
+
+.trace-pill.is-found { background: var(--green); box-shadow: 0 4px 0 var(--green-edge); color: #fff; }
+.trace-pill.is-miss { background: var(--red); box-shadow: 0 4px 0 var(--red-edge); color: #fff; }
+.trace-pill.is-new { animation: pop 0.35s cubic-bezier(0.3, 1.7, 0.5, 1); }
+.trace-pill.is-miss.is-new { animation: shake 0.4s; }
+
+.board-wrap {
+  flex: 1 1 0;
+  min-height: 160px;
+  display: flex;
+  align-items: safe center;
+  justify-content: center;
+  padding: 0 14px 18px;
+}
+
+.board {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  grid-template-rows: repeat(var(--rows), var(--cell));
+  gap: var(--gap);
+  touch-action: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  border-radius: calc(var(--cell) * 0.22);
+  background: var(--panel);
+  box-shadow: 0 calc(var(--cell) * 0.08) 0 var(--panel-edge);
+}
+
+.tile.is-hole { visibility: hidden; }
+
+.tile-letter {
+  position: relative;
+  z-index: 2;
+  color: var(--ink);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: calc(var(--cell) * 0.5);
+  line-height: 1;
+  pointer-events: none;
+  transition: transform 0.12s;
+}
+
+/* The word being traced: its tiles give way to one joined gold shape underneath (.trace-shape). */
+.tile.is-trace { background: transparent; box-shadow: none; }
+.tile.is-end .tile-letter { transform: scale(1.16); }
+.tile.miss { animation: shake 0.4s; }
+.board .tile.is-found { visibility: hidden; }
+
+.links {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.trace-shape { fill: var(--gold); }
+.trace-shadow { fill: var(--gold-edge); transform: translateY(calc(var(--cell) * 0.08)); }
+
+.pieces {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.piece-base { fill: rgb(0 0 0 / 0.28); }
+.piece-line { fill: none; stroke: rgb(255 255 255 / 0.9); stroke-width: 2.5px; stroke-linejoin: round; }
+
+.piece-letter {
+  fill: #fff;
+  font-family: var(--font-game);
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  transform-box: fill-box;
+  transform-origin: center;
+  paint-order: stroke;
+  stroke: rgb(0 0 0 / 0.25);
+  stroke-width: 3px;
+}
+
+.paint-splash { transform-box: fill-box; transform-origin: center; }
+
+.pieces.is-whole .pieces-whole { animation: whole-in 0.9s ease both; }
+.pieces.no-anim .pieces-whole { animation: none; }
+.pieces-seams { fill: none; stroke: rgb(255 255 255 / 0.4); stroke-width: 1.5; stroke-dasharray: 4 4; animation: seams-out 2.4s ease 0.9s both; }
+.pieces.no-anim .pieces-seams { animation: none; opacity: 0.25; }
+
+/* The finished painting gets its gold frame on the board. */
+.board.is-complete {
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px var(--gold), 0 0 0 9px var(--gold-edge), 0 18px 40px rgb(0 0 0 / 0.55);
+  animation: framed 0.7s cubic-bezier(0.3, 1.5, 0.5, 1) both;
+}
+
+.lesson.is-complete .word-list,
+.lesson.is-complete .trace { animation: fade-out 0.3s ease forwards; pointer-events: none; }
+
+.fly-tile {
+  position: fixed;
+  z-index: 60;
+  margin: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.lesson.is-entering .lesson-title { animation: rise-in 0.45s ease-out backwards; }
+.lesson.is-dealing .word-chip,
+.lesson.is-dealing .board .tile { opacity: 0; }
+
+/* The banner that rises when the painting is restored. */
+.result-banner {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  gap: 14px;
+  padding: 18px 16px calc(18px + var(--safe-bottom));
+  border-radius: 24px 24px 0 0;
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+.result-banner.is-rising { animation: slide-up 0.45s cubic-bezier(0.3, 1.3, 0.5, 1) both; }
+
+.result-text { display: flex; align-items: center; gap: 14px; }
+
+.result-badge {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green);
+}
+
+.result-badge svg { width: 30px; height: 30px; stroke-width: 3.5; }
+.result-text h2 { margin: 0; font-family: var(--font-game); font-weight: 700; font-size: 23px; }
+.result-text p { margin: 2px 0 0; font-weight: 800; font-size: 15px; }
+
+/* ── After the restoration: the painting on the wall, with its label ─── */
+
+.story-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px 18px 24px;
+  text-align: center;
+  scrollbar-width: none;
+}
+
+.story-ribbon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.story-ribbon::before,
+.story-ribbon::after { content: ''; flex: 1; height: 2px; border-radius: 2px; background: currentColor; opacity: 0.4; }
+
+.frame {
+  display: inline-block;
+  margin: 0 0 22px;
+  padding: 11px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #ffe08a, #c98e22 35%, #ffe7a0 52%, #b5791a 75%, #f3c860);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.35), 0 0 0 2px #7d5410, 0 18px 40px rgb(0 0 0 / 0.55);
+  animation: hang 0.8s cubic-bezier(0.3, 1.4, 0.5, 1) both;
+}
+
+.frame img {
+  display: block;
+  max-width: 100%;
+  max-height: 44vh;
+  box-shadow: 0 0 0 3px #4a3210;
+}
+
+.museum-label {
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 5px 0 var(--panel-edge);
+  color: var(--ink);
+  text-align: left;
+  animation: rise-in 0.5s ease-out 0.35s backwards;
+}
+
+.museum-label h1 { margin: 0; font-family: var(--font-game); font-weight: 600; font-size: 25px; line-height: 1.1; }
+.label-artist { margin: 4px 0 0; font-weight: 800; font-size: 15.5px; }
+.label-holder { margin: 1px 0 12px; color: var(--ink-soft); font-weight: 700; font-size: 13.5px; }
+
+.story-text { margin: 0 0 14px; font-weight: 600; font-size: 16.5px; line-height: 1.55; }
+.story-text mark { padding: 0 3px; border-radius: 5px; background: rgb(255 194 61 / 0.5); color: inherit; }
+
+.is-found-list { justify-content: flex-start; padding: 0 0 12px; }
+.label-credit { margin: 0; color: var(--ink-soft); font-size: 12px; font-weight: 700; }
+
+.story-footer {
+  flex: none;
+  padding: 12px 16px calc(14px + var(--safe-bottom));
+  border-top: 2px solid var(--glass-line);
+}
+
+.confetti {
+  position: fixed;
+  z-index: 100;
+  width: 9px;
+  height: 13px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────── */
+
+@keyframes pop { 0% { transform: scale(0.78); } 60% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+@keyframes bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -6px); } }
+@keyframes breathe { 0%, 100% { outline-color: rgb(255 255 255 / 0.14); } 50% { outline-color: rgb(255 255 255 / 0.3); } }
+@keyframes node-new { 0% { transform: scale(0.4) rotate(-20deg); } 100% { transform: none; } }
+@keyframes whole-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes seams-out { from { opacity: 1; } to { opacity: 0.25; } }
+@keyframes framed { 0% { transform: scale(0.96); } 50% { transform: scale(1.03); } 100% { transform: none; } }
+@keyframes fade-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(10px); } }
+@keyframes slide-up { from { transform: translateY(100%); } }
+@keyframes hang { 0% { opacity: 0; transform: translateY(-30px) rotate(-3deg); } 70% { opacity: 1; transform: translateY(3px) rotate(0.8deg); } 100% { transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Once the banner is up, only the title and the framed painting stay, centred above it. */
+.lesson.is-framed .word-list,
+.lesson.is-framed .trace { display: none; }
+.lesson.is-framed .board-wrap { padding-top: 16px; padding-bottom: var(--banner-h, 200px); }

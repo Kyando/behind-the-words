@@ -1,0 +1,261 @@
+# Image credits
+
+All artworks are in the public domain. Image files come from the sources below.
+
+- **Book of Kells: Chi Rho page**, Irish monks (c. 800). Trinity College Dublin. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:KellsFol034rChiRhoMonogram.jpg
+- **Bayeux Tapestry: Halley's Comet**, Anonymous (c. 1070). Bayeux Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Bayeux_Tapestry_32-33_comet_Halley_Harold.jpg
+- **Bayeux Tapestry: the Death of Harold**, Anonymous (c. 1070). Bayeux Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Bayeux_Tapestry_scene57_Harold_death.jpg
+- **Très Riches Heures: January**, Limbourg brothers (c. 1412). Musée Condé, Chantilly. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_-_Janvier.jpg
+- **Très Riches Heures: February**, Limbourg brothers (c. 1412). Musée Condé, Chantilly. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_f%C3%A9vrier.jpg
+- **Très Riches Heures: June**, Limbourg brothers (c. 1412). Musée Condé, Chantilly. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_juin.jpg
+- **Très Riches Heures: October**, Limbourg brothers (c. 1412). Musée Condé, Chantilly. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Les_Tr%C3%A8s_Riches_Heures_du_duc_de_Berry_octobre.jpg
+- **The Unicorn Rests in a Garden**, Unicorn Tapestries (1495–1505). The Met Cloisters. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/467642
+- **The Hunters Enter the Woods**, Unicorn Tapestries (1495–1505). The Met Cloisters. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/467637
+- **The Unicorn Defends Itself**, Unicorn Tapestries (1495–1505). The Met Cloisters. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/467640
+- **The Lady and the Unicorn: À mon seul désir**, Anonymous (c. 1500). Musée de Cluny. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:(Toulouse)_Mon_seul_d%C3%A9sir_(La_Dame_%C3%A0_la_licorne)_-_Mus%C3%A9e_de_Cluny_Paris.jpg
+- **The Lady and the Unicorn: Sight**, Anonymous (c. 1500). Musée de Cluny. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:(Toulouse)_Le_Vue_(La_Dame_%C3%A0_la_licorne)_-_Mus%C3%A9e_de_Cluny_Paris.jpg
+- **Portrait of a Young Woman in Red**, Fayum portrait (AD 90–120). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/547860
+- **Mona Lisa**, Leonardo da Vinci (c. 1503–19). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg
+- **Lady with an Ermine**, Leonardo da Vinci (1489–91). National Museum, Kraków. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Lady_with_an_Ermine_-_Leonardo_da_Vinci_-_Google_Art_Project.jpg
+- **Sistine Madonna**, Raphael (1512). Gemäldegalerie Alte Meister, Dresden. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Raphael_-_The_Sistine_Madonna_-_Google_Arts_%26_Culture.jpg
+- **The Annunciation**, Fra Angelico (1425–26). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:La_Anunciaci%C3%B3n,_by_Fra_Angelico,_from_Prado_in_Google_Earth.jpg
+- **Bacchus and Ariadne**, Titian (1520–23). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Titian_-_Bacchus_and_Ariadne_-_Google_Art_Project.jpg
+- **Saint George and the Dragon**, Paolo Uccello (c. 1470). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Saint_George_and_the_Dragon_by_Paolo_Uccello_(Paris)_01.jpg
+- **Vertumnus**, Giuseppe Arcimboldo (1591). Skokloster Castle. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Giuseppe_Arcimboldo_-_Rudolf_II_of_Habsburg_as_Vertumnus_-_Google_Art_Project.jpg
+- **Summer**, Giuseppe Arcimboldo (1563). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Giuseppe_Arcimboldo_-_Summer_-_Google_Art_Project.jpg
+- **Winter**, Giuseppe Arcimboldo (1563). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Arcimboldo_Winter_1563.jpg
+- **View of Toledo**, El Greco (c. 1599). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436575
+- **The Arnolfini Portrait**, Jan van Eyck (1434). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Van_Eyck_-_Arnolfini_Portrait.jpg
+- **Ghent Altarpiece: Adoration of the Mystic Lamb**, Hubert & Jan van Eyck (1432). St Bavo's Cathedral, Ghent. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Ghent_Altarpiece_D_-_Adoration_of_the_Lamb_2.jpg
+- **The Descent from the Cross**, Rogier van der Weyden (c. 1435). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:El_Descendimiento,_by_Rogier_van_der_Weyden,_from_Prado_in_Google_Earth.jpg
+- **The Garden of Earthly Delights**, Hieronymus Bosch (c. 1500). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:The_Garden_of_Earthly_Delights_by_Bosch_High_Resolution.jpg
+- **The Adoration of the Magi**, Hieronymus Bosch (c. 1475). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435724
+- **Young Hare**, Albrecht Dürer (1502). Albertina, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Hare,_1502_-_Google_Art_Project.jpg
+- **Self-Portrait at 28**, Albrecht Dürer (1500). Alte Pinakothek, Munich. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:20171017194217!D%C3%BCrer_-_Selbstbildnis_im_Pelzrock_-_Alte_Pinakothek.jpg
+- **The Rhinoceros**, Albrecht Dürer (1515). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/356497
+- **Melencolia I**, Albrecht Dürer (1514). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/360018
+- **Knight, Death and the Devil**, Albrecht Dürer (1513). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/336223
+- **The Ambassadors**, Hans Holbein the Younger (1533). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg
+- **The Hunters in the Snow**, Pieter Bruegel the Elder (1565). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Hunters_in_the_Snow_(Winter)_-_Google_Art_Project.jpg
+- **The Tower of Babel**, Pieter Bruegel the Elder (1563). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg
+- **The Harvesters**, Pieter Bruegel the Elder (1565). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435809
+- **Netherlandish Proverbs**, Pieter Bruegel the Elder (1559). Gemäldegalerie, Berlin. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Brueghel_the_Elder_-_The_Dutch_Proverbs_-_Google_Art_Project.jpg
+- **Children's Games**, Pieter Bruegel the Elder (1560). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Children%E2%80%99s_Games_-_Google_Art_Project.jpg
+- **The Peasant Wedding**, Pieter Bruegel the Elder (1567). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Peasant_Wedding_-_Google_Art_Project_2.jpg
+- **Landscape with the Fall of Icarus**, after Pieter Bruegel (c. 1560). Royal Museums of Fine Arts, Brussels. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_Landscape_with_the_Fall_of_Icarus_-_WGA03321.jpg
+- **The Fight Between Carnival and Lent**, Pieter Bruegel the Elder (1559). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Fight_between_Carnival_and_Lent_-_WGA3373.jpg
+- **The Musicians**, Caravaggio (1597). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435844
+- **The Fortune Teller**, Caravaggio (c. 1595). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:The_Fortune_Teller-Caravaggio_(Louvre).jpg
+- **Supper at Emmaus**, Caravaggio (1601). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:1602-3_Caravaggio,Supper_at_Emmaus_National_Gallery,_London.jpg
+- **Las Meninas**, Diego Velázquez (1656). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Las_Meninas_01.jpg
+- **Juan de Pareja**, Diego Velázquez (1650). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/437869
+- **The Rokeby Venus**, Diego Velázquez (1647–51). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Diego_Vel%C3%A1zquez_-_Rokeby_Venus.jpg
+- **The Garden of Love**, Peter Paul Rubens (c. 1633). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_-_Garden_of_Love_-_WGA20421.jpg
+- **Rubens, Helena Fourment and Their Son Frans**, Peter Paul Rubens (c. 1635). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/437532
+- **Et in Arcadia Ego**, Nicolas Poussin (1637–38). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Nicolas_Poussin_-_Et_in_Arcadia_ego_(deuxi%C3%A8me_version).jpg
+- **Seaport with the Embarkation of the Queen of Sheba**, Claude Lorrain (1648). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Claude_Lorrain_-_Seaport_with_the_Embarkation_of_the_Queen_of_Sheba_-_WGA05002.jpg
+- **The Return of the Prodigal Son**, Rembrandt (c. 1668). Hermitage. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Rembrandt_Harmensz_van_Rijn_-_Return_of_the_Prodigal_Son_-_Google_Art_Project.jpg
+- **The Penitent Magdalene**, Georges de La Tour (c. 1640). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436839
+- **The Night Watch**, Rembrandt (1642). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:The_Night_Watch_-_HD.jpg
+- **The Jewish Bride**, Rembrandt (c. 1665). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Rembrandt_-_The_Jewish_Bride_-_WGA19158.jpg
+- **Aristotle with a Bust of Homer**, Rembrandt (1653). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/437394
+- **Self-Portrait (1660)**, Rembrandt (1660). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/437397
+- **The Anatomy Lesson of Dr Nicolaes Tulp**, Rembrandt (1632). Mauritshuis. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Rembrandt_-_The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg
+- **Girl with a Pearl Earring**, Johannes Vermeer (c. 1665). Mauritshuis. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_(1632-1675)_-_The_Girl_With_The_Pearl_Earring_(1665).jpg
+- **View of Delft**, Johannes Vermeer (c. 1660). Mauritshuis. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_View_of_Delft_-_92_-_Mauritshuis.jpg
+- **The Milkmaid**, Johannes Vermeer (c. 1658). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.jpg
+- **The Little Street**, Johannes Vermeer (c. 1658). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Gezicht_op_huizen_in_Delft,_bekend_als_%27Het_straatje%27_-_Google_Art_Project.jpg
+- **Woman Reading a Letter**, Johannes Vermeer (c. 1663). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Woman_in_Blue_Reading_a_Letter_-_WGA24657.jpg
+- **Young Woman with a Water Pitcher**, Johannes Vermeer (c. 1662). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/437881
+- **The Art of Painting**, Johannes Vermeer (c. 1668). Kunsthistorisches Museum, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg
+- **The Goldfinch**, Carel Fabritius (1654). Mauritshuis. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Carel_Fabritius_-_The_Goldfinch_-_605_-_Mauritshuis.jpg
+- **The Laughing Cavalier**, Frans Hals (1624). Wallace Collection. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Frans_Hals_%E2%80%93_The_Laughing_Cavalier.jpg
+- **The Merry Drinker**, Frans Hals (c. 1629). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Frans_Hals_002.jpg
+- **Self-Portrait**, Judith Leyster (c. 1630). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Judith_Leyster_-_Self-Portrait_-_Google_Art_Project.jpg
+- **Winter Landscape with Ice Skaters**, Hendrick Avercamp (c. 1608). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Hendrick_Avercamp_-_Ice_Scene_-_785_-_Rijksmuseum.jpg
+- **The Threatened Swan**, Jan Asselijn (c. 1650). Rijksmuseum. CC0 (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:De_bedreigde_zwaan_Rijksmuseum_SK-A-4.jpeg
+- **The Merry Family**, Jan Steen (1668). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jan_Havicksz._Steen_-_Het_vrolijke_huisgezin_-_Google_Art_Project.jpg
+- **Still Life with Flowers in a Glass Vase**, Rachel Ruysch (c. 1690). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Rachel_Ruysch_-_Still_life_with_flowers_on_a_marble_tabletop.jpg
+- **Landscape in Brazil**, Frans Post (c. 1650). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Frans_Post_-_Brazilian_landscape_with_Manoah%27s_sacrifice.jpg
+- **The Windmill at Wijk bij Duurstede**, Jacob van Ruisdael (c. 1670). Rijksmuseum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:The_Windmill_at_Wijk_bij_Duurstede_1670_Ruisdael.jpg
+- **The Courtyard of a House in Delft**, Pieter de Hooch (1658). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pieter_de_Hooch_-_The_Courtyard_of_a_House_in_Delft.jpg
+- **The Swing**, Jean-Honoré Fragonard (1767). Wallace Collection. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Joean_Honor%C3%A9_Fragonard_-_The_Swing.jpg
+- **Pilgrimage to Cythera**, Antoine Watteau (1717). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:L%27Embarquement_pour_Cyth%C3%A8re,_by_Antoine_Watteau,_from_C2RMF_retouched.jpg
+- **Soap Bubbles**, Jean-Siméon Chardin (c. 1733). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435888
+- **Self-Portrait with Two Pupils**, Adélaïde Labille-Guiard (1785). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436840
+- **Madame Grand**, Élisabeth Vigée Le Brun (1783). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/437898
+- **Self-Portrait with Her Daughter**, Élisabeth Vigée Le Brun (1789). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Self-portrait_with_Her_Daughter_by_Elisabeth-Louise_Vig%C3%A9e_Le_Brun.jpg
+- **The Blue Boy**, Thomas Gainsborough (c. 1770). Huntington Library. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Thomas_Gainsborough_-_The_Blue_Boy_(1770).jpg
+- **Mr and Mrs Andrews**, Thomas Gainsborough (c. 1750). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Thomas_Gainsborough_-_Mr_and_Mrs_Andrews.jpg
+- **Whistlejacket**, George Stubbs (c. 1762). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Whistlejacket_by_George_Stubbs_edit.jpg
+- **An Experiment on a Bird in the Air Pump**, Joseph Wright of Derby (1768). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:An_Experiment_on_a_Bird_in_an_Air_Pump_by_Joseph_Wright_of_Derby,_1768.jpg
+- **Marriage A-la-Mode: The Marriage Settlement**, William Hogarth (c. 1743). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Marriage_A-la-Mode_1,_The_Marriage_Settlement_-_William_Hogarth.jpg
+- **Marriage A-la-Mode: The Tête à Tête**, William Hogarth (c. 1743). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Marriage_A-la-Mode_2,_The_T%C3%AAte_%C3%A0_T%C3%AAte_-_William_Hogarth.jpg
+- **Venice: The Grand Canal**, Canaletto (c. 1730). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/438100
+- **Campo Sant'Angelo, Venice**, Canaletto (c. 1730). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/438103
+- **Imaginary Prisons: The Drawbridge**, Giovanni Battista Piranesi (c. 1761). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/337060
+- **Watson and the Shark**, John Singleton Copley (1778). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_Singleton_Copley_-_Watson_and_the_Shark_-_Google_Art_Project.jpg
+- **The Death of Socrates**, Jacques-Louis David (1787). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436105
+- **The Death of Marat**, Jacques-Louis David (1793). Royal Museums of Fine Arts, Brussels. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Marat_assassinated_-_Google_Art_Project_2.jpg
+- **Napoleon Crossing the Alps**, Jacques-Louis David (1801). Château de Malmaison. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:David_-_Napoleon_crossing_the_Alps_-_Malmaison2.jpg
+- **Oath of the Horatii**, Jacques-Louis David (1784). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg
+- **Grande Odalisque**, Jean-Auguste-Dominique Ingres (1814). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jean_Auguste_Dominique_Ingres,_La_Grande_Odalisque,_1814.jpg
+- **Washington Crossing the Delaware**, Emanuel Leutze (1851). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/11417
+- **Liberty Leading the People**, Eugène Delacroix (1830). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:La_Libert%C3%A9_guidant_le_peuple_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_129_-_apr%C3%A8s_restauration_2024.jpg
+- **The Raft of the Medusa**, Théodore Géricault (1819). Louvre. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Th%C3%A9odore_G%C3%A9ricault_-_The_Raft_of_the_Medusa_-_WGA08630.jpg
+- **The Third of May 1808**, Francisco Goya (1814). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:El_Tres_de_Mayo,_by_Francisco_de_Goya,_from_Prado_thin_black_margin.jpg
+- **Saturn Devouring His Son**, Francisco Goya (c. 1820). Prado. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Francisco_de_Goya,_Saturno_devorando_a_su_hijo_(1819-1823).jpg
+- **The Sleep of Reason Produces Monsters**, Francisco Goya (1799). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/338473
+- **Wanderer above the Sea of Fog**, Caspar David Friedrich (c. 1818). Hamburger Kunsthalle. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg
+- **Two Men Contemplating the Moon**, Caspar David Friedrich (c. 1825). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/438417
+- **The Sea of Ice**, Caspar David Friedrich (1824). Hamburger Kunsthalle. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Das_Eismeer_-_Hamburger_Kunsthalle_-_02.jpg
+- **Chalk Cliffs on Rügen**, Caspar David Friedrich (c. 1818). Kunstmuseum Winterthur. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Kreidefelsen_auf_R%C3%BCgen_(Caspar_David_Friedrich)-WUS03299.jpg
+- **The Hay Wain**, John Constable (1821). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_Constable_-_The_Hay_Wain_(1821).jpg
+- **The Fighting Temeraire**, J. M. W. Turner (1839). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Turner,_J._M._W._-_The_Fighting_T%C3%A9m%C3%A9raire_tugged_to_her_last_Berth_to_be_broken.jpg
+- **Rain, Steam and Speed**, J. M. W. Turner (1844). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:J._M._W._Turner_-_Rain,_Steam_and_Speed_%E2%80%93_The_Great_Western_Railway.jpg
+- **The Nightmare**, Henry Fuseli (1781). Detroit Institute of Arts. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_Henry_Fuseli_-_The_Nightmare.JPG
+- **Newton**, William Blake (1795). Tate. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Newton_by_W.Blake_(Tate).tif
+- **The Ninth Wave**, Ivan Aivazovsky (1850). Russian Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg
+- **The Oxbow**, Thomas Cole (1836). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/10497
+- **Among the Sierra Nevada, California**, Albert Bierstadt (1868). Smithsonian American Art Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Albert_Bierstadt_-_Among_the_Sierra_Nevada,_California_-_Google_Art_Project.jpg
+- **The Gleaners**, Jean-François Millet (1857). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_Gleaners_-_Google_Art_Project_2.jpg
+- **The Angelus**, Jean-François Millet (1859). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_The_Angelus_-_Google_Art_Project.jpg
+- **The Third-Class Carriage**, Honoré Daumier (c. 1863). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436095
+- **Woman with a Parrot**, Gustave Courbet (1866). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436002
+- **The Desperate Man**, Gustave Courbet (c. 1844). Private collection. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_Le_D%C3%A9sesp%C3%A9r%C3%A9_(1843).jpg
+- **The Horse Fair**, Rosa Bonheur (1852–55). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435702
+- **Ophelia**, John Everett Millais (1851–52). Tate. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg
+- **The Lady of Shalott**, John William Waterhouse (1888). Tate. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_William_Waterhouse_-_The_Lady_of_Shalott_-_Google_Art_Project_edit.jpg
+- **Whistler's Mother**, James McNeill Whistler (1871). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Whistlers_Mother_high_res.jpg
+- **Madame X**, John Singer Sargent (1884). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/12127
+- **Carnation, Lily, Lily, Rose**, John Singer Sargent (1885–86). Tate. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_Singer_Sargent_-_Carnation,_Lily,_Lily,_Rose_-_Google_Art_Project.jpg
+- **The Gulf Stream**, Winslow Homer (1899). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/11122
+- **Snap the Whip**, Winslow Homer (1872). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/11140
+- **Max Schmitt in a Single Scull**, Thomas Eakins (1871). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/10819
+- **Barge Haulers on the Volga**, Ilya Repin (1870–73). Russian Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Ilia_Efimovich_Repin_(1844-1930)_-_Volga_Boatmen_(1870-1873).jpg
+- **Reply of the Zaporozhian Cossacks**, Ilya Repin (1880–91). Russian Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Ilja_Jefimowitsch_Repin_-_Reply_of_the_Zaporozhian_Cossacks_-_Yorck.jpg
+- **Interior in Strandgade, Sunlight on the Floor**, Vilhelm Hammershøi (1901). SMK. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vilhelm_Hammersh%C3%B8i_-_A_Room_in_the_Artist%27s_Home_in_Strandgade,_Copenhagen,_with_the_Artist%27s_Wife_-_Google_Art_Project.jpg
+- **Summer Evening on Skagen's Southern Beach**, P. S. Krøyer (1893). Skagens Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Peder_Severin_Kr%C3%B8yer_-_Summer_evening_at_the_South_Beach,_Skagen._Anna_Acher_and_Marie_Kr%C3%B8yer_-_Google_Art_Project.jpg
+- **The Boyhood of Raleigh**, John Everett Millais (1870). Tate. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:John_Everett_Millais_(1829-1896)_-_The_Boyhood_of_Raleigh_-_N01691_-_National_Gallery.jpg
+- **Impression, Sunrise**, Claude Monet (1872). Musée Marmottan Monet. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg
+- **Woman with a Parasol**, Claude Monet (1875). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Woman_with_a_Parasol_-_Madame_Monet_and_Her_Son_-_Google_Art_Project.jpg
+- **Bridge over a Pond of Water Lilies**, Claude Monet (1899). The Met. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Bridge_Over_a_Pond_of_Water_Lilies,_Claude_Monet_1899.jpg
+- **Water Lilies**, Claude Monet (1906). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/16568
+- **Stacks of Wheat (End of Summer)**, Claude Monet (1890–91). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/64818
+- **Rouen Cathedral, West Façade, Sunlight**, Claude Monet (1894). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Rouen_Cathedral,_West_Fa%C3%A7ade,_Sunlight_-_Google_Art_Project.jpg
+- **Garden at Sainte-Adresse**, Claude Monet (1867). The Met (image via Commons). Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Jardin_%C3%A0_Sainte-Adresse.jpg
+- **Arrival of the Normandy Train, Gare Saint-Lazare**, Claude Monet (1877). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/16571
+- **The Houses of Parliament, Sunset**, Claude Monet (1903). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Houses_of_Parliament,_Sunset.jpg
+- **Luncheon on the Grass**, Édouard Manet (1863). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Edouard_Manet_-_Luncheon_on_the_Grass_-_Google_Art_Project.jpg
+- **Olympia**, Édouard Manet (1863). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Edouard_Manet_-_Olympia_-_Google_Art_ProjectFXD.jpg
+- **A Bar at the Folies-Bergère**, Édouard Manet (1882). Courtauld Gallery. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:%22Un_Bar_aux_Folies-Berg%C3%A8re%22_by_%C3%89douard_Manet_(1882).jpg
+- **Boating**, Édouard Manet (1874). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436947
+- **Bal du moulin de la Galette**, Pierre-Auguste Renoir (1876). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Google_Art_Project.jpg
+- **Luncheon of the Boating Party**, Pierre-Auguste Renoir (1881). Phillips Collection. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg
+- **Two Sisters (On the Terrace)**, Pierre-Auguste Renoir (1881). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/14655
+- **The Dance Class**, Edgar Degas (1874). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/438817
+- **L'Absinthe**, Edgar Degas (1876). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Edgar_Degas_-_In_a_Caf%C3%A9_-_Google_Art_Project_2.jpg
+- **The Child's Bath**, Mary Cassatt (1893). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/111442
+- **The Boating Party**, Mary Cassatt (1893–94). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Mary_Cassatt_-_The_Boating_Party_-_Google_Art_Project.jpg
+- **Paris Street; Rainy Day**, Gustave Caillebotte (1877). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/20684
+- **The Floor Scrapers**, Gustave Caillebotte (1875). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Gustave_Caillebotte_-_The_Floor_Planers_-_Google_Art_Project.jpg
+- **The Cradle**, Berthe Morisot (1872). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Berthe_Morisot_-_The_Cradle_-_Google_Art_Project.jpg
+- **Boulevard Montmartre at Night**, Camille Pissarro (1897). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Camille_Pissarro,_The_Boulevard_Montmartre_at_Night,_1897.jpg
+- **The Starry Night**, Vincent van Gogh (1889). MoMA. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
+- **Sunflowers**, Vincent van Gogh (1888). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_127.jpg
+- **Café Terrace at Night**, Vincent van Gogh (1888). Kröller-Müller Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_-_Cafe_Terrace_at_Night_(Yorck).jpg
+- **The Bedroom**, Vincent van Gogh (1889). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/28560
+- **Wheat Field with Cypresses**, Vincent van Gogh (1889). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436535
+- **Self-Portrait with a Straw Hat**, Vincent van Gogh (1887). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436532
+- **Irises**, Vincent van Gogh (1889). Getty Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Irises_(1889).jpg
+- **Almond Blossoms**, Vincent van Gogh (1890). Van Gogh Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg
+- **The Potato Eaters**, Vincent van Gogh (1885). Van Gogh Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_potato_eaters_-_Google_Art_Project.jpg
+- **The Night Café**, Vincent van Gogh (1888). Yale University Art Gallery. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Le_caf%C3%A9_de_nuit_(The_Night_Caf%C3%A9)_by_Vincent_van_Gogh.jpeg
+- **Starry Night over the Rhône**, Vincent van Gogh (1888). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
+- **A Sunday on La Grande Jatte**, Georges Seurat (1884–86). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/27992
+- **Bathers at Asnières**, Georges Seurat (1884). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Baigneurs_a_Asnieres.jpg
+- **The Card Players**, Paul Cézanne (1890–92). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435868
+- **Mont Sainte-Victoire**, Paul Cézanne (c. 1902). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435878
+- **Still Life with Apples and a Pot of Primroses**, Paul Cézanne (c. 1890). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/435882
+- **Ia Orana Maria (Hail Mary)**, Paul Gauguin (1891). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/337168
+- **Where Do We Come From? What Are We? Where Are We Going?**, Paul Gauguin (1897–98). Museum of Fine Arts, Boston. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Gauguin_-_Where_Do_We_Come_From%3F_What_Are_We%3F_Where_Are_We_Going%3F_(1897-98).jpg
+- **Vision after the Sermon**, Paul Gauguin (1888). National Galleries Scotland. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:La_vision_apr%C3%A8s_le_sermon_(Paul_Gauguin).jpg
+- **At the Moulin Rouge**, Henri de Toulouse-Lautrec (1892–95). Art Institute of Chicago. CC0 (Art Institute of Chicago). https://www.artic.edu/artworks/61128
+- **Moulin Rouge: La Goulue**, Henri de Toulouse-Lautrec (1891). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/333990
+- **The Sleeping Gypsy**, Henri Rousseau (1897). MoMA. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:La_Boh%C3%A9mienne_endormie.jpg
+- **Tiger in a Tropical Storm (Surprised!)**, Henri Rousseau (1891). National Gallery, London. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Surprised-Rousseau.jpg
+- **The Dream**, Henri Rousseau (1910). MoMA. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Henri_Rousseau_-_Le_R%C3%AAve_-_Google_Art_Project.jpg
+- **The Scream**, Edvard Munch (1893). National Museum, Oslo. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg
+- **The Sick Child**, Edvard Munch (1907). Tate. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_The_sick_child_(1907)_-_Tate_Modern.jpg
+- **The Kiss**, Gustav Klimt (1907–08). Belvedere, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg
+- **Portrait of Adele Bloch-Bauer I**, Gustav Klimt (1907). Neue Galerie, New York. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Gustav_Klimt_046.jpg
+- **The Tree of Life**, Gustav Klimt (1909). MAK, Vienna. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Klimt_-_Nine_Cartoons_for_the_Stoclet_Frieze-_Part_4,_Part_of_the_tree_of_life_(1910-11).jpg
+- **Mäda Primavesi**, Gustav Klimt (1912–13). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/436819
+- **Self-Portrait with Physalis**, Egon Schiele (1912). Leopold Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Egon_Schiele_-_Self-Portrait_with_Physalis_-_Google_Art_Project.jpg
+- **The Seasons**, Alphonse Mucha (1896). various. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Four_Seasons_by_Alfons_Mucha,_circa_1896.jpg
+- **Zodiac**, Alphonse Mucha (1896). various. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Alphonse_Mucha_-_Zodiac,_1869.jpg
+- **Job**, Alphonse Mucha (1896). various. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Alphonse_Mucha_-_Advertisment_for_Job_cigarettes,_1896.jpg
+- **The Apparition**, Gustave Moreau (1876). Musée Gustave Moreau. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Gustave_Moreau_-_The_Apparition_-_Google_Art_Project.jpg
+- **The Ten Largest, No. 7: Adulthood**, Hilma af Klint (1907). Hilma af Klint Foundation. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_%E2%80%94_The_Ten_Largest_%E2%80%94_Number_7_Adulthood.jpg
+- **Hope II**, Gustav Klimt (1907–08). MoMA. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Hope,_II_-_Google_Art_Project.jpg
+- **Dance**, Henri Matisse (1910). Hermitage. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Henri_Matisse_-_Dance_1910.jpg
+- **The Joy of Life**, Henri Matisse (1905–06). Barnes Foundation. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:La_Joie_de_vivre,_par_Henri_Matisse.jpg
+- **Woman with a Hat**, Henri Matisse (1905). SFMOMA. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Matisse-Woman-with-a-Hat.jpg
+- **Composition VII**, Wassily Kandinsky (1913). Tretyakov Gallery. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Composition_VII_-_Wassily_Kandinsky,_GAC.jpg
+- **Several Circles**, Wassily Kandinsky (1926). Guggenheim. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Vassily_Kandinsky,_1926_-_Several_Circles,_Gugg_0910_25.jpg
+- **Composition with Red, Blue and Yellow**, Piet Mondrian (1930). Kunsthaus Zürich. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg
+- **Black Square**, Kazimir Malevich (1915). Tretyakov Gallery. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Kazimir_Malevich,_1915,_Black_Suprematic_Square,_oil_on_linen_canvas,_79.5_x_79.5_cm,_Tretyakov_Gallery,_Moscow.jpg
+- **The Large Blue Horses**, Franz Marc (1911). Walker Art Center. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Large_Blue_Horses.jpg
+- **The Fate of the Animals**, Franz Marc (1913). Kunstmuseum Basel. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Franz_Marc-The_fate_of_the_animals-1913.jpg
+- **Twittering Machine**, Paul Klee (1922). MoMA. CC0 (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Paul-klee-twittering-machine-1.jpg
+- **Jeanne Hébuterne**, Amedeo Modigliani (1919). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/488903
+- **The City Rises**, Umberto Boccioni (1910). MoMA. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:The_City_Rises_by_Umberto_Boccioni_1910.jpg
+- **The Great Wave off Kanagawa**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/39799
+- **Fine Wind, Clear Morning (Red Fuji)**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/36490
+- **Thunderstorm Beneath the Summit**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/36492
+- **Kajikazawa in Kai Province**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/56727
+- **Ejiri in Suruga Province**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/55735
+- **Mishima Pass in Kai Province**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/56346
+- **Fuji from Kanaya on the Tōkaidō**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/56365
+- **Lake Suwa in Shinano Province**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/56240
+- **Umezawa in Sagami Province**, Katsushika Hokusai (c. 1831). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/36501
+- **Amida Falls in the Far Reaches of the Kisokaidō**, Katsushika Hokusai (c. 1834). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/55022
+- **Sudden Shower over Shin-Ōhashi Bridge**, Utagawa Hiroshige (1857). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/55433
+- **Plum Park in Kameido**, Utagawa Hiroshige (1857). The Met. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Plum_garden_at_Kameido_(Kameido_umeyashiki)_(CBL_J_2693).jpg
+- **Inside Kameido Tenjin Shrine**, Utagawa Hiroshige (1856). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/53659
+- **Fukagawa Susaki and Jūmantsubo**, Utagawa Hiroshige (1857). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/55733
+- **Fireworks at Ryōgoku**, Utagawa Hiroshige (1858). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/37093
+- **Horikiri Iris Garden**, Utagawa Hiroshige (1857). The Met. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Utagawa_Hiroshige_I,_published_by_Uoya_Eikichi_-_Horikiri_Iris_Garden_(Horikiri_no_hanash%C5%8Dbu),_from_the_series_One_Hundred_Famous_Views_of_Edo_(Meish..._-_Google_Art_Project.jpg
+- **Night View of Saruwaka-machi**, Utagawa Hiroshige (1856). The Met. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Saruwaka-machi_yoru_no_kei_LCCN2008660961.jpg
+- **Kinryūzan Temple at Asakusa**, Utagawa Hiroshige (1856). The Met. CC0 (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:%E5%90%8D%E6%89%80%E6%B1%9F%E6%88%B8%E7%99%BE%E6%99%AF_%E6%B5%85%E8%8D%89_%E9%87%91%E9%BE%8D%E5%B1%B1-The_Kinryusan_Temple_at_Asakusa_MET_DP122116.jpg
+- **Moon-Viewing Point**, Utagawa Hiroshige (1857). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/55095
+- **Nihonbashi: Morning View**, Utagawa Hiroshige (1833–34). The Met. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Hiroshige-53-Stations-Hoeido-01-Nihonbashi-MFA-02.jpg
+- **Shōno: Driving Rain**, Utagawa Hiroshige (1833–34). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/36521
+- **Kambara: Night Snow**, Utagawa Hiroshige (1833–34). The Met. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Night_Snow_at_Kambara_(Kambara_Yoru_no_Yuki),_Station_15,_from_the_Fifty-Three_Stations_of_the_Tokaido_(Tokaido_Gojusantsugi_no_Uchi)_(Hoeido),_by_Utagawa_(And%C5%8D)_Hiroshige,_1832-1834,_Hood_Museum_-_PR.972.63.16.tif
+- **Mishima: Morning Mist**, Utagawa Hiroshige (1833–34). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/36520
+- **Hakone: Lake**, Utagawa Hiroshige (1833–34). The Met. CC0 (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Ando_Hiroshige_-_Picture_of_the_Lake_at_Hakone_(from_the_series_53_Stations_of_the_Tokaido)_-_1940.982_-_Cleveland_Museum_of_Art.tif
+- **Kameyama: Clear Weather after Snow**, Utagawa Hiroshige (1833–34). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/57045
+- **Hara: Mount Fuji in the Morning**, Utagawa Hiroshige (1833–34). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/36935
+- **Three Beauties of the Present Day**, Kitagawa Utamaro (c. 1793). various. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Kitagawa_Utamaro_-_Toji_san_bijin_(Three_Beauties_of_the_Present_Day)From_Bijin-ga_(Pictures_of_Beautiful_Women),_published_by_Tsutaya_Juzaburo_-_Google_Art_Project.jpg
+- **Takiyasha the Witch and the Skeleton Spectre**, Utagawa Kuniyoshi (c. 1844). various. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Takiyasha_the_Witch_and_the_Skeleton_Spectre,_by_Utagawa_Kuniyoshi.jpg
+- **Night-Shining White**, Han Gan (c. 750). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/39901
+- **Early Spring**, Guo Xi (1072). National Palace Museum, Taipei. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Guo_Xi_-_Early_Spring_(large).jpg
+- **The Feast of Sada**, attributed to Sultan Muhammad (c. 1525). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/452111
+- **A Hamzanama Folio**, Mughal court artists (c. 1570). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/825584
+- **Shah Jahan with His Son Dara Shikoh**, Nanha (c. 1620). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/451283
+- **Independence or Death!**, Pedro Américo (1888). Museu Paulista. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_Google_Art_Project.jpg
+- **The First Mass in Brazil**, Victor Meirelles (1860). Museu Nacional de Belas Artes. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Pintura_sobre_a_primeira_missa_no_Brasil.jpg
+- **Caipira Picando Fumo**, Almeida Júnior (1893). Pinacoteca de São Paulo. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Almeida_J%C3%BAnior_-_Caipira_Cutting_Tobacco_-_Google_Art_Project.jpg
+- **The Valley of Mexico**, José María Velasco (1875). MUNAL. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Jos%C3%A9_Mar%C3%ADa_Velasco_-_The_Valley_of_Mexico_from_the_Santa_Isabel_Mountain_Range_-_Google_Art_Project.jpg
+- **Heart of the Andes**, Frederic Edwin Church (1859). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/10481
+- **The Grand Canyon of the Yellowstone**, Thomas Moran (1872). Smithsonian American Art Museum. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Thomas_Moran_-_Grand_Canyon_of_the_Yellowstone_-_Smithsonian.jpg
+- **Niagara**, Frederic Edwin Church (1857). National Gallery of Art. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Frederic_Edwin_Church_-_Niagara_Falls_-_WGA04867.jpg
+- **Fur Traders Descending the Missouri**, George Caleb Bingham (1845). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/10159
+- **The Unicorn Purifies Water**, Unicorn Tapestries (1495–1505). The Met Cloisters. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/467638
+- **The Unicorn Crosses a Stream**, Unicorn Tapestries (1495–1505). The Met Cloisters. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/467639
+- **The Hunters Return to the Castle**, Unicorn Tapestries (1495–1505). The Met Cloisters. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/467641
+- **Menna and Family Hunting in the Marshes**, Nina de Garis Davies (copy of a tomb painting) (orig. c. 1400 BC). The Met. CC0 (The Met Open Access). https://www.metmuseum.org/art/collection/search/548437
+- **Still Life with Cheeses, Almonds and Pretzels**, Clara Peeters (c. 1615). Mauritshuis. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Clara_Peeters_-_Still_Life_with_Cheeses,_Almonds_and_Pretzels.jpg
+- **Isle of the Dead**, Arnold Böcklin (1880). Kunstmuseum Basel. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Arnold_B%C3%B6cklin_-_Die_Toteninsel_I_(Basel,_Kunstmuseum).jpg
+- **Boat in the Flood at Port-Marly**, Alfred Sisley (1876). Musée d'Orsay. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Alfred_Sisley_-_Boat_in_the_Flood_at_Port_Marly_-_Google_Art_Project.jpg
+- **Along the River During the Qingming Festival (Qing court version)**, Chen Mei and others, after Zhang Zeduan (1736). National Palace Museum, Taipei. Public domain (Wikimedia Commons). https://commons.wikimedia.org/wiki/File:Along_the_River_During_the_Qingming_Festival_(Qing_Court_Version).jpg

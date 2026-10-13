@@ -1,0 +1,29 @@
+{
+  "name": "behind-the-words",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Behind the Words: Art Puzzles. Find words, reveal the art.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "levels:generate": "node scripts/generate-levels.ts",
+    "art:resolve": "node scripts/resolve.mjs",
+    "art:download": "node scripts/download.mjs",
+    "art:sheet": "node scripts/contact-sheet.mjs",
+    "deploy": "node scripts/deploy-pages.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  },
+  "dependencies": {
+    "@fontsource/fredoka": "^5.3.0",
+    "@fontsource/nunito": "^5.3.0"
+  }
+}

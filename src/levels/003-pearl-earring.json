@@ -1,0 +1,59 @@
+{
+  "id": "pearl-earring",
+  "room": "icons",
+  "rows": 8,
+  "cols": 6,
+  "grid": [
+    "LEZTEE",
+    "RAAGKA",
+    "WEPACR",
+    "OLTJGR",
+    "ELURNI",
+    "YRABRE",
+    "LANULD",
+    "LOCOHS"
+  ],
+  "words": [
+    {
+      "text": "PEARL",
+      "path": [14, 13, 7, 6, 0]
+    },
+    {
+      "text": "EARRING",
+      "path": [5, 11, 17, 23, 29, 28, 22]
+    },
+    {
+      "text": "TURBAN",
+      "path": [20, 26, 27, 33, 32, 38]
+    },
+    {
+      "text": "GAZE",
+      "path": [9, 8, 2, 1]
+    },
+    {
+      "text": "COLLAR",
+      "path": [44, 43, 42, 36, 37, 31]
+    },
+    {
+      "text": "SHOULDER",
+      "path": [47, 46, 45, 39, 40, 41, 35, 34]
+    },
+    {
+      "text": "YELLOW",
+      "path": [30, 24, 25, 19, 18, 12]
+    },
+    {
+      "text": "JACKET",
+      "path": [21, 15, 16, 10, 4, 3]
+    }
+  ],
+  "art": {
+    "slug": "girl-with-a-pearl-earring-vermeer",
+    "title": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "year": "c. 1665",
+    "holder": "Mauritshuis, The Hague",
+    "credit": "Public domain · image via Wikimedia Commons",
+    "story": "A girl turns to look over her shoulder, lips parted, as if we had just called her name. Nobody knows who she was. Vermeer did not paint a portrait but a \"tronie\", a study of a face and an exotic costume: a blue and yellow turban, a plain white collar, and a pearl far too large to be real, probably glass, made with two quick touches of white paint. Vermeer worked slowly in Delft and left only about 35 paintings."
+  }
+}

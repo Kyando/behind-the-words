@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "behind-the-words",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "5191", "--strictPort"],
+      "port": 5191
+    },
+    {
+      "name": "art-review",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/serve.mjs", "5190"],
+      "port": 5190
+    }
+  ]
+}
