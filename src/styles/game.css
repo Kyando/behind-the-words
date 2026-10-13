@@ -248,8 +248,8 @@ button { font: inherit; color: inherit; }
 .room-banner.is-locked .room-gate { background: rgb(43 35 80 / 0.07); }
 .room-banner.is-locked .room-gate span { color: var(--gold-text); }
 
-/* Each room is one screen: its banner at the foot, its paintings laid out above on a 4-column
-   field (--c, and --r from 0 at the foot to 1 at the top), so a whole room is seen at once. */
+/* Each room is one screen: its banner at the foot, its paintings above along a winding curve
+   (--x across and --r up, both 0 to 1), so a whole room is seen at once. */
 .room { min-height: max(560px, calc(100dvh - 70px - var(--safe-top))); }
 
 .trail-nodes {
@@ -262,7 +262,7 @@ button { font: inherit; color: inherit; }
 
 .node-slot {
   position: absolute;
-  left: calc((var(--c) + 0.5) * 25%);
+  left: calc(46px + var(--x) * (100% - 92px));
   bottom: calc(62px + var(--r) * (100% - 140px));
   transform: translate(-50%, 50%);
 }

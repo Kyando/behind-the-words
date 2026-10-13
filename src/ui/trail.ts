@@ -21,33 +21,46 @@ export interface TrailOptions {
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
 /**
- * How a room's paintings are laid out: cells of a 4-column, 7-row field (row 0 at the room's foot),
- * each one a straight step across or up from the one before, like a word bending on the board.
- * Each room starts at the bottom and leaves from the top row, into the next room above.
+ * Where a painting sits in its room: x across (0 to 1) and r up from the foot (0 to 1).
+ * Each room's paintings follow a winding curve that sweeps across the whole screen as it climbs,
+ * evenly spaced along it, so the room fills its screen without crowding anywhere.
  */
-type Cell = readonly [col: number, row: number];
-const FIELD_ROWS = 6;
-const PATTERNS: readonly (readonly Cell[])[] = [
-  // Snake: across the foot, up, back, and up the middle in shorter steps.
-  [[0, 0], [1, 0], [2, 0], [3, 0], [3, 2], [2, 2], [1, 2], [1, 4], [2, 4], [2, 6]],
-  // Stairs climbing to the right, then back along the top.
-  [[0, 0], [0, 1], [1, 1], [1, 3], [2, 3], [2, 4], [3, 4], [3, 6], [2, 6], [1, 6]],
-  // A hook: along the foot, up the left side, across and up again.
-  [[3, 0], [2, 0], [1, 0], [0, 0], [0, 2], [0, 4], [1, 4], [2, 4], [2, 6], [3, 6]],
-  // A step to the right, a long bar back left, up the side and out along the top.
-  [[2, 0], [3, 0], [3, 2], [2, 2], [1, 2], [0, 2], [0, 4], [0, 6], [1, 6], [2, 6]],
-];
+type Spot = readonly [x: number, r: number];
 
-/** The layout for a room of count paintings: its pattern, or a plain snake when the count differs. */
-function layout(room: number, count: number): readonly Cell[] {
-  const pattern = PATTERNS[room % PATTERNS.length];
-  if (pattern.length === count) return pattern;
-  const lines = Math.ceil(count / 4);
-  const step = lines > 1 ? FIELD_ROWS / (lines - 1) : 0;
-  return Array.from({ length: count }, (_, i) => {
-    const line = Math.floor(i / 4);
-    return [line % 2 ? 3 - (i % 4) : i % 4, line * step] as const;
-  });
+/** Each room's sweep: how many times it crosses the screen, where it starts, a second ripple. */
+const SWEEPS = [
+  { turns: 2.25, phase: -1.2, ripple: 0.03 },
+  { turns: 2.6, phase: 0.4, ripple: -0.04 },
+  { turns: 2.5, phase: 2.2, ripple: 0.03 },
+  { turns: 2.8, phase: 3.4, ripple: -0.03 },
+];
+/** The field's shape (width / height) the spacing is measured in: a phone screen's room. */
+const ASPECT = 0.62;
+
+function layout(room: number, count: number): Spot[] {
+  const { turns, phase, ripple } = SWEEPS[room % SWEEPS.length];
+  const at = (t: number): Spot => [
+    0.5 + 0.42 * Math.sin(2 * Math.PI * turns * t + phase) + ripple * Math.sin(2 * Math.PI * 2.3 * t + phase * 1.7),
+    t,
+  ];
+  // Each painting is the same straight-line distance from the one before (as seen on screen, not
+  // along the curve, which would bunch them where it turns): find the widest spacing that fits.
+  const steps = 800;
+  const curve = Array.from({ length: steps + 1 }, (_, i) => at(0.03 + (0.94 * i) / steps));
+  const apart = (p: Spot, q: Spot) => Math.hypot((p[0] - q[0]) * ASPECT, p[1] - q[1]);
+  const place = (gap: number): Spot[] => {
+    const spots = [curve[0]];
+    for (const p of curve) if (spots.length < count && apart(p, spots[spots.length - 1]) >= gap) spots.push(p);
+    return spots;
+  };
+  let lo = 0;
+  let hi = 1;
+  for (let k = 0; k < 30; k++) {
+    const mid = (lo + hi) / 2;
+    if (place(mid).length === count) lo = mid;
+    else hi = mid;
+  }
+  return place(lo);
 }
 
 /**
@@ -81,10 +94,10 @@ export class Trail {
       const open = opts.stars >= room.gate;
       const nodes = h('ol', { class: 'trail-nodes' });
       const count = Math.max(room.planned, levels.length);
-      const cells = layout(r, count);
+      const spots = layout(r, count);
       for (let i = 0; i < count; i++) {
         const level = levels[i];
-        nodes.append(this.node(level, open, level === next, cells[i], opts, room));
+        nodes.append(this.node(level, open, level === next, spots[i], opts, room));
       }
       path.append(h('section', { class: 'room', 'data-room': room.id }, this.banner(room, levels, open, opts), nodes));
     });
@@ -138,7 +151,7 @@ export class Trail {
     }, 260);
   }
 
-  /** From each node to the next, in trail order: straight within a room, a curve into the next room. */
+  /** The path through every node in trail order, as one winding curve. */
   private drawLine(path: HTMLElement, line: SVGSVGElement): void {
     const box = path.getBoundingClientRect();
     const nodes = [...path.querySelectorAll<HTMLElement>('.node')];
@@ -148,12 +161,14 @@ export class Trail {
     });
     line.setAttribute('width', String(box.width));
     line.setAttribute('height', String(box.height));
+    // One smooth curve through all the nodes (Catmull-Rom as Béziers), solid where walked.
     const segments = { walked: '', ahead: '' };
+    const pt = (i: number) => points[Math.max(0, Math.min(points.length - 1, i))];
     for (let i = 1; i < points.length; i++) {
-      const a = points[i - 1];
-      const b = points[i];
-      const bend = (a.y - b.y) / 2;
-      segments[b.ahead ? 'ahead' : 'walked'] += `M${a.x},${a.y} C${a.x},${a.y - bend} ${b.x},${b.y + bend} ${b.x},${b.y} `;
+      const [p0, p1, p2, p3] = [pt(i - 2), pt(i - 1), pt(i), pt(i + 1)];
+      const c1 = { x: p1.x + (p2.x - p0.x) / 6, y: p1.y + (p2.y - p0.y) / 6 };
+      const c2 = { x: p2.x - (p3.x - p1.x) / 6, y: p2.y - (p3.y - p1.y) / 6 };
+      segments[p2.ahead ? 'ahead' : 'walked'] += `M${p1.x},${p1.y} C${c1.x},${c1.y} ${c2.x},${c2.y} ${p2.x},${p2.y} `;
     }
     line.replaceChildren(
       ...Object.entries(segments).map(([kind, d]) => {
@@ -178,9 +193,9 @@ export class Trail {
     );
   }
 
-  /** A painting at its cell of the room's field. */
-  private node(level: LevelDef | undefined, open: boolean, isNext: boolean, [col, row]: Cell, opts: TrailOptions, room: Room): HTMLElement {
-    const style = `--c: ${col}; --r: ${row / FIELD_ROWS}; --room: ${room.color}; --room-edge: ${room.edge}`;
+  /** A painting at its spot in the room. */
+  private node(level: LevelDef | undefined, open: boolean, isNext: boolean, [x, r]: Spot, opts: TrailOptions, room: Room): HTMLElement {
+    const style = `--x: ${x.toFixed(3)}; --r: ${r.toFixed(3)}; --room: ${room.color}; --room-edge: ${room.edge}`;
     if (!level || !open) {
       return h('li', { class: 'node-slot', 'data-room': room.id, style }, h('span', { class: 'node is-locked', 'aria-label': level ? 'Locked painting' : 'Coming soon' }, svg(ICONS.lock)));
     }
