@@ -5,7 +5,7 @@ import './styles/theme-desk.css';
 import { App } from './ui/app.ts';
 
 // Palette preview: ?theme=gallery|starry|lilies|woodblock|terracotta|mix (see themes.css).
-const theme = new URLSearchParams(location.search).get('theme');
+const theme = new URLSearchParams(location.search).get('theme') ?? 'lttl';
 if (theme) {
   document.documentElement.dataset.theme = theme;
   // The hand-drawn wobble some palettes put on their outlines (filter: url(#wobble)).

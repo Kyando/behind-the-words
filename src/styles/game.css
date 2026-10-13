@@ -183,6 +183,14 @@ button { font: inherit; color: inherit; }
 
 /* The trail climbs: each room's banner at its foot, its paintings rising above it. */
 .trail-path, .room { display: flex; flex-direction: column-reverse; }
+.trail-path { position: relative; }
+.room-banner { position: relative; z-index: 1; }
+.node-slot { z-index: 1; }
+
+/* The path walked from painting to painting, drawn under the nodes. */
+.trail-line { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.trail-line path { fill: none; stroke: var(--trail-ink, rgb(43 35 80 / 0.16)); stroke-width: 5px; stroke-linecap: round; }
+.trail-line .is-ahead { stroke-width: 4px; stroke-dasharray: 0.5 13; }
 
 .room-banner {
   display: flex;

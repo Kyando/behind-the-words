@@ -8,5 +8,7 @@ import '@fontsource/fredoka/latin-700.css';
 import '@fontsource/nunito/latin-600.css';
 import '@fontsource/nunito/latin-700.css';
 import '@fontsource/nunito/latin-800.css';
-// Palette preview only (the hand-drawn style in themes.css).
-import '@fontsource/patrick-hand/latin-400.css';
+// Mali: the hand-drawn face of the Tidy desk style (theme-desk.css).
+import '@fontsource/mali/latin-500.css';
+import '@fontsource/mali/latin-600.css';
+import '@fontsource/mali/latin-700.css';

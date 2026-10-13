@@ -13,6 +13,8 @@ export interface TrailOptions {
   justDone?: string;
 }
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
 /** How far each node sits from the centre line, in node widths: the path winds left and right. */
 const WIND = [0, 0.55, 0.85, 0.55, 0, -0.55, -0.85, -0.55];
 
@@ -52,12 +54,46 @@ export class Trail {
     }
     this.el = h('main', { class: 'screen trail' }, top, h('div', { class: 'trail-scroll' }, path));
 
+    // The path drawn from node to node: solid up to the next painting, dotted beyond.
+    const line = document.createElementNS(SVG_NS, 'svg');
+    line.classList.add('trail-line');
+    line.setAttribute('aria-hidden', 'true');
+    path.prepend(line);
+    new ResizeObserver(() => this.drawLine(path, line)).observe(path);
+
     // Bring the next painting into view.
     requestAnimationFrame(() => {
       const target = this.el.querySelector<HTMLElement>(opts.justDone ? `[data-id="${opts.justDone}"]` : '.node.is-next') ?? this.el.querySelector<HTMLElement>('.node.is-next');
       target?.scrollIntoView({ block: 'center' });
       if (opts.justDone) this.el.querySelector(`[data-id="${opts.justDone}"]`)?.classList.add('is-new');
     });
+  }
+
+  /** Curves from each node to the one above it, in trail order. */
+  private drawLine(path: HTMLElement, line: SVGSVGElement): void {
+    const box = path.getBoundingClientRect();
+    const nodes = [...path.querySelectorAll<HTMLElement>('.node')];
+    const points = nodes.map((n) => {
+      const r = n.getBoundingClientRect();
+      return { x: r.left + r.width / 2 - box.left, y: r.top + r.height / 2 - box.top, ahead: n.classList.contains('is-locked') };
+    });
+    line.setAttribute('width', String(box.width));
+    line.setAttribute('height', String(box.height));
+    const segments = { walked: '', ahead: '' };
+    for (let i = 1; i < points.length; i++) {
+      const a = points[i - 1];
+      const b = points[i];
+      const bend = (a.y - b.y) / 2;
+      segments[b.ahead ? 'ahead' : 'walked'] += `M${a.x},${a.y} C${a.x},${a.y - bend} ${b.x},${b.y + bend} ${b.x},${b.y} `;
+    }
+    line.replaceChildren(
+      ...Object.entries(segments).map(([kind, d]) => {
+        const p = document.createElementNS(SVG_NS, 'path');
+        p.setAttribute('class', `is-${kind}`);
+        p.setAttribute('d', d);
+        return p;
+      }),
+    );
   }
 
   private banner(room: Room, levels: LevelDef[], open: boolean, opts: TrailOptions): HTMLElement {

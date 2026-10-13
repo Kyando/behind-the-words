@@ -13,7 +13,7 @@ npm test                  # every level is a valid board with its painting
 Four levels in Room 1 (Starry Night, Great Wave, Girl with a Pearl Earring, Hiroshige's Sudden Shower).
 - **Screens:** the trail (`src/ui/trail.ts`) → a level (`src/ui/level-view.ts`) → the restored painting with its label and story (`src/ui/story.ts`).
 - **Engine from Twice Told Tales:** grid, steering, generator, session, sounds. The reveal paints each word's piece in full colour (`src/ui/pieces.ts`).
-- **Look:** a museum at night (`src/styles/game.css`). Chunky pressable buttons and nodes, Fredoka and Nunito, gold for the art.
+- **Look:** Tidy desk (`src/styles/theme-desk.css`, after A Little to the Left): cream paper, muted pastels, wobbly brown outlines, flat shadows, the board as a tray and taped prints, all in Mali. Other palettes stay previewable with `?theme=` and `?fx=` (`src/styles/themes.css`); `node scripts/capture-themes.ts [palettes|woodblock|lttl]` screenshots them into `docs/palettes/`.
 - **Not built yet:** tickets, variants, prestige gates beyond the star count, and ads or purchases.
 
 ## Art raw material (`art/`)
