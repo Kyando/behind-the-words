@@ -356,6 +356,9 @@ export class LevelView {
       copy.querySelector('.tile-letter')?.remove();
       copy.setAttribute('aria-hidden', 'true');
       Object.assign(copy.style, { left: `${from.left}px`, top: `${from.top}px`, width: `${from.width}px`, height: `${from.height}px` });
+      // Out on the page the copy no longer inherits the board's cell size, which its rounded corners
+      // and its pressable edge are measured in.
+      copy.style.setProperty('--cell', `${this.cellPx}px`);
       document.body.append(copy);
       const dx = tx - (from.left + from.width / 2);
       const dy = ty - (from.top + from.height / 2);
@@ -366,15 +369,18 @@ export class LevelView {
       const cy = dy / 2 + (dx / len) * bow - 40;
       const spin = side * (120 + Math.random() * 160);
       const tilt = side * (4 + Math.random() * 5);
+      // The tile keeps its pressable edge in flight; a soft drop shadow grows as it lifts off.
+      const edge = getComputedStyle(tile).boxShadow;
+      const lifted = `${edge}, 0 14px 18px rgb(45 35 80 / 0.22)`;
       const frames: Keyframe[] = [
-        { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: 1, offset: 0 },
-        { transform: `translate(0, -10px) rotate(${tilt}deg) scale(1.14)`, opacity: 1, offset: 0.16 },
+        { transform: 'translate(0, 0) rotate(0deg) scale(1)', boxShadow: `${edge}, 0 0 0 rgb(45 35 80 / 0)`, opacity: 1, offset: 0 },
+        { transform: `translate(0, -10px) rotate(${tilt}deg) scale(1.14)`, boxShadow: lifted, opacity: 1, offset: 0.16 },
       ];
       for (let k = 1; k <= 6; k++) {
         const t = k / 6;
         const x = 2 * (1 - t) * t * cx + t * t * dx;
         const y = 2 * (1 - t) * t * cy + t * t * dy - 10 * (1 - t);
-        frames.push({ transform: `translate(${x}px, ${y}px) rotate(${tilt + spin * t ** 1.4}deg) scale(${1.14 - 0.86 * t})`, opacity: t < 0.75 ? 1 : 1 - (t - 0.75) * 3.2, offset: 0.16 + 0.84 * t });
+        frames.push({ transform: `translate(${x}px, ${y}px) rotate(${tilt + spin * t ** 1.4}deg) scale(${1.14 - 0.86 * t})`, boxShadow: lifted, opacity: t < 0.75 ? 1 : 1 - (t - 0.75) * 3.2, offset: 0.16 + 0.84 * t });
       }
       const anim = copy.animate(frames, { duration: FLIGHT_MS, delay: i * STAGGER_MS, easing: 'cubic-bezier(0.35, 0, 0.45, 1)', fill: 'both' });
       anim.finished.then(() => copy.remove(), () => copy.remove());

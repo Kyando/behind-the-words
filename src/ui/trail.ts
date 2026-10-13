@@ -17,8 +17,9 @@ export interface TrailOptions {
 const WIND = [0, 0.55, 0.85, 0.55, 0, -0.55, -0.85, -0.55];
 
 /**
- * The home screen: one scrolling trail of paintings, room after room. A restored painting fills its
- * node; the next one waits with a Start bubble; the rest are locked until reached.
+ * The home screen: one trail of paintings that climbs, room after room, from the bottom of the screen
+ * up. Each room opens with its banner at its foot. A restored painting fills its node; the next one
+ * waits with a Start bubble; the rest are locked until reached.
  */
 export class Trail {
   readonly el: HTMLElement;
@@ -91,6 +92,6 @@ export class Trail {
       },
       done ? h('span', { class: 'node-art', style: `background-image: url("${artUrl(level.art.slug)}")` }) : svg(isNext ? ICONS.palette : ICONS.lock),
     );
-    return h('li', { class: 'node-slot', style }, isNext ? h('span', { class: 'node-bubble' }, done ? 'Replay' : 'Start') : null, btn);
+    return h('li', { class: `node-slot${isNext ? ' has-bubble' : ''}`, style }, isNext ? h('span', { class: 'node-bubble' }, done ? 'Replay' : 'Start') : null, btn);
   }
 }

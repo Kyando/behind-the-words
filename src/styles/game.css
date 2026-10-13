@@ -1,34 +1,34 @@
-/* Behind the Words: a museum at night. A deep violet gallery wall so the paintings glow; chunky,
-   pressable game pieces (cream tiles, 3D buttons and nodes) in the Duolingo manner; gold for
-   everything that belongs to the art (trace, frames, stars). */
+/* Behind the Words: a painter's studio in daylight. Warm canvas white splashed with soft paint
+   colours, so the game is as vivid as the art; chunky, pressable game pieces (white tiles, 3D
+   buttons and nodes) in the Duolingo manner; sunny yellow for the trace, gold for frames and stars. */
 
 :root {
-  --bg-top: #3a2c74;
-  --bg: #221a3f;
-  --bg-deep: #160f2e;
-  --panel: #fff7e8;
-  --panel-edge: #e2cfa6;
-  --ink: #2d2350;
-  --ink-soft: #6f6795;
-  --text: #ffffff;
-  --text-soft: #c2b9e6;
-  --glass: rgb(255 255 255 / 0.1);
-  --glass-line: rgb(255 255 255 / 0.18);
+  --canvas: #fff9f0;
+  --panel: #ffffff;
+  --panel-edge: #e7e0f2;
+  --line: #efe9f7;
+  --ink: #2b2350;
+  --ink-soft: #7a7298;
+  --ink-faint: #a9a1c2;
+  --sun: #ffc800;
+  --sun-edge: #e0a500;
   --gold: #ffc23d;
   --gold-edge: #d48f12;
+  --gold-text: #c27c00;
   --green: #58cc02;
   --green-edge: #46a302;
   --green-soft: #d7ffb8;
   --green-dark: #3f8f00;
   --red: #ff4b4b;
   --red-edge: #d63a3a;
-  --locked: #4b4275;
-  --locked-edge: #332b57;
+  --locked: #ebe6f3;
+  --locked-edge: #d4cce4;
+  --track: #ece6f5;
   --font-game: 'Fredoka', 'Nunito', system-ui, sans-serif;
   --font-read: 'Nunito', system-ui, sans-serif;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -37,19 +37,22 @@ html, body {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  background: var(--bg-deep);
-  color: var(--text);
+  background: var(--canvas);
+  color: var(--ink);
   font-family: var(--font-read);
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Soft splashes of paint in the corners of the canvas. */
 body {
   background:
-    radial-gradient(120% 70% at 50% -10%, var(--bg-top) 0%, transparent 70%),
-    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.05) 0 1px, transparent 1.5px) 0 0 / 46px 46px,
-    radial-gradient(circle at 70% 80%, rgb(255 255 255 / 0.04) 0 1px, transparent 1.5px) 0 0 / 64px 64px,
-    linear-gradient(var(--bg), var(--bg-deep));
+    radial-gradient(40% 30% at 0% 2%, rgb(255 143 177 / 0.6), transparent 70%),
+    radial-gradient(36% 28% at 100% 8%, rgb(125 211 252 / 0.62), transparent 70%),
+    radial-gradient(42% 30% at 0% 100%, rgb(255 209 102 / 0.66), transparent 70%),
+    radial-gradient(38% 30% at 100% 96%, rgb(126 224 195 / 0.62), transparent 70%),
+    radial-gradient(30% 22% at 60% 50%, rgb(206 130 255 / 0.2), transparent 70%),
+    var(--canvas);
 }
 
 button { font: inherit; color: inherit; }
@@ -77,7 +80,7 @@ button { font: inherit; color: inherit; }
   border: 0;
   border-radius: 12px;
   background: none;
-  color: var(--text-soft);
+  color: var(--ink-faint);
   cursor: pointer;
 }
 
@@ -117,9 +120,10 @@ button { font: inherit; color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px 5px 9px;
+  padding: 4px 12px 4px 8px;
+  border: 2px solid var(--panel-edge);
   border-radius: 999px;
-  background: var(--glass);
+  background: var(--panel);
   font-family: var(--font-game);
   font-weight: 700;
   font-size: 17px;
@@ -136,8 +140,8 @@ button { font: inherit; color: inherit; }
   align-items: center;
   gap: 10px;
   padding: 12px 14px 10px 16px;
-  border-bottom: 2px solid var(--glass-line);
-  background: rgb(22 15 46 / 0.6);
+  border-bottom: 2px solid var(--line);
+  background: rgb(255 255 255 / 0.72);
   backdrop-filter: blur(10px);
 }
 
@@ -151,7 +155,7 @@ button { font: inherit; color: inherit; }
   font-size: 21px;
 }
 
-.wordmark b { color: var(--gold); font-weight: 700; }
+.wordmark b { color: var(--gold-text); font-weight: 700; }
 
 .wordmark-mark {
   width: 34px;
@@ -159,9 +163,9 @@ button { font: inherit; color: inherit; }
   display: grid;
   place-items: center;
   border-radius: 10px;
-  background: var(--gold);
+  background: linear-gradient(135deg, #ff8fb1, #ffc23d 55%, #7dd3fc);
   box-shadow: 0 3px 0 var(--gold-edge);
-  color: var(--ink);
+  color: #fff;
   transform: rotate(-6deg);
 }
 
@@ -171,11 +175,14 @@ button { font: inherit; color: inherit; }
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  padding: 16px 16px calc(80px + var(--safe-bottom));
+  padding: 24px 16px calc(28px + var(--safe-bottom));
   scrollbar-width: none;
 }
 
 .trail-scroll::-webkit-scrollbar { display: none; }
+
+/* The trail climbs: each room's banner at its foot, its paintings rising above it. */
+.trail-path { display: flex; flex-direction: column-reverse; }
 
 .room-banner {
   display: flex;
@@ -186,6 +193,7 @@ button { font: inherit; color: inherit; }
   border-radius: 18px;
   background: var(--room);
   box-shadow: 0 5px 0 var(--room-edge);
+  color: #fff;
 }
 
 .room-banner h2 {
@@ -202,10 +210,10 @@ button { font: inherit; color: inherit; }
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
-.room-tagline { margin: 0; font-weight: 700; font-size: 13.5px; opacity: 0.92; }
+.room-tagline { margin: 0; font-weight: 700; font-size: 13.5px; opacity: 0.95; }
 
 .room-count, .room-gate {
   flex: none;
@@ -214,35 +222,41 @@ button { font: inherit; color: inherit; }
   gap: 6px;
   padding: 6px 11px;
   border-radius: 12px;
-  background: rgb(0 0 0 / 0.18);
+  background: rgb(0 0 0 / 0.14);
   font-family: var(--font-game);
   font-weight: 700;
   font-size: 16px;
 }
 
 .room-gate svg { width: 18px; height: 18px; }
-.room-gate span { display: inline-flex; align-items: center; gap: 3px; color: var(--gold); }
+.room-gate span { display: inline-flex; align-items: center; gap: 3px; }
 
 .room-banner.is-locked {
-  background: var(--locked);
-  box-shadow: 0 5px 0 var(--locked-edge);
-  color: var(--text-soft);
+  background: color-mix(in srgb, var(--room) 30%, #fff);
+  box-shadow: 0 5px 0 color-mix(in srgb, var(--room) 55%, #fff);
+  color: color-mix(in srgb, var(--room-edge) 80%, #000);
 }
+
+.room-banner.is-locked .room-gate { background: rgb(43 35 80 / 0.07); }
+.room-banner.is-locked .room-gate span { color: var(--gold-text); }
 
 .trail-nodes {
   list-style: none;
   margin: 0;
-  padding: 70px 0 40px;
+  padding: 40px 0 34px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
 }
 
 .node-slot {
   position: relative;
   transform: translateX(calc(var(--x) * 78px));
 }
+
+/* Room for the Start bubble above the next painting. */
+.node-slot.has-bubble { margin-top: 46px; }
 
 .node {
   --face: var(--room);
@@ -264,10 +278,11 @@ button { font: inherit; color: inherit; }
 .node svg { width: 34px; height: 34px; }
 button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge); }
 
+/* Locked paintings keep their room's colour, paler, so the whole trail stays colourful. */
 .node.is-locked {
-  --face: var(--locked);
-  --edge: var(--locked-edge);
-  color: rgb(255 255 255 / 0.32);
+  --face: color-mix(in srgb, var(--room) 24%, #fff);
+  --edge: color-mix(in srgb, var(--room) 48%, #fff);
+  color: color-mix(in srgb, var(--room-edge) 75%, #fff);
   cursor: default;
 }
 
@@ -284,13 +299,13 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   height: 100%;
   border-radius: 50%;
   background: center / cover no-repeat;
-  box-shadow: inset 0 0 0 2px rgb(0 0 0 / 0.15);
+  box-shadow: inset 0 0 0 2px rgb(0 0 0 / 0.12);
 }
 
 .node.is-next {
   width: 86px;
   height: 86px;
-  outline: 7px solid rgb(255 255 255 / 0.14);
+  outline: 7px solid color-mix(in srgb, var(--room) 25%, transparent);
   outline-offset: 5px;
   animation: breathe 2.4s ease-in-out infinite;
 }
@@ -302,10 +317,11 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   z-index: 2;
   left: 50%;
   bottom: calc(100% + 14px);
-  padding: 7px 15px;
+  padding: 6px 15px;
+  border: 2px solid var(--panel-edge);
   border-radius: 12px;
   background: #fff;
-  box-shadow: 0 3px 0 rgb(0 0 0 / 0.18);
+  box-shadow: 0 3px 0 var(--panel-edge);
   color: var(--room-edge);
   font-family: var(--font-game);
   font-weight: 700;
@@ -344,7 +360,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   flex: 1;
   height: 18px;
   border-radius: 999px;
-  background: var(--glass);
+  background: var(--track);
   overflow: hidden;
 }
 
@@ -367,7 +383,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   top: 4px;
   height: 4px;
   border-radius: 4px;
-  background: rgb(255 255 255 / 0.35);
+  background: rgb(255 255 255 / 0.4);
 }
 
 .lesson-title {
@@ -386,7 +402,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 
 .lesson-artist {
   margin: 0 0 3px;
-  color: var(--text-soft);
+  color: var(--ink-soft);
   font-weight: 800;
   font-size: 12.5px;
   letter-spacing: 0.08em;
@@ -405,22 +421,24 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 }
 
 .word-chip {
-  padding: 5px 12px;
-  border: 2px solid var(--glass-line);
+  padding: 4px 12px;
+  border: 2px solid var(--panel-edge);
   border-radius: 999px;
-  background: var(--glass);
-  color: #fff;
+  background: var(--panel);
+  box-shadow: 0 3px 0 var(--panel-edge);
+  color: var(--ink);
   font-family: var(--font-game);
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.07em;
-  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
 }
 
 .word-chip.is-found {
   border-color: var(--green-edge);
   background: var(--green);
   box-shadow: 0 3px 0 var(--green-edge);
+  color: #fff;
 }
 
 .word-chip.is-found span::before { content: '✓ '; }
@@ -437,8 +455,8 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 .trace-pill {
   padding: 4px 18px;
   border-radius: 14px;
-  background: var(--gold);
-  box-shadow: 0 4px 0 var(--gold-edge);
+  background: var(--sun);
+  box-shadow: 0 4px 0 var(--sun-edge);
   color: var(--ink);
   font-family: var(--font-game);
   font-weight: 700;
@@ -473,9 +491,11 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   -webkit-user-select: none;
 }
 
+/* A letter tile; its flying copies (.fly-tile) share the look, measured in the same --cell. */
 .tile {
   display: grid;
   place-items: center;
+  border: 2px solid var(--panel-edge);
   border-radius: calc(var(--cell) * 0.22);
   background: var(--panel);
   box-shadow: 0 calc(var(--cell) * 0.08) 0 var(--panel-edge);
@@ -495,8 +515,8 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   transition: transform 0.12s;
 }
 
-/* The word being traced: its tiles give way to one joined gold shape underneath (.trace-shape). */
-.tile.is-trace { background: transparent; box-shadow: none; }
+/* The word being traced: its tiles give way to one joined yellow shape underneath (.trace-shape). */
+.tile.is-trace { background: transparent; border-color: transparent; box-shadow: none; }
 .tile.is-end .tile-letter { transform: scale(1.16); }
 .tile.miss { animation: shake 0.4s; }
 .board .tile.is-found { visibility: hidden; }
@@ -510,8 +530,8 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   pointer-events: none;
 }
 
-.trace-shape { fill: var(--gold); }
-.trace-shadow { fill: var(--gold-edge); transform: translateY(calc(var(--cell) * 0.08)); }
+.trace-shape { fill: var(--sun); }
+.trace-shadow { fill: var(--sun-edge); transform: translateY(calc(var(--cell) * 0.08)); }
 
 .pieces {
   position: absolute;
@@ -522,8 +542,8 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   pointer-events: none;
 }
 
-.piece-base { fill: rgb(0 0 0 / 0.28); }
-.piece-line { fill: none; stroke: rgb(255 255 255 / 0.9); stroke-width: 2.5px; stroke-linejoin: round; }
+.piece-base { fill: rgb(43 35 80 / 0.1); }
+.piece-line { fill: none; stroke: #fff; stroke-width: 2.5px; stroke-linejoin: round; }
 
 .piece-letter {
   fill: #fff;
@@ -534,7 +554,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   transform-box: fill-box;
   transform-origin: center;
   paint-order: stroke;
-  stroke: rgb(0 0 0 / 0.25);
+  stroke: rgb(43 35 80 / 0.3);
   stroke-width: 3px;
 }
 
@@ -542,18 +562,23 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 
 .pieces.is-whole .pieces-whole { animation: whole-in 0.9s ease both; }
 .pieces.no-anim .pieces-whole { animation: none; }
-.pieces-seams { fill: none; stroke: rgb(255 255 255 / 0.4); stroke-width: 1.5; stroke-dasharray: 4 4; animation: seams-out 2.4s ease 0.9s both; }
+.pieces-seams { fill: none; stroke: rgb(255 255 255 / 0.45); stroke-width: 1.5; stroke-dasharray: 4 4; animation: seams-out 2.4s ease 0.9s both; }
 .pieces.no-anim .pieces-seams { animation: none; opacity: 0.25; }
 
 /* The finished painting gets its gold frame on the board. */
 .board.is-complete {
   border-radius: 4px;
-  box-shadow: 0 0 0 6px var(--gold), 0 0 0 9px var(--gold-edge), 0 18px 40px rgb(0 0 0 / 0.55);
+  box-shadow: 0 0 0 6px var(--gold), 0 0 0 9px var(--gold-edge), 0 18px 36px rgb(43 35 80 / 0.28);
   animation: framed 0.7s cubic-bezier(0.3, 1.5, 0.5, 1) both;
 }
 
 .lesson.is-complete .word-list,
 .lesson.is-complete .trace { animation: fade-out 0.3s ease forwards; pointer-events: none; }
+
+/* Once the banner is up, only the title and the framed painting stay, centred above it. */
+.lesson.is-framed .word-list,
+.lesson.is-framed .trace { display: none; }
+.lesson.is-framed .board-wrap { padding-top: 16px; padding-bottom: var(--banner-h, 200px); }
 
 .fly-tile {
   position: fixed;
@@ -617,7 +642,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   align-items: center;
   gap: 12px;
   margin: 0 0 14px;
-  color: var(--gold);
+  color: var(--gold-text);
   font-family: var(--font-game);
   font-weight: 700;
   font-size: 15px;
@@ -634,7 +659,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
   padding: 11px;
   border-radius: 5px;
   background: linear-gradient(135deg, #ffe08a, #c98e22 35%, #ffe7a0 52%, #b5791a 75%, #f3c860);
-  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.35), 0 0 0 2px #7d5410, 0 18px 40px rgb(0 0 0 / 0.55);
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 0.35), 0 0 0 2px #7d5410, 0 18px 36px rgb(43 35 80 / 0.3);
   animation: hang 0.8s cubic-bezier(0.3, 1.4, 0.5, 1) both;
 }
 
@@ -647,6 +672,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 
 .museum-label {
   padding: 18px 18px 16px;
+  border: 2px solid var(--panel-edge);
   border-radius: 18px;
   background: var(--panel);
   box-shadow: 0 5px 0 var(--panel-edge);
@@ -660,7 +686,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 .label-holder { margin: 1px 0 12px; color: var(--ink-soft); font-weight: 700; font-size: 13.5px; }
 
 .story-text { margin: 0 0 14px; font-weight: 600; font-size: 16.5px; line-height: 1.55; }
-.story-text mark { padding: 0 3px; border-radius: 5px; background: rgb(255 194 61 / 0.5); color: inherit; }
+.story-text mark { padding: 0 3px; border-radius: 5px; background: rgb(255 200 0 / 0.38); color: inherit; }
 
 .is-found-list { justify-content: flex-start; padding: 0 0 12px; }
 .label-credit { margin: 0; color: var(--ink-soft); font-size: 12px; font-weight: 700; }
@@ -668,7 +694,9 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 .story-footer {
   flex: none;
   padding: 12px 16px calc(14px + var(--safe-bottom));
-  border-top: 2px solid var(--glass-line);
+  border-top: 2px solid var(--line);
+  background: rgb(255 255 255 / 0.72);
+  backdrop-filter: blur(10px);
 }
 
 .confetti {
@@ -685,7 +713,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 @keyframes pop { 0% { transform: scale(0.78); } 60% { transform: scale(1.1); } 100% { transform: scale(1); } }
 @keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
 @keyframes bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, -6px); } }
-@keyframes breathe { 0%, 100% { outline-color: rgb(255 255 255 / 0.14); } 50% { outline-color: rgb(255 255 255 / 0.3); } }
+@keyframes breathe { 0%, 100% { outline-color: color-mix(in srgb, var(--room) 22%, transparent); } 50% { outline-color: color-mix(in srgb, var(--room) 45%, transparent); } }
 @keyframes node-new { 0% { transform: scale(0.4) rotate(-20deg); } 100% { transform: none; } }
 @keyframes whole-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes seams-out { from { opacity: 1; } to { opacity: 0.25; } }
@@ -698,8 +726,3 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
-
-/* Once the banner is up, only the title and the framed painting stay, centred above it. */
-.lesson.is-framed .word-list,
-.lesson.is-framed .trace { display: none; }
-.lesson.is-framed .board-wrap { padding-top: 16px; padding-bottom: var(--banner-h, 200px); }
