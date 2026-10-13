@@ -185,12 +185,6 @@ button { font: inherit; color: inherit; }
 .trail-path, .room { display: flex; flex-direction: column-reverse; }
 .trail-path { position: relative; }
 .room-banner { position: relative; z-index: 1; }
-.node-slot { z-index: 1; }
-
-/* The path walked from painting to painting, drawn under the nodes. */
-.trail-line { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
-.trail-line path { fill: none; stroke: var(--trail-ink, rgb(43 35 80 / 0.16)); stroke-width: 5px; stroke-linecap: round; }
-.trail-line .is-ahead { stroke-width: 4px; stroke-dasharray: 0.5 13; }
 
 .room-banner {
   display: flex;
@@ -247,25 +241,6 @@ button { font: inherit; color: inherit; }
 
 .room-banner.is-locked .room-gate { background: rgb(43 35 80 / 0.07); }
 .room-banner.is-locked .room-gate span { color: var(--gold-text); }
-
-/* Each room is one screen: its banner at the foot, its paintings above along a winding curve
-   (--x across and --r up, both 0 to 1), so a whole room is seen at once. */
-.room { min-height: max(560px, calc(100dvh - 70px - var(--safe-top))); }
-
-.trail-nodes {
-  position: relative;
-  flex: 1;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.node-slot {
-  position: absolute;
-  left: calc(46px + var(--x) * (100% - 92px));
-  bottom: calc(62px + var(--r) * (100% - 140px));
-  transform: translate(-50%, 50%);
-}
 
 .node {
   --face: var(--room);
@@ -733,8 +708,7 @@ button.node:active { transform: translateY(6px); box-shadow: 0 1px 0 var(--edge)
 
 /* Trail: the paintings drop in from the bottom up; the dots ahead march toward the next one; the
    next one wiggles for attention; finished ones tilt now and then; the banners sway. */
-.node-slot { animation: drop-in 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) calc(var(--n, 0) * 45ms) backwards; }
-.trail-line .is-ahead { animation: march 1.4s linear infinite; }
+.spot { animation: drop-in 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) calc(var(--n, 0) * 45ms) backwards; }
 .node.is-next { animation: breathe 2.4s ease-in-out infinite, wiggle 3.2s ease-in-out 0.8s infinite; }
 .node.is-done { animation: tilt 7s ease-in-out calc(var(--n, 0) * -1.7s) infinite; }
 .node.is-done.is-new { animation: node-new 0.7s cubic-bezier(0.3, 1.6, 0.5, 1) 0.25s backwards, tilt 7s ease-in-out 1s infinite; }

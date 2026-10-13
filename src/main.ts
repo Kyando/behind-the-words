@@ -2,6 +2,7 @@ import './fonts.ts';
 import './styles/game.css';
 import './styles/themes.css';
 import './styles/theme-desk.css';
+import './styles/trail.css';
 import { App } from './ui/app.ts';
 
 // Palette preview: ?theme=gallery|starry|lilies|woodblock|terracotta|mix (see themes.css).

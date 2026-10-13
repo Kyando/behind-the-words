@@ -1,0 +1,90 @@
+/* The trail as a gallery wall, drawn in the Tidy desk style: every piece is solid paper with an
+   ink line, nothing see-through. Loaded after the themes. */
+
+.trail { --ink-dim: color-mix(in srgb, var(--ink-line, #4b3a35) 45%, var(--wall)); }
+
+/* ── Shared: a painting's piece, in every state ── */
+.trail .node-num { font-family: var(--font-game); font-weight: 700; font-size: 25px; line-height: 1; }
+.trail .node:is(.is-locked, .is-soon) {
+  --face: color-mix(in srgb, var(--room) 22%, var(--panel));
+  border: 2.5px solid var(--ink-dim);
+  outline: 0;
+  box-shadow: 2px 3px 0 rgb(75 58 53 / 0.12);
+  color: var(--ink-dim);
+  cursor: default;
+}
+.trail .node.is-soon { --face: color-mix(in srgb, var(--wall) 55%, var(--panel)); color: color-mix(in srgb, var(--ink-dim) 60%, var(--panel)); }
+
+.trail .trail-scroll { padding: 22px 16px calc(30px + var(--safe-bottom)); }
+.trail .walls { display: flex; flex-direction: column; gap: 34px; }
+.trail .room-banner { margin: 0 6px -14px; z-index: 2; }
+
+.hang {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 34px 8px 20px;
+}
+.hang::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 2.5px solid var(--ink-line);
+  border-radius: 18px;
+  background:
+    linear-gradient(rgb(75 58 53 / 0.06) 0 0) bottom / 100% 26px no-repeat,
+    color-mix(in srgb, var(--room) 30%, var(--panel));
+  box-shadow: var(--drop);
+  filter: url(#wobble);
+}
+.wall.is-closed .hang::before { background: color-mix(in srgb, var(--room) 12%, color-mix(in srgb, var(--wall) 70%, var(--panel))); }
+
+.hang-row { display: flex; justify-content: center; gap: 16px; }
+.frame-spot { position: relative; width: 94px; display: flex; flex-direction: column; align-items: center; padding-top: 16px; rotate: var(--tilt); }
+/* The nail, and the string it hangs from. */
+.frame-spot .nail { position: absolute; z-index: 1; top: 0; left: 50%; width: 9px; height: 9px; translate: -50% 0; border-radius: 50%; background: var(--ink-line); }
+.frame-spot::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 18%;
+  right: 18%;
+  height: 16px;
+  background:
+    linear-gradient(to bottom right, transparent calc(50% - 1px), var(--ink-dim) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)) left / 50% 100% no-repeat,
+    linear-gradient(to bottom left, transparent calc(50% - 1px), var(--ink-dim) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)) right / 50% 100% no-repeat;
+}
+.trail .node.hung { width: 94px; height: 104px; border-radius: 6px; padding: 7px; }
+.trail .node.hung .node-art { border-radius: 2px; }
+.trail .node.hung.is-done { --face: var(--gold); }
+.trail .node.hung.is-next { --face: var(--panel); outline-offset: 5px; }
+.trail .node.hung:is(.is-locked, .is-soon) {
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 7px, rgb(75 58 53 / 0.06) 7px 14px),
+    var(--face);
+}
+.plaque {
+  margin-top: 8px;
+  max-width: 100%;
+  padding: 2px 7px;
+  overflow: hidden;
+  border: 2px solid var(--ink-line);
+  border-radius: 5px;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: var(--font-game);
+  font-weight: 700;
+  font-size: 11.5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.frame-spot:is(.is-locked, .is-soon) .plaque { border-color: var(--ink-dim); color: var(--ink-dim); }
+.frame-spot.is-next .plaque { background: var(--accent); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; animation: btn-breathe 2.2s ease-in-out infinite; }
+
+/* A room still closed is a solid paper sign too, just quieter. */
+.trail .room-banner.is-locked { --paper: color-mix(in srgb, var(--room) 16%, color-mix(in srgb, var(--wall) 60%, var(--panel))); color: var(--ink-dim); }
+.trail .room-banner.is-locked::after { border-style: solid; border-color: var(--ink-dim); box-shadow: 2px 3px 0 rgb(75 58 53 / 0.12); }
+.trail .room-banner.is-locked .room-gate { border-color: var(--ink-dim); }

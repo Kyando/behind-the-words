@@ -56,7 +56,6 @@
 [data-theme^='lttl'] .progress,
 [data-theme^='lttl'] .wordmark-mark,
 [data-theme^='lttl'] .board::before,
-[data-theme^='lttl'] .trail-line,
 [data-theme^='lttl'] .links,
 [data-theme^='lttl'] .pieces,
 [data-theme^='lttl'] .frame { filter: url(#wobble); }
