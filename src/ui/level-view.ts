@@ -496,14 +496,17 @@ export class LevelView {
     const p = this.s.puzzle;
     const cs = getComputedStyle(this.boardWrap);
     const ss = getComputedStyle(this.stage);
-    const above = this.heading.offsetHeight + this.wordList.offsetHeight + this.traceEl.offsetHeight;
-    const width = this.stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    // On a wide screen the title and words are a column beside the board; on a phone, above it.
+    const beside = ss.display === 'grid';
+    const above = beside ? 0 : this.heading.offsetHeight + this.wordList.offsetHeight + this.traceEl.offsetHeight;
+    const side = beside ? this.heading.offsetWidth + parseFloat(ss.columnGap) : 0;
+    const width = this.stage.clientWidth - parseFloat(ss.paddingLeft) - parseFloat(ss.paddingRight) - side - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     const height = this.stage.clientHeight - parseFloat(ss.paddingTop) - parseFloat(ss.paddingBottom) - above - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
     const u = unit();
     const gap = Math.round((width < 480 * u ? 6 : 8) * u);
     const byWidth = (width - gap * (p.cols - 1)) / p.cols;
     const byHeight = (height - 8 * u - gap * (p.rows - 1)) / p.rows;
-    let size = Math.max(Math.round(34 * u), Math.min(Math.round(84 * u), Math.floor(Math.min(byWidth, byHeight))));
+    let size = Math.max(Math.round(34 * u), Math.min(Math.round((beside ? 110 : 84) * u), Math.floor(Math.min(byWidth, byHeight))));
     // Once framed, the painting keeps its size (the words making way would otherwise grow it).
     if (this.el.classList.contains('is-framed') && this.cellPx) size = Math.min(size, this.cellPx);
     this.cellPx = size;

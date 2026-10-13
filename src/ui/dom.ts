@@ -40,6 +40,10 @@ export function label(text: string, className: string, comfortable = 8): HTMLEle
   return h('span', { class: className, style: `--fit: ${scale.toFixed(2)}` }, text);
 }
 
+/** A landscape screen with room to spare (a desktop or tablet window): the wide layouts. Keep in step
+ * with the @media blocks in wide.css. */
+export const WIDE = '(min-aspect-ratio: 5/4) and (min-width: 900px)';
+
 /** How much the layout is scaled up from its phone size: the root font size over 16px. */
 export const unit = (): number => parseFloat(getComputedStyle(document.documentElement).fontSize) / 16 || 1;
 

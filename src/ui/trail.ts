@@ -1,6 +1,6 @@
 import { artUrl, LEVELS, ROOMS, type Room } from '../core/levels.ts';
 import type { LevelDef } from '../core/types.ts';
-import { h, reducedMotion, svg } from './dom.ts';
+import { h, reducedMotion, svg, WIDE } from './dom.ts';
 import { centreOf, replay, sparkles } from './fx.ts';
 import { ICONS } from './icons.ts';
 import type { Sfx } from './sfx.ts';
@@ -143,14 +143,10 @@ export class Trail {
     /** Each room a wall, its paintings hung in staggered rows of three and two. */
   private wall(rooms: ReturnType<Trail['pieces']>): HTMLElement {
     const list = h('div', { class: 'walls' });
+    const hangs: [HTMLElement, HTMLElement[]][] = [];
     for (const { room, open, done, pieces } of rooms) {
       const hang = h('div', { class: 'hang' });
-      let k = 0;
-      for (let row = 0; k < pieces.length; row++) {
-        const size = row % 2 ? 2 : 3;
-        const line = h('div', { class: 'hang-row' });
-        for (const p of pieces.slice(k, k + size)) {
-          line.append(
+      const frames = pieces.map((p) =>
             h(
               'div',
               { class: `spot frame-spot is-${p.state}`, 'data-room': room.id, style: `--tilt: ${(((p.n * 7) % 5) - 2) * 0.8}deg` },
@@ -158,13 +154,22 @@ export class Trail {
               this.button(p, ' hung'),
               h('span', { class: 'plaque' }, p.state === 'done' ? p.level!.art.title : p.state === 'next' ? 'Start' : `No. ${p.n}`),
             ),
-          );
-        }
-        k += size;
-        hang.append(line);
-      }
+      );
+      hangs.push([hang, frames]);
       list.append(h('section', { class: `wall${open ? '' : ' is-closed'}`, 'data-room': room.id }, this.banner(room, open, done, pieces.length), hang));
     }
+    // Staggered rows: three and two on a phone; three, four, three across a wide wall.
+    const wide = matchMedia(WIDE);
+    const hangAll = () => {
+      const sizes = wide.matches ? [3, 4] : [3, 2];
+      for (const [hang, frames] of hangs) {
+        const rows: HTMLElement[] = [];
+        for (let k = 0, row = 0; k < frames.length; k += sizes[row++ % 2]) rows.push(h('div', { class: 'hang-row' }, ...frames.slice(k, k + sizes[row % 2])));
+        hang.replaceChildren(...rows);
+      }
+    };
+    hangAll();
+    wide.addEventListener('change', () => this.el.isConnected && hangAll());
     return h('div', { class: 'trail-scroll' }, list);
   }
 }
