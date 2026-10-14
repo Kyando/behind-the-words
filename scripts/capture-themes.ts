@@ -46,9 +46,12 @@ const THEMES = SETS[set];
 
 const pick = process.argv[3]?.split(',');
 const themes = pick ? THEMES.filter((t) => pick.includes(t.id)) : THEMES;
-const levelFile = readdirSync(join(root, 'src/levels')).find((f) => f.includes('pearl-earring'))!;
-const level = JSON.parse(readFileSync(join(root, 'src/levels', levelFile), 'utf8')) as LevelDef;
-const save = { version: 1, levels: { 'starry-night': { done: true }, 'great-wave': { done: true } }, settings: { sound: false } };
+// The level played (LEVEL=mona-lisa); every level before it is saved as done, so it is the next one.
+const files = readdirSync(join(root, 'src/levels')).filter((f) => f.endsWith('.json')).sort();
+const at = files.findIndex((f) => f.includes(process.env.LEVEL ?? 'pearl-earring'));
+const level = JSON.parse(readFileSync(join(root, 'src/levels', files[at]), 'utf8')) as LevelDef;
+const done = Object.fromEntries(files.slice(0, at).map((f) => [f.replace(/^\d+-|\.json$/g, ''), { done: true }]));
+const save = { version: 1, levels: done, settings: { sound: false } };
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -126,6 +129,10 @@ async function main(): Promise<void> {
       await page.click('.result-banner .btn', { force: true }); // it breathes, so never "stable"
       await wait(1600);
       await shot('4-story');
+      // And scrolled to the end of the label, for stories longer than the screen.
+      await page.evaluate(() => document.querySelector('.story-scroll')!.scrollTo(0, 1e5));
+      await wait(400);
+      await shot('5-story-end');
       await ctx.close();
       console.log(`captured ${t.id}`);
     }
