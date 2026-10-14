@@ -4,43 +4,43 @@
   "rows": 7,
   "cols": 5,
   "grid": [
-    "DOWRU",
-    "RRNPO",
-    "AEVIR",
-    "FTUSH",
-    "LEMTA",
-    "LRBBR",
-    "AEGDI"
+    "DOPOU",
+    "UWNRR",
+    "MFAIR",
+    "BTRVE",
+    "REHAT",
+    "BLLAS",
+    "RIDGE"
   ],
   "words": [
     {
       "text": "DOWNPOUR",
-      "path": [0, 1, 2, 7, 8, 9, 4, 3],
+      "path": [0, 1, 6, 7, 2, 3, 4, 9],
       "at": [0, 0, 1, 4]
     },
     {
       "text": "RIVER",
-      "path": [14, 13, 12, 11, 6],
+      "path": [8, 13, 18, 19, 14],
       "at": [2, 0, 3, 4]
     },
     {
       "text": "RAFT",
-      "path": [5, 10, 15, 16],
+      "path": [17, 12, 11, 16],
       "at": [3, 0, 3, 2]
     },
     {
       "text": "UMBRELLA",
-      "path": [17, 22, 27, 26, 21, 20, 25, 30],
+      "path": [5, 10, 15, 20, 21, 26, 27, 28],
       "at": [4, 1, 5, 3]
     },
     {
       "text": "HATS",
-      "path": [19, 24, 23, 18],
+      "path": [22, 23, 24, 29],
       "at": [4, 2, 4, 4]
     },
     {
       "text": "BRIDGE",
-      "path": [28, 29, 34, 33, 32, 31],
+      "path": [25, 30, 31, 32, 33, 34],
       "at": [5, 0, 6, 4]
     }
   ],

@@ -4,53 +4,53 @@
   "rows": 7,
   "cols": 7,
   "grid": [
-    "FASSIKG",
-    "GESNAIL",
-    "OLQDHTT",
-    "LDUSSEE",
-    "FLASCLR",
-    "WORERFE",
-    "ERSCITE"
+    "FSSSIKG",
+    "ADNAHSL",
+    "EGRALEI",
+    "LOEUCCT",
+    "DLSQRIT",
+    "SWOSTFE",
+    "RELFEER"
   ],
   "words": [
     {
       "text": "KISS",
       "path": [5, 4, 3, 2],
-      "at": [0, 3, 1, 4]
+      "at": [0, 3, 0, 4]
     },
     {
       "text": "HANDS",
-      "path": [18, 11, 10, 17, 24],
-      "at": [1, 3, 2, 4]
+      "path": [11, 10, 9, 8, 1],
+      "at": [1, 3, 1, 4]
     },
     {
       "text": "SQUARES",
-      "path": [9, 16, 23, 30, 37, 38, 31],
+      "path": [38, 31, 24, 17, 16, 23, 30],
       "at": [1, 2, 4, 2]
     },
     {
       "text": "CIRCLES",
-      "path": [45, 46, 39, 32, 33, 26, 25],
+      "path": [26, 33, 32, 25, 18, 19, 12],
       "at": [2, 4, 4, 5]
     },
     {
       "text": "GOLDLEAF",
-      "path": [7, 14, 21, 22, 15, 8, 1, 0],
+      "path": [15, 22, 29, 28, 21, 14, 7, 0],
       "at": [0, 0, 4, 1]
     },
     {
       "text": "GLITTER",
-      "path": [6, 13, 12, 19, 20, 27, 34],
+      "path": [6, 13, 20, 27, 34, 41, 48],
       "at": [0, 5, 4, 6]
     },
     {
       "text": "FEET",
-      "path": [40, 41, 48, 47],
+      "path": [40, 47, 46, 39],
       "at": [5, 5, 5, 5]
     },
     {
       "text": "FLOWERS",
-      "path": [28, 29, 36, 35, 42, 43, 44],
+      "path": [45, 44, 37, 36, 43, 42, 35],
       "at": [5, 0, 6, 6]
     }
   ],

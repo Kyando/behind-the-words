@@ -4,11 +4,11 @@
   "rows": 5,
   "cols": 7,
   "grid": [
-    "RSLTREE",
-    "EVORATS",
-    "RISAPRI",
-    "ATGSSGK",
-    "HSODARS"
+    "RISTREE",
+    "EVLOSSS",
+    "RPARAKI",
+    "SHODARR",
+    "TAGSSGT"
   ],
   "words": [
     {
@@ -18,32 +18,32 @@
     },
     {
       "text": "RIVER",
-      "path": [14, 15, 8, 7, 0],
+      "path": [0, 1, 8, 7, 14],
       "at": [0, 0, 2, 1]
     },
     {
       "text": "PARASOLS",
-      "path": [18, 11, 10, 17, 16, 9, 2, 1],
+      "path": [15, 16, 17, 18, 11, 10, 9, 2],
       "at": [0, 2, 2, 4]
     },
     {
       "text": "HATS",
-      "path": [28, 21, 22, 29],
+      "path": [22, 29, 28, 21],
       "at": [3, 0, 4, 1]
     },
     {
       "text": "DOG",
-      "path": [31, 30, 23],
+      "path": [24, 23, 30],
       "at": [3, 2, 4, 3]
     },
     {
       "text": "GRASS",
-      "path": [26, 33, 32, 25, 24],
+      "path": [33, 26, 25, 32, 31],
       "at": [3, 3, 4, 5]
     },
     {
       "text": "SKIRT",
-      "path": [34, 27, 20, 19, 12],
+      "path": [12, 19, 20, 27, 34],
       "at": [2, 5, 4, 6]
     }
   ],

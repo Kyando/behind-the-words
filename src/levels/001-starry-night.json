@@ -4,41 +4,41 @@
   "rows": 5,
   "cols": 7,
   "grid": [
-    "SSERSOM",
-    "EPRANOS",
-    "LYCTSLL",
-    "PEETSIH",
-    "VILLAGE"
+    "SSSELOO",
+    "RAEEPMN",
+    "STREHIS",
+    "CYPTSLL",
+    "EGALLIV"
   ],
   "words": [
     {
       "text": "CYPRESS",
-      "path": [16, 15, 8, 9, 2, 1, 0],
+      "path": [21, 22, 23, 16, 9, 2, 1],
       "at": [0, 1, 4, 2]
     },
     {
       "text": "MOON",
-      "path": [6, 5, 12, 11],
+      "path": [12, 5, 6, 13],
       "at": [0, 5, 1, 6]
     },
     {
       "text": "STARS",
-      "path": [18, 17, 10, 3, 4],
+      "path": [14, 15, 8, 7, 0],
       "at": [0, 0, 2, 4]
     },
     {
       "text": "HILLS",
-      "path": [27, 26, 19, 20, 13],
+      "path": [18, 19, 26, 27, 20],
       "at": [2, 5, 3, 6]
     },
     {
       "text": "VILLAGE",
-      "path": [28, 29, 30, 31, 32, 33, 34],
+      "path": [34, 33, 32, 31, 30, 29, 28],
       "at": [3, 3, 4, 6]
     },
     {
       "text": "STEEPLE",
-      "path": [25, 24, 23, 22, 21, 14, 7],
+      "path": [25, 24, 17, 10, 11, 4, 3],
       "at": [3, 3, 4, 4]
     }
   ],

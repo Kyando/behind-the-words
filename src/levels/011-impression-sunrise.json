@@ -4,31 +4,31 @@
   "rows": 5,
   "cols": 7,
   "grid": [
-    "DAWNSMA",
-    "EKSRUNS",
-    "TOMOGST",
-    "AOBWLOW",
+    "MONWADS",
+    "SKEUNMT",
+    "TBWSGAS",
+    "AOORLOW",
     "SELPPIR"
   ],
   "words": [
     {
       "text": "DAWN",
-      "path": [0, 1, 2, 3],
+      "path": [5, 4, 3, 2],
       "at": [0, 0, 0, 6]
     },
     {
       "text": "SUN",
-      "path": [4, 11, 12],
+      "path": [17, 10, 11],
       "at": [1, 4, 1, 4]
     },
     {
       "text": "SMOKE",
-      "path": [9, 16, 15, 8, 7],
+      "path": [7, 0, 1, 8, 9],
       "at": [1, 1, 1, 2]
     },
     {
       "text": "MASTS",
-      "path": [5, 6, 13, 20, 19],
+      "path": [12, 19, 20, 13, 6],
       "at": [1, 5, 2, 6]
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "text": "ROWBOAT",
-      "path": [10, 17, 24, 23, 22, 21, 14],
+      "path": [24, 23, 16, 15, 22, 21, 14],
       "at": [3, 2, 3, 3]
     },
     {

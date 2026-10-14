@@ -4,21 +4,21 @@
   "rows": 5,
   "cols": 7,
   "grid": [
-    "RETNALG",
-    "NSDHATL",
-    "REARISA",
-    "SCNBASE",
-    "HCNEHCS"
+    "SNTNALS",
+    "SREHATE",
+    "RDARISS",
+    "ECNBAAL",
+    "HCNEHCG"
   ],
   "words": [
     {
       "text": "LANTERNS",
-      "path": [5, 4, 3, 2, 1, 0, 7, 8],
+      "path": [5, 4, 3, 2, 9, 8, 1, 0],
       "at": [0, 0, 0, 6]
     },
     {
       "text": "DANCERS",
-      "path": [9, 16, 23, 22, 15, 14, 21],
+      "path": [15, 16, 23, 22, 21, 14, 7],
       "at": [1, 0, 3, 2]
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "text": "GLASSES",
-      "path": [6, 13, 20, 19, 26, 27, 34],
+      "path": [34, 27, 26, 19, 20, 13, 6],
       "at": [2, 5, 4, 6]
     },
     {

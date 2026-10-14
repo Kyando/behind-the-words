@@ -60,8 +60,12 @@ function shuffle<T>(items: T[], rng: () => number): T[] {
   return a;
 }
 
-/** Self-avoiding walks of `length` empty cells from `start`, leaning towards `at`. */
-function randomPaths(start: number, length: number, owner: Int16Array, rows: number, cols: number, rng: () => number, max: number, at: Area): number[][] {
+/**
+ * Self-avoiding walks of `length` empty cells from `start`, leaning towards `at`. `wander` is how
+ * much chance mixes into the lean: under 1, a walk never leaves the area while it has cells to cover.
+ * Cells marked in `avoid` (other details' things) are stepped on only when nothing else is near.
+ */
+function randomPaths(start: number, length: number, owner: Int16Array, rows: number, cols: number, rng: () => number, max: number, at: Area, wander = 1.5, avoid?: Uint8Array): number[][] {
   const out: number[][] = [];
   const path = [start];
   const used = new Set(path);
@@ -72,7 +76,7 @@ function randomPaths(start: number, length: number, owner: Int16Array, rows: num
       out.push([...path]);
       return;
     }
-    const steps = neighbors(path[path.length - 1], rows, cols).map((c) => ({ c, d: distance(c, cols, at) + rng() * 1.5 }));
+    const steps = neighbors(path[path.length - 1], rows, cols).map((c) => ({ c, d: distance(c, cols, at) + rng() * wander + (avoid?.[c] ? 2 : 0) }));
     for (const { c: next } of steps.sort((a, b) => a.d - b.d)) {
       if (owner[next] >= 0 || used.has(next)) continue;
       path.push(next);
@@ -85,6 +89,9 @@ function randomPaths(start: number, length: number, owner: Int16Array, rows: num
   walk();
   return out;
 }
+
+/** Areas this small are details (a pearl, a face), laid first and in full. */
+const DETAIL = 4;
 
 /** Marks a hole as taken, so no word is laid through it. */
 const HOLE = 0x7fff;
@@ -158,31 +165,48 @@ function tile(lengths: number[], areas: Area[], rows: number, cols: number, hole
     return false;
   };
 
-  // Tight words first: a random number of them (up to all), smallest area per letter first, each onto its thing.
-  const tight = lengths
-    .map((len, i) => ({ i, room: cellsOf(areas[i]).length / len + rng() * 0.8 }))
-    .sort((a, b) => a.room - b.room)
-    .slice(0, Math.floor(rng() * (lengths.length + 1)));
-  for (const { i } of tight) {
-    const starts = shuffle(cellsOf(areas[i]).filter((c) => owner[c] < 0), rng).slice(0, 8);
-    let laid = false;
-    for (const start of starts) {
-      for (const cells of randomPaths(start, lengths[i], owner, rows, cols, rng, 4, areas[i])) {
-        if (fit(cells, cols, areas[i]) < 0.6) continue;
+  /** Lays word i onto its thing, starting inside it, if some walk covers at least `need` of it. */
+  const layOn = (i: number, need: number, walks: number, wander: number, avoid?: Uint8Array): void => {
+    for (const start of shuffle(cellsOf(areas[i]).filter((c) => owner[c] < 0), rng).slice(0, 8)) {
+      for (const cells of randomPaths(start, lengths[i], owner, rows, cols, rng, walks, areas[i], wander, avoid)) {
+        if (fit(cells, cols, areas[i]) < need) continue;
         cells.forEach((c) => (owner[c] = i));
-        paths[i] = cells;
-        if (feasible()) {
-          laid = true;
-          break;
-        }
+        paths[i] = rng() < 0.5 ? cells : [...cells].reverse();
+        if (feasible()) return;
         cells.forEach((c) => (owner[c] = -1));
         paths[i] = null;
       }
-      if (laid) break;
     }
+  };
+
+  // Small details first (a pearl, a face: DETAIL cells or fewer), smallest first, each covering all
+  // of its thing: they have the fewest ways to be right, so they choose before anything is in the way.
+  const sizes = areas.map((a) => cellsOf(a).length);
+  const details = shuffle(lengths.map((_, i) => i).filter((i) => sizes[i] <= DETAIL), rng).sort((a, b) => sizes[a] - sizes[b]);
+  // Each keeps off the other details' things, so an early one doesn't take a later one's cells.
+  // Not in every layout: forcing them all in can push a big word off its thing, and the score
+  // weighs one against the other.
+  if (rng() < 0.7) for (const i of details) {
+    const avoid = new Uint8Array(n);
+    for (const j of details) if (j !== i) for (const c of cellsOf(areas[j])) avoid[c] = 1;
+    layOn(i, 1, 8, 0.6, avoid);
   }
 
-  return place() ? (paths as number[][]) : null;
+  // Then a random number of the other tight words (up to all), smallest area per letter first.
+  const tight = lengths
+    .map((len, i) => ({ i, room: sizes[i] / len + rng() * 0.8 }))
+    .filter(({ i }) => !paths[i])
+    .sort((a, b) => a.room - b.room)
+    .slice(0, Math.floor(rng() * (lengths.length + 1)));
+  for (const { i } of tight) layOn(i, 0.6, 4, 1.5);
+
+  // Filling around what is laid can run into dead ends; a few fresh tries keep the details placed
+  // (otherwise the layouts that survive would mostly be those whose details failed to go in).
+  for (let tries = 0; tries < 4; tries++) {
+    budget = 4000;
+    if (place()) return paths as number[][];
+  }
+  return null;
 }
 
 /**
@@ -208,6 +232,11 @@ export function generateLevel(spec: LevelSpec, seed: number, attempts = 2500): L
   const total = texts.reduce((s, t) => s + t.length, 0);
   const holes = spec.holes ?? [];
   if (total !== rows * cols - holes.length) throw new Error(`${spec.id}: words have ${total} letters for ${rows * cols - holes.length} cells`);
+
+  const small = spec.words.filter((w) => (w.at[2] - w.at[0] + 1) * (w.at[3] - w.at[1] + 1) <= DETAIL);
+  for (const [k, a] of small.entries())
+    for (const b of small.slice(k + 1))
+      if (a.at[0] <= b.at[2] && b.at[0] <= a.at[2] && a.at[1] <= b.at[3] && b.at[1] <= a.at[3]) console.warn(`  ! ${spec.id}: ${a.text} and ${b.text} share cells, so both can't cover their things`);
 
   const rng = mulberry32(seed);
   let best: LevelDef | null = null;

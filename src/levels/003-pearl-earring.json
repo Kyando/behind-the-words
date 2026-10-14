@@ -4,14 +4,14 @@
   "rows": 8,
   "cols": 6,
   "grid": [
-    "DNASCF",
-    "AFBRAR",
-    "RACUTE",
-    "KSESEY",
-    "NPILLR",
-    "ETRCOA",
-    "SEALLE",
-    "SKCAJP"
+    "DFTUAN",
+    "AAERBS",
+    "RCYLRC",
+    "KEESAA",
+    "NSPPER",
+    "ELICOF",
+    "SRALLJ",
+    "STEKCA"
   ],
   "words": [
     {
@@ -21,42 +21,42 @@
     },
     {
       "text": "TURBAN",
-      "path": [16, 15, 9, 8, 2, 1],
+      "path": [2, 3, 9, 10, 4, 5],
       "at": [1, 2, 2, 4]
     },
     {
       "text": "SCARF",
-      "path": [3, 4, 10, 11, 5],
+      "path": [11, 17, 23, 29, 35],
       "at": [1, 4, 6, 5]
     },
     {
       "text": "FACE",
-      "path": [7, 13, 14, 20],
-      "at": [2, 2, 4, 2]
+      "path": [1, 7, 13, 19],
+      "at": [2, 1, 3, 1]
     },
     {
       "text": "EYES",
-      "path": [17, 23, 22, 21],
+      "path": [8, 14, 20, 21],
       "at": [3, 2, 3, 3]
     },
     {
       "text": "LIPS",
-      "path": [27, 26, 25, 19],
+      "path": [31, 32, 26, 25],
       "at": [4, 1, 4, 2]
     },
     {
       "text": "PEARL",
-      "path": [47, 41, 35, 29, 28],
+      "path": [27, 28, 22, 16, 15],
       "at": [4, 3, 4, 4]
     },
     {
       "text": "COLLAR",
-      "path": [33, 34, 40, 39, 38, 32],
+      "path": [33, 34, 40, 39, 38, 37],
       "at": [5, 2, 5, 4]
     },
     {
       "text": "JACKET",
-      "path": [46, 45, 44, 43, 37, 31],
+      "path": [41, 47, 46, 45, 44, 43],
       "at": [5, 2, 7, 4]
     }
   ],

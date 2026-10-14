@@ -4,23 +4,23 @@
   "rows": 7,
   "cols": 6,
   "grid": [
-    "TREESR",
-    "GDRIVE",
-    "NRHATS",
-    "IESLFR",
-    "LISOWE",
-    "RABAGL",
-    "TEKSIR"
+    "EERTER",
+    "SRRIVS",
+    "IAHATR",
+    "LIDSSE",
+    "GNREFW",
+    "SABLLO",
+    "KETRIG"
   ],
   "words": [
     {
       "text": "TREES",
-      "path": [0, 1, 2, 3, 4],
+      "path": [3, 2, 1, 0, 6],
       "at": [0, 0, 0, 5]
     },
     {
       "text": "RIVER",
-      "path": [8, 9, 10, 11, 5],
+      "path": [8, 9, 10, 4, 5],
       "at": [1, 1, 1, 4]
     },
     {
@@ -30,27 +30,27 @@
     },
     {
       "text": "RAILING",
-      "path": [30, 31, 25, 24, 18, 12, 6],
+      "path": [7, 13, 12, 18, 19, 25, 24],
       "at": [3, 0, 4, 1]
     },
     {
       "text": "DRESS",
-      "path": [7, 13, 19, 20, 26],
+      "path": [20, 26, 27, 21, 22],
       "at": [3, 2, 5, 2]
     },
     {
       "text": "FLOWERS",
-      "path": [22, 21, 27, 28, 29, 23, 17],
+      "path": [28, 34, 35, 29, 23, 17, 11],
       "at": [4, 3, 4, 5]
     },
     {
       "text": "GIRL",
-      "path": [34, 40, 41, 35],
+      "path": [41, 40, 39, 33],
       "at": [5, 3, 6, 4]
     },
     {
       "text": "BASKET",
-      "path": [32, 33, 39, 38, 37, 36],
+      "path": [32, 31, 30, 36, 37, 38],
       "at": [6, 0, 6, 2]
     }
   ],
