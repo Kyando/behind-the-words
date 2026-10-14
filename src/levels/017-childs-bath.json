@@ -1,0 +1,66 @@
+{
+  "id": "childs-bath",
+  "room": "light",
+  "rows": 7,
+  "cols": 5,
+  "grid": [
+    "WALLL",
+    "SESIR",
+    "TPLGT",
+    "RIEWO",
+    "GTFBJ",
+    "UEEAU",
+    "RNISG"
+  ],
+  "words": [
+    {
+      "text": "WALL",
+      "path": [0, 1, 2, 3],
+      "at": [0, 0, 0, 4]
+    },
+    {
+      "text": "STRIPES",
+      "path": [5, 10, 15, 16, 11, 6, 7],
+      "at": [1, 0, 4, 1]
+    },
+    {
+      "text": "GIRL",
+      "path": [13, 8, 9, 4],
+      "at": [1, 2, 2, 3]
+    },
+    {
+      "text": "TOWEL",
+      "path": [14, 19, 18, 17, 12],
+      "at": [3, 2, 3, 3]
+    },
+    {
+      "text": "FEET",
+      "path": [22, 27, 26, 21],
+      "at": [5, 1, 5, 2]
+    },
+    {
+      "text": "BASIN",
+      "path": [23, 28, 33, 32, 31],
+      "at": [5, 1, 6, 3]
+    },
+    {
+      "text": "JUG",
+      "path": [24, 29, 34],
+      "at": [5, 3, 6, 4]
+    },
+    {
+      "text": "RUG",
+      "path": [30, 25, 20],
+      "at": [6, 0, 6, 1]
+    }
+  ],
+  "art": {
+    "slug": "the-child-s-bath-cassatt",
+    "title": "The Child's Bath",
+    "artist": "Mary Cassatt",
+    "year": "1893",
+    "holder": "Art Institute of Chicago",
+    "credit": "CC0 · Art Institute of Chicago",
+    "story": "A woman holds a little girl on her lap and gently washes her feet in a basin, the jug waiting beside them. We look down on them from above, a view Mary Cassatt learned from Japanese prints, along with the bold flat patterns of the striped dress, the rug and the wall. Cassatt was an American in Paris and the only American asked to show with the Impressionists. She painted the quiet, everyday life of women and children, and made it monumental."
+  }
+}

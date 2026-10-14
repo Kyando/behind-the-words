@@ -4,47 +4,60 @@
   "rows": 8,
   "cols": 6,
   "grid": [
-    "LEZTEE",
-    "RAAGKA",
-    "WEPACR",
-    "OLTJGR",
-    "ELURNI",
-    "YRABRE",
-    "LANULD",
-    "LOCOHS"
+    "DNASCF",
+    "AFBRAR",
+    "RACUTE",
+    "KSESEY",
+    "NPILLR",
+    "ETRCOA",
+    "SEALLE",
+    "SKCAJP"
   ],
   "words": [
     {
-      "text": "PEARL",
-      "path": [14, 13, 7, 6, 0]
-    },
-    {
-      "text": "EARRING",
-      "path": [5, 11, 17, 23, 29, 28, 22]
+      "text": "DARKNESS",
+      "path": [0, 6, 12, 18, 24, 30, 36, 42],
+      "at": [0, 0, 7, 0]
     },
     {
       "text": "TURBAN",
-      "path": [20, 26, 27, 33, 32, 38]
+      "path": [16, 15, 9, 8, 2, 1],
+      "at": [1, 2, 2, 4]
     },
     {
-      "text": "GAZE",
-      "path": [9, 8, 2, 1]
+      "text": "SCARF",
+      "path": [3, 4, 10, 11, 5],
+      "at": [1, 4, 6, 5]
+    },
+    {
+      "text": "FACE",
+      "path": [7, 13, 14, 20],
+      "at": [2, 2, 4, 2]
+    },
+    {
+      "text": "EYES",
+      "path": [17, 23, 22, 21],
+      "at": [3, 2, 3, 3]
+    },
+    {
+      "text": "LIPS",
+      "path": [27, 26, 25, 19],
+      "at": [4, 1, 4, 2]
+    },
+    {
+      "text": "PEARL",
+      "path": [47, 41, 35, 29, 28],
+      "at": [4, 3, 4, 4]
     },
     {
       "text": "COLLAR",
-      "path": [44, 43, 42, 36, 37, 31]
-    },
-    {
-      "text": "SHOULDER",
-      "path": [47, 46, 45, 39, 40, 41, 35, 34]
-    },
-    {
-      "text": "YELLOW",
-      "path": [30, 24, 25, 19, 18, 12]
+      "path": [33, 34, 40, 39, 38, 32],
+      "at": [5, 2, 5, 4]
     },
     {
       "text": "JACKET",
-      "path": [21, 15, 16, 10, 4, 3]
+      "path": [46, 45, 44, 43, 37, 31],
+      "at": [5, 2, 7, 4]
     }
   ],
   "art": {
@@ -54,6 +67,6 @@
     "year": "c. 1665",
     "holder": "Mauritshuis, The Hague",
     "credit": "Public domain · image via Wikimedia Commons",
-    "story": "A girl turns to look over her shoulder, lips parted, as if we had just called her name. Nobody knows who she was. Vermeer did not paint a portrait but a \"tronie\", a study of a face and an exotic costume: a blue and yellow turban, a plain white collar, and a pearl far too large to be real, probably glass, made with two quick touches of white paint. Vermeer worked slowly in Delft and left only about 35 paintings."
+    "story": "Out of the darkness, a girl turns to look over her shoulder, lips parted, eyes wide, as if we had just called her name. Nobody knows who she was. Vermeer did not paint a portrait but a \"tronie\", a study of a face and an exotic costume: a blue turban with a long yellow scarf falling from it, a plain white collar, a brown jacket, and a pearl far too large to be real, probably glass, made with two quick touches of white paint. Vermeer worked slowly in Delft and left only about 35 paintings."
   }
 }

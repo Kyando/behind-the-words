@@ -1,0 +1,67 @@
+{
+  "id": "sunflowers",
+  "room": "icons",
+  "rows": 8,
+  "cols": 6,
+  "grid": [
+    "SUNFLS",
+    "PEDEOR",
+    "ATSEWE",
+    "LMESSE",
+    "SSTSLV",
+    "ESAVEA",
+    "CNIVTA",
+    "ENTELB"
+  ],
+  "words": [
+    {
+      "text": "SUNFLOWERS",
+      "path": [0, 1, 2, 3, 4, 10, 16, 17, 11, 5],
+      "at": [0, 1, 5, 5]
+    },
+    {
+      "text": "PETALS",
+      "path": [6, 7, 13, 12, 18, 24],
+      "at": [1, 0, 3, 1]
+    },
+    {
+      "text": "SEEDS",
+      "path": [21, 15, 9, 8, 14],
+      "at": [2, 3, 3, 3]
+    },
+    {
+      "text": "STEMS",
+      "path": [27, 26, 20, 19, 25],
+      "at": [3, 2, 4, 3]
+    },
+    {
+      "text": "LEAVES",
+      "path": [28, 34, 35, 29, 23, 22],
+      "at": [4, 4, 5, 5]
+    },
+    {
+      "text": "VINCENT",
+      "path": [39, 38, 37, 36, 42, 43, 44],
+      "at": [6, 2, 6, 3]
+    },
+    {
+      "text": "VASE",
+      "path": [33, 32, 31, 30],
+      "at": [5, 2, 7, 4]
+    },
+    {
+      "text": "TABLE",
+      "path": [40, 41, 47, 46, 45],
+      "at": [6, 0, 7, 5]
+    }
+  ],
+  "art": {
+    "slug": "sunflowers-gogh",
+    "title": "Sunflowers",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "holder": "National Gallery, London",
+    "credit": "Public domain · image via Wikimedia Commons",
+    "story": "In the summer of 1888 Van Gogh was waiting in Arles for his friend Paul Gauguin, and painted sunflowers to decorate the guest room. He worked fast, before the flowers wilted: fifteen of them in a vase on a table, some fresh and bright with petals like flames, some already dropping their seeds on drooping stems. It is yellow on yellow on yellow, a daring idea at the time. He was proud of it and signed it on the vase, simply: Vincent."
+  }
+}

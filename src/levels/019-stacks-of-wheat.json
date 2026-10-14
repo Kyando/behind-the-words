@@ -1,0 +1,65 @@
+{
+  "id": "stacks-of-wheat",
+  "room": "light",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "ILHAZEK",
+    "HLSESAC",
+    "HEHOUTS",
+    "WATSHAD",
+    "DLEIFWO"
+  ],
+  "words": [
+    {
+      "text": "HAZE",
+      "path": [2, 3, 4, 5],
+      "at": [0, 0, 0, 6]
+    },
+    {
+      "text": "HILLS",
+      "path": [7, 0, 1, 8, 9],
+      "at": [1, 0, 1, 6]
+    },
+    {
+      "text": "WHEAT",
+      "path": [21, 14, 15, 22, 23],
+      "at": [2, 0, 3, 1]
+    },
+    {
+      "text": "HOUSE",
+      "path": [16, 17, 18, 11, 10],
+      "at": [2, 2, 2, 3]
+    },
+    {
+      "text": "STACK",
+      "path": [20, 19, 12, 13, 6],
+      "at": [1, 4, 3, 6]
+    },
+    {
+      "text": "SHADOW",
+      "path": [24, 25, 26, 27, 34, 33],
+      "at": [3, 2, 3, 4]
+    },
+    {
+      "text": "FIELD",
+      "path": [32, 31, 30, 29, 28],
+      "at": [4, 0, 4, 6]
+    }
+  ],
+  "art": {
+    "slug": "stacks-of-wheat-end-of-summer-monet",
+    "title": "Stacks of Wheat (End of Summer)",
+    "artist": "Claude Monet",
+    "year": "1890–91",
+    "holder": "Art Institute of Chicago",
+    "credit": "CC0 · Art Institute of Chicago",
+    "story": "After the harvest, farmers near Monet's house at Giverny piled the wheat in tall stacks in the field. Monet painted them about 25 times, from summer to the snows of winter, at dawn, noon and dusk. He would carry several canvases out at once and switch to the next one as soon as the light changed. The stacks themselves hardly matter: the subject is the warm haze, the long blue shadow, the glow on the hills, at one moment of one day.",
+    "crop": [
+      0.13,
+      0,
+      1,
+      1
+    ]
+  }
+}

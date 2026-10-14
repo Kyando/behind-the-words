@@ -1,0 +1,54 @@
+{
+  "id": "moulin-de-la-galette",
+  "room": "light",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "RETNALG",
+    "NSDHATL",
+    "REARISA",
+    "SCNBASE",
+    "HCNEHCS"
+  ],
+  "words": [
+    {
+      "text": "LANTERNS",
+      "path": [5, 4, 3, 2, 1, 0, 7, 8],
+      "at": [0, 0, 0, 6]
+    },
+    {
+      "text": "DANCERS",
+      "path": [9, 16, 23, 22, 15, 14, 21],
+      "at": [1, 0, 3, 2]
+    },
+    {
+      "text": "HAT",
+      "path": [10, 11, 12],
+      "at": [1, 3, 1, 4]
+    },
+    {
+      "text": "GLASSES",
+      "path": [6, 13, 20, 19, 26, 27, 34],
+      "at": [2, 5, 4, 6]
+    },
+    {
+      "text": "BENCH",
+      "path": [24, 31, 30, 29, 28],
+      "at": [4, 0, 4, 3]
+    },
+    {
+      "text": "CHAIR",
+      "path": [33, 32, 25, 18, 17],
+      "at": [4, 4, 4, 5]
+    }
+  ],
+  "art": {
+    "slug": "bal-du-moulin-de-la-galette-renoir",
+    "title": "Bal du moulin de la Galette",
+    "artist": "Pierre-Auguste Renoir",
+    "year": "1876",
+    "holder": "Musée d'Orsay, Paris",
+    "credit": "Public domain · image via Wikimedia Commons",
+    "story": "Every Sunday afternoon, working people from Montmartre came to dance in the garden of the Moulin de la Galette, an old windmill turned dance hall. Renoir carried his big canvas there and asked his friends to pose among the crowd: couples turn on the dance floor, others chat on a bench or around a table of glasses. Sunlight falls through the trees in dancing spots over hats and shoulders, and globe lanterns hang overhead, ready for the evening."
+  }
+}

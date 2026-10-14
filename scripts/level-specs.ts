@@ -3,27 +3,46 @@ import type { LevelSpec } from '../src/core/generate.ts';
 /**
  * The levels, in trail order. `npm run levels:generate` lays them out into src/levels/.
  *
- * Words are things you can see in the painting: finding them is looking at it. Their letters must
- * fill the board exactly (rows * cols), and the board's shape follows the painting's, so the reveal
- * crops as little as possible. Stories are our own short texts (never copied from Wikipedia or a
- * museum): what is in the picture, who made it, and one thing worth remembering.
+ * Words name things you can see in the painting, and each says where that thing is on the board
+ * (`at`: [top row, left col, bottom row, right col]). The generator lays every word over its thing,
+ * so finding a word uncovers what it names: TURBAN reveals the turban. Read the cells off the picture
+ * with `node scripts/board-grid.ts <slug>:<rows>x<cols>`, and check the result with
+ * `node scripts/board-grid.ts --levels`.
+ *
+ * Only concrete, visible things (no GAZE, no YELLOW): a word should make sense while it is being
+ * found, before any story is read. Their letters must fill the board exactly (rows * cols), and the
+ * board's shape follows the painting's, so the reveal crops as little as possible. Stories are our
+ * own short texts (never copied from Wikipedia or a museum): what is in the picture, who made it,
+ * and one thing worth remembering.
  */
+const COMMONS = 'Public domain · image via Wikimedia Commons';
+const MET = 'CC0 · The Met Open Access';
+const AIC = 'CC0 · Art Institute of Chicago';
+
 export const SPECS: LevelSpec[] = [
+  // ── Room 1: Icons ─────────────────────────────────────────────────────────
   {
     id: 'starry-night',
     room: 'icons',
     rows: 5,
     cols: 7,
-    words: ['CYPRESS', 'MOON', 'STARS', 'VILLAGE', 'STEEPLE', 'HILLS'],
+    words: [
+      { text: 'CYPRESS', at: [0, 1, 4, 2] },
+      { text: 'MOON', at: [0, 5, 1, 6] },
+      { text: 'STARS', at: [0, 0, 2, 4] },
+      { text: 'HILLS', at: [2, 5, 3, 6] },
+      { text: 'VILLAGE', at: [3, 3, 4, 6] },
+      { text: 'STEEPLE', at: [3, 3, 4, 4] },
+    ],
     art: {
       slug: 'the-starry-night-gogh',
       title: 'The Starry Night',
       artist: 'Vincent van Gogh',
       year: '1889',
       holder: 'Museum of Modern Art, New York',
-      credit: 'Public domain · image via Wikimedia Commons (Google Art Project)',
+      credit: `${COMMONS} (Google Art Project)`,
       story:
-        'In June 1889 Vincent van Gogh painted the view from his window at the asylum in Saint-Rémy, just before dawn. But this sky is not quite what he saw: the stars swell into whirlpools of light, the moon blazes, and a dark cypress flickers upward like a flame. Below, a sleepy village keeps its lamps lit, its church steeple pointing at the storm of stars. Van Gogh thought the painting was a failure. Today it is one of the most loved pictures in the world.',
+        'In June 1889 Vincent van Gogh painted the view from his window at the asylum in Saint-Rémy, just before dawn. But this sky is not quite what he saw: the stars swell into whirlpools of light, the moon blazes, and a dark cypress flickers upward like a flame. Below, a sleepy village keeps its lamps lit, its church steeple pointing at the storm of stars, and blue hills roll away behind it. Van Gogh thought the painting was a failure. Today it is one of the most loved pictures in the world.',
     },
   },
   {
@@ -31,16 +50,25 @@ export const SPECS: LevelSpec[] = [
     room: 'icons',
     rows: 5,
     cols: 7,
-    words: ['WAVE', 'FOAM', 'FUJI', 'BOATS', 'SPRAY', 'CLOUDS', 'OARSMEN'],
+    seed: 2,
+    words: [
+      { text: 'WAVE', at: [1, 0, 4, 2] },
+      { text: 'FOAM', at: [0, 1, 1, 3] },
+      { text: 'FUJI', at: [2, 3, 3, 5] },
+      { text: 'BOATS', at: [4, 2, 4, 5] },
+      { text: 'SPRAY', at: [2, 2, 3, 3] },
+      { text: 'CLOUDS', at: [0, 4, 2, 6] },
+      { text: 'OARSMEN', at: [3, 4, 4, 6] },
+    ],
     art: {
       slug: 'the-great-wave-off-kanagawa-hokusai',
       title: 'The Great Wave off Kanagawa',
       artist: 'Katsushika Hokusai',
       year: 'c. 1831',
       holder: 'The Metropolitan Museum of Art, New York',
-      credit: 'CC0 · The Met Open Access',
+      credit: MET,
       story:
-        'Hokusai was about seventy when he made this woodblock print of a giant wave about to crash over three fast boats off the coast of Kanagawa. The oarsmen bow their heads and hold on; the foam breaks into curling claws. Far behind, small and calm, sits Mount Fuji, the sacred mountain the whole series was about. Because prints were cheap, thousands of copies were sold, and the wave travelled the world, inspiring Van Gogh, Monet and Debussy.',
+        'Hokusai was about seventy when he made this woodblock print of a giant wave about to crash over three fast boats off the coast of Kanagawa. The oarsmen bow their heads and hold on; the foam breaks into curling claws and the spray falls like snow. Far behind, small and calm under the clouds, sits Mount Fuji, the sacred mountain the whole series was about. Because prints were cheap, thousands of copies were sold, and the wave travelled the world, inspiring Van Gogh, Monet and Debussy.',
     },
   },
   {
@@ -48,16 +76,26 @@ export const SPECS: LevelSpec[] = [
     room: 'icons',
     rows: 8,
     cols: 6,
-    words: ['PEARL', 'EARRING', 'TURBAN', 'GAZE', 'COLLAR', 'SHOULDER', 'YELLOW', 'JACKET'],
+    words: [
+      { text: 'DARKNESS', at: [0, 0, 7, 0] },
+      { text: 'TURBAN', at: [1, 2, 2, 4] },
+      { text: 'SCARF', at: [1, 4, 6, 5] },
+      { text: 'FACE', at: [2, 2, 4, 2] },
+      { text: 'EYES', at: [3, 2, 3, 3] },
+      { text: 'LIPS', at: [4, 1, 4, 2] },
+      { text: 'PEARL', at: [4, 3, 4, 4] },
+      { text: 'COLLAR', at: [5, 2, 5, 4] },
+      { text: 'JACKET', at: [5, 2, 7, 4] },
+    ],
     art: {
       slug: 'girl-with-a-pearl-earring-vermeer',
       title: 'Girl with a Pearl Earring',
       artist: 'Johannes Vermeer',
       year: 'c. 1665',
       holder: 'Mauritshuis, The Hague',
-      credit: 'Public domain · image via Wikimedia Commons',
+      credit: COMMONS,
       story:
-        'A girl turns to look over her shoulder, lips parted, as if we had just called her name. Nobody knows who she was. Vermeer did not paint a portrait but a "tronie", a study of a face and an exotic costume: a blue and yellow turban, a plain white collar, and a pearl far too large to be real, probably glass, made with two quick touches of white paint. Vermeer worked slowly in Delft and left only about 35 paintings.',
+        'Out of the darkness, a girl turns to look over her shoulder, lips parted, eyes wide, as if we had just called her name. Nobody knows who she was. Vermeer did not paint a portrait but a "tronie", a study of a face and an exotic costume: a blue turban with a long yellow scarf falling from it, a plain white collar, a brown jacket, and a pearl far too large to be real, probably glass, made with two quick touches of white paint. Vermeer worked slowly in Delft and left only about 35 paintings.',
     },
   },
   {
@@ -65,16 +103,435 @@ export const SPECS: LevelSpec[] = [
     room: 'icons',
     rows: 7,
     cols: 5,
-    words: ['BRIDGE', 'UMBRELLA', 'RIVER', 'RAFT', 'DOWNPOUR', 'HATS'],
+    words: [
+      { text: 'DOWNPOUR', at: [0, 0, 1, 4] },
+      { text: 'RIVER', at: [2, 0, 3, 4] },
+      { text: 'RAFT', at: [3, 0, 3, 2] },
+      { text: 'UMBRELLA', at: [4, 1, 5, 3] },
+      { text: 'HATS', at: [4, 2, 4, 4] },
+      { text: 'BRIDGE', at: [5, 0, 6, 4] },
+    ],
     art: {
       slug: 'sudden-shower-over-shin-ohashi-bridge-hiroshige',
       title: 'Sudden Shower over Shin-Ōhashi Bridge',
       artist: 'Utagawa Hiroshige',
       year: '1857',
       holder: 'The Metropolitan Museum of Art, New York',
-      credit: 'CC0 · The Met Open Access',
+      credit: MET,
       story:
-        'A summer storm breaks over the great bridge across the Sumida River in Edo, today\'s Tokyo. The rain falls in fine dark lines, people hurry across under umbrellas and straw hats, and a lone raftsman poles his logs down the grey river. It is one of the One Hundred Famous Views of Edo, made the year before Hiroshige died. Van Gogh loved it so much that he copied it in oil paint, framed with Japanese characters.',
+        "A summer storm breaks over the great bridge across the Sumida River in Edo, today's Tokyo. The downpour falls in fine dark lines, people hurry across under an umbrella and straw hats, and a lone raftsman poles his logs down the grey river. It is one of the One Hundred Famous Views of Edo, made the year before Hiroshige died. Van Gogh loved it so much that he copied it in oil paint, framed with Japanese characters.",
+    },
+  },
+  {
+    id: 'mona-lisa',
+    room: 'icons',
+    rows: 8,
+    cols: 6,
+    seed: 9,
+    words: [
+      { text: 'VEIL', at: [0, 2, 0, 3] },
+      { text: 'EYES', at: [1, 2, 1, 3] },
+      { text: 'SMILE', at: [2, 2, 2, 3] },
+      { text: 'CURLS', at: [1, 4, 4, 4] },
+      { text: 'HILLS', at: [0, 5, 3, 5] },
+      { text: 'RIVER', at: [1, 0, 2, 1] },
+      { text: 'ROAD', at: [3, 0, 4, 0] },
+      { text: 'DRESS', at: [4, 1, 5, 5] },
+      { text: 'SLEEVE', at: [5, 0, 7, 1] },
+      { text: 'HANDS', at: [6, 2, 7, 4] },
+    ],
+    art: {
+      slug: 'mona-lisa-vinci',
+      title: 'Mona Lisa',
+      artist: 'Leonardo da Vinci',
+      year: 'c. 1503–19',
+      holder: 'Louvre, Paris',
+      credit: `${COMMONS} (C2RMF)`,
+      story:
+        'Around 1503 Leonardo began a portrait of Lisa Gherardini, the wife of a Florentine silk merchant. He never handed it over: he kept working on it for years and took it with him to France. Her smile seems to come and go because Leonardo blurred the corners of her mouth and eyes into soft shadow, a smoky technique called sfumato. Behind her, a road and a river wind through strange blue hills. In 1911 the painting was stolen from the Louvre; its return two years later made it the most famous picture on earth.',
+    },
+  },
+  {
+    id: 'sunflowers',
+    room: 'icons',
+    rows: 8,
+    cols: 6,
+    words: [
+      { text: 'SUNFLOWERS', at: [0, 1, 5, 5] },
+      { text: 'PETALS', at: [1, 0, 3, 1] },
+      { text: 'SEEDS', at: [2, 3, 3, 3] },
+      { text: 'STEMS', at: [3, 2, 4, 3] },
+      { text: 'LEAVES', at: [4, 4, 5, 5] },
+      { text: 'VINCENT', at: [6, 2, 6, 3] },
+      { text: 'VASE', at: [5, 2, 7, 4] },
+      { text: 'TABLE', at: [6, 0, 7, 5] },
+    ],
+    art: {
+      slug: 'sunflowers-gogh',
+      title: 'Sunflowers',
+      artist: 'Vincent van Gogh',
+      year: '1888',
+      holder: 'National Gallery, London',
+      credit: COMMONS,
+      story:
+        'In the summer of 1888 Van Gogh was waiting in Arles for his friend Paul Gauguin, and painted sunflowers to decorate the guest room. He worked fast, before the flowers wilted: fifteen of them in a vase on a table, some fresh and bright with petals like flames, some already dropping their seeds on drooping stems. It is yellow on yellow on yellow, a daring idea at the time. He was proud of it and signed it on the vase, simply: Vincent.',
+    },
+  },
+  {
+    id: 'the-scream',
+    room: 'icons',
+    rows: 7,
+    cols: 6,
+    words: [
+      { text: 'SUNSET', at: [0, 0, 1, 5] },
+      { text: 'SKY', at: [0, 3, 1, 5] },
+      { text: 'FJORD', at: [2, 0, 3, 5] },
+      { text: 'BRIDGE', at: [3, 0, 6, 2] },
+      { text: 'HILLSIDE', at: [3, 4, 6, 5] },
+      { text: 'FACE', at: [3, 3, 4, 3] },
+      { text: 'HANDS', at: [4, 2, 4, 4] },
+      { text: 'CLOAK', at: [5, 2, 6, 3] },
+    ],
+    art: {
+      slug: 'the-scream-munch',
+      title: 'The Scream',
+      artist: 'Edvard Munch',
+      year: '1893',
+      holder: 'National Museum, Oslo',
+      credit: COMMONS,
+      story:
+        'Edvard Munch was out walking with two friends above the fjord at Oslo when the sunset turned the sky blood red. His friends walked on; he stopped, shaking, and felt a huge scream pass through nature. Later he painted that moment: a figure on a bridge, hands pressed to a face like a skull, while the sky, the water and the hillside swirl around it in the same long waves. Munch made several versions in paint, pastel and print, and the cry has echoed ever since.',
+    },
+  },
+  {
+    id: 'water-lilies',
+    room: 'icons',
+    rows: 6,
+    cols: 6,
+    words: [
+      { text: 'WILLOWS', at: [0, 0, 2, 2] },
+      { text: 'LILIES', at: [0, 2, 2, 5] },
+      { text: 'CLOUDS', at: [2, 0, 3, 4] },
+      { text: 'BLOSSOMS', at: [4, 0, 4, 4] },
+      { text: 'PADS', at: [4, 0, 5, 3] },
+      { text: 'MONET', at: [5, 4, 5, 5] },
+    ],
+    art: {
+      slug: 'water-lilies-monet',
+      title: 'Water Lilies',
+      artist: 'Claude Monet',
+      year: '1906',
+      holder: 'Art Institute of Chicago',
+      credit: AIC,
+      story:
+        'At Giverny, Claude Monet dug a pond, filled it with water lilies, and spent the last thirty years of his life painting it, around 250 times. There is no bank and no horizon here, only the surface of the water: round green pads, pink blossoms opening, and between them the reflections of things we cannot see, white clouds and the dark trailing willows on the shore. Monet signed it in the corner, as if on the water itself.',
+    },
+  },
+  {
+    id: 'grande-jatte',
+    room: 'icons',
+    rows: 5,
+    cols: 7,
+    words: [
+      { text: 'TREES', at: [0, 1, 0, 6] },
+      { text: 'RIVER', at: [0, 0, 2, 1] },
+      { text: 'PARASOLS', at: [0, 2, 2, 4] },
+      { text: 'HATS', at: [3, 0, 4, 1] },
+      { text: 'DOG', at: [3, 2, 4, 3] },
+      { text: 'GRASS', at: [3, 3, 4, 5] },
+      { text: 'SKIRT', at: [2, 5, 4, 6] },
+    ],
+    art: {
+      slug: 'a-sunday-on-la-grande-jatte-seurat',
+      title: 'A Sunday on La Grande Jatte',
+      artist: 'Georges Seurat',
+      year: '1884–86',
+      holder: 'Art Institute of Chicago',
+      credit: AIC,
+      story:
+        'On Sundays, Parisians escaped to La Grande Jatte, an island in the river Seine, to stroll under the trees with parasols, top hats and dogs. Georges Seurat spent two years on this huge canvas, three metres wide, building it out of tiny dots of pure colour placed side by side, which mix in the eye of whoever looks. Everyone is strangely still, like figures in a toy theatre. Look for the woman in the big bustled skirt on the right: she has a monkey on a lead.',
+    },
+  },
+  {
+    id: 'the-kiss',
+    room: 'icons',
+    rows: 7,
+    cols: 7,
+    words: [
+      { text: 'KISS', at: [0, 3, 1, 4] },
+      { text: 'HANDS', at: [1, 3, 2, 4] },
+      { text: 'SQUARES', at: [1, 2, 4, 2] },
+      { text: 'CIRCLES', at: [2, 4, 4, 5] },
+      { text: 'GOLDLEAF', at: [0, 0, 4, 1] },
+      { text: 'GLITTER', at: [0, 5, 4, 6] },
+      { text: 'FEET', at: [5, 5, 5, 5] },
+      { text: 'FLOWERS', at: [5, 0, 6, 6] },
+    ],
+    art: {
+      slug: 'the-kiss-klimt',
+      title: 'The Kiss',
+      artist: 'Gustav Klimt',
+      year: '1907–08',
+      holder: 'Belvedere, Vienna',
+      credit: `${COMMONS} (Google Art Project)`,
+      story:
+        "A couple kneel at the edge of a meadow of flowers, wrapped together in one golden cloak, his covered in black and white squares, hers in bright circles. He holds her face in his hands; her bare feet curl over the edge, as if the meadow ends in a cliff. Klimt painted it with real gold leaf, and the glitter around them makes the moment float outside time. The Austrian state bought it in 1908, the year it was first shown, and it has hung in Vienna ever since.",
+    },
+  },
+
+  // ── Room 2: Light and Leisure ─────────────────────────────────────────────
+  {
+    id: 'impression-sunrise',
+    room: 'light',
+    rows: 5,
+    cols: 7,
+    words: [
+      { text: 'DAWN', at: [0, 0, 0, 6] },
+      { text: 'SUN', at: [1, 4, 1, 4] },
+      { text: 'SMOKE', at: [1, 1, 1, 2] },
+      { text: 'MASTS', at: [1, 5, 2, 6] },
+      { text: 'GLOW', at: [2, 4, 3, 4] },
+      { text: 'ROWBOAT', at: [3, 2, 3, 3] },
+      { text: 'RIPPLES', at: [4, 0, 4, 6] },
+    ],
+    art: {
+      slug: 'impression-sunrise-monet',
+      title: 'Impression, Sunrise',
+      artist: 'Claude Monet',
+      year: '1872',
+      holder: 'Musée Marmottan Monet, Paris',
+      credit: COMMONS,
+      story:
+        'Dawn over the harbour of Le Havre, where Monet grew up. Through the mist we can just make out the masts of ships and the smoke of factory chimneys; a small rowboat slides by, and an orange sun lays its glow across the ripples in a few quick strokes. When Monet showed it in 1874, a critic mocked its title and called the whole group of painters "Impressionists". The insult stuck, and became the name of the most popular movement in art.',
+    },
+  },
+  {
+    id: 'woman-with-a-parasol',
+    room: 'light',
+    rows: 7,
+    cols: 6,
+    words: [
+      { text: 'PARASOL', at: [0, 1, 1, 3] },
+      { text: 'CLOUDS', at: [0, 4, 3, 5] },
+      { text: 'SKY', at: [1, 0, 3, 2] },
+      { text: 'HAT', at: [1, 3, 1, 3] },
+      { text: 'DRESS', at: [2, 3, 4, 4] },
+      { text: 'CHILD', at: [4, 1, 4, 1] },
+      { text: 'FLOWERS', at: [4, 0, 5, 3] },
+      { text: 'MEADOW', at: [5, 0, 6, 5] },
+    ],
+    art: {
+      slug: 'woman-with-a-parasol-monet',
+      title: 'Woman with a Parasol',
+      artist: 'Claude Monet',
+      year: '1875',
+      holder: 'National Gallery of Art, Washington',
+      credit: COMMONS,
+      story:
+        "Monet's wife Camille stands on a hill near their home at Argenteuil, with their son Jean a little way behind her in the meadow. We look up at her against the sky, as if from the grass. It is a windy summer day: her veil and white dress blow sideways, the clouds race, the flowers bend. Monet painted it in the open air, with quick loose strokes that catch the breeze rather than every detail.",
+    },
+  },
+  {
+    id: 'moulin-de-la-galette',
+    room: 'light',
+    rows: 5,
+    cols: 7,
+    words: [
+      { text: 'LANTERNS', at: [0, 0, 0, 6] },
+      { text: 'DANCERS', at: [1, 0, 3, 2] },
+      { text: 'HAT', at: [1, 3, 1, 4] },
+      { text: 'GLASSES', at: [2, 5, 4, 6] },
+      { text: 'BENCH', at: [4, 0, 4, 3] },
+      { text: 'CHAIR', at: [4, 4, 4, 5] },
+    ],
+    art: {
+      slug: 'bal-du-moulin-de-la-galette-renoir',
+      title: 'Bal du moulin de la Galette',
+      artist: 'Pierre-Auguste Renoir',
+      year: '1876',
+      holder: "Musée d'Orsay, Paris",
+      credit: COMMONS,
+      story:
+        "Every Sunday afternoon, working people from Montmartre came to dance in the garden of the Moulin de la Galette, an old windmill turned dance hall. Renoir carried his big canvas there and asked his friends to pose among the crowd: couples turn on the dance floor, others chat on a bench or around a table of glasses. Sunlight falls through the trees in dancing spots over hats and shoulders, and globe lanterns hang overhead, ready for the evening.",
+    },
+  },
+  {
+    id: 'boating-party',
+    room: 'light',
+    rows: 5,
+    cols: 7,
+    seed: 3,
+    words: [
+      { text: 'AWNING', at: [0, 0, 1, 3] },
+      { text: 'HATS', at: [0, 4, 1, 6] },
+      { text: 'DOG', at: [2, 1, 3, 1] },
+      { text: 'RAILING', at: [1, 2, 2, 4] },
+      { text: 'GRAPES', at: [3, 2, 3, 3] },
+      { text: 'WINE', at: [3, 3, 3, 4] },
+      { text: 'TABLE', at: [4, 0, 4, 4] },
+    ],
+    art: {
+      slug: 'luncheon-of-the-boating-party-renoir',
+      title: 'Luncheon of the Boating Party',
+      artist: 'Pierre-Auguste Renoir',
+      year: '1881',
+      holder: 'The Phillips Collection, Washington',
+      credit: COMMONS,
+      story:
+        'Lunch is over on the balcony of the Maison Fournaise, a restaurant by the river Seine where people came to row and sail. Under the striped awning, Renoir gathered his friends: they lean on the railing, flirt, drink the last of the wine among bottles and grapes. The young woman cooing at a little dog on the left is Aline, who later became his wife; the man in the straw hat, straddling his chair on the right, is the painter Gustave Caillebotte.',
+    },
+  },
+  {
+    id: 'dance-class',
+    room: 'light',
+    rows: 6,
+    cols: 6,
+    words: [
+      { text: 'MIRROR', at: [0, 2, 1, 3] },
+      { text: 'DANCERS', at: [1, 2, 2, 5] },
+      { text: 'CANE', at: [2, 4, 4, 5] },
+      { text: 'PIANO', at: [2, 0, 4, 0] },
+      { text: 'TUTU', at: [2, 1, 4, 3] },
+      { text: 'SHOES', at: [5, 1, 5, 3] },
+      { text: 'FLOOR', at: [3, 3, 5, 5] },
+    ],
+    art: {
+      slug: 'the-dance-class-degas',
+      title: 'The Dance Class',
+      artist: 'Edgar Degas',
+      year: '1874',
+      holder: 'The Metropolitan Museum of Art, New York',
+      credit: MET,
+      story:
+        'A ballet class at the Paris Opéra is nearly over. The old teacher, the famous dancer Jules Perrot, leans on his cane and taps the floor, while one girl performs and the rest are tired: they stretch, fiddle with their hair, scratch their backs, sit on the piano. A big mirror on the wall shows the room. Degas did not paint the glamour of the stage but the hard work behind it, in tutus and ballet shoes. He returned to dancers again and again, more than to any other subject.',
+    },
+  },
+  {
+    id: 'paris-street',
+    room: 'light',
+    rows: 5,
+    cols: 7,
+    words: [
+      { text: 'BUILDING', at: [0, 0, 1, 2] },
+      { text: 'LAMPPOST', at: [0, 3, 3, 3] },
+      { text: 'UMBRELLAS', at: [1, 3, 2, 6] },
+      { text: 'STONES', at: [3, 0, 4, 3] },
+      { text: 'COAT', at: [3, 4, 4, 6] },
+    ],
+    art: {
+      slug: 'paris-street-rainy-day-caillebotte',
+      title: 'Paris Street; Rainy Day',
+      artist: 'Gustave Caillebotte',
+      year: '1877',
+      holder: 'Art Institute of Chicago',
+      credit: AIC,
+      story:
+        "A wet afternoon at a crossroads in the brand-new Paris, rebuilt with wide streets and tall cream buildings. A well-dressed couple under one umbrella walks towards us; the paving stones shine with rain; a green lamppost cuts the picture in two. Everyone keeps to themselves, like strangers in a modern city. Caillebotte was a rich young painter who also helped his friends: he bought their work when no one else would, and left it to the nation.",
+    },
+  },
+  {
+    id: 'childs-bath',
+    room: 'light',
+    rows: 7,
+    cols: 5,
+    words: [
+      { text: 'WALL', at: [0, 0, 0, 4] },
+      { text: 'STRIPES', at: [1, 0, 4, 1] },
+      { text: 'GIRL', at: [1, 2, 2, 3] },
+      { text: 'TOWEL', at: [3, 2, 3, 3] },
+      { text: 'FEET', at: [5, 1, 5, 2] },
+      { text: 'BASIN', at: [5, 1, 6, 3] },
+      { text: 'JUG', at: [5, 3, 6, 4] },
+      { text: 'RUG', at: [6, 0, 6, 1] },
+    ],
+    art: {
+      slug: 'the-child-s-bath-cassatt',
+      title: "The Child's Bath",
+      artist: 'Mary Cassatt',
+      year: '1893',
+      holder: 'Art Institute of Chicago',
+      credit: AIC,
+      story:
+        'A woman holds a little girl on her lap and gently washes her feet in a basin, the jug waiting beside them. We look down on them from above, a view Mary Cassatt learned from Japanese prints, along with the bold flat patterns of the striped dress, the rug and the wall. Cassatt was an American in Paris and the only American asked to show with the Impressionists. She painted the quiet, everyday life of women and children, and made it monumental.',
+    },
+  },
+  {
+    id: 'two-sisters',
+    room: 'light',
+    rows: 7,
+    cols: 6,
+    words: [
+      { text: 'TREES', at: [0, 0, 0, 5] },
+      { text: 'RIVER', at: [1, 1, 1, 4] },
+      { text: 'HAT', at: [2, 2, 2, 3] },
+      { text: 'RAILING', at: [3, 0, 4, 1] },
+      { text: 'DRESS', at: [3, 2, 5, 2] },
+      { text: 'FLOWERS', at: [4, 3, 4, 5] },
+      { text: 'GIRL', at: [5, 3, 6, 4] },
+      { text: 'BASKET', at: [6, 0, 6, 2] },
+    ],
+    art: {
+      slug: 'two-sisters-on-the-terrace-renoir',
+      title: 'Two Sisters (On the Terrace)',
+      artist: 'Pierre-Auguste Renoir',
+      year: '1881',
+      holder: 'Art Institute of Chicago',
+      credit: AIC,
+      story:
+        'Two girls sit on a terrace above the river Seine, with a basket of balls of wool on their laps. The older one wears a bright red hat; the little girl in front has flowers on hers and stares straight at us. Behind the iron railing, leaves and trees blur into a haze of green and blue. In fact they were not sisters: Renoir painted them on the terrace of the same riverside restaurant where he set his Boating Party, the same summer.',
+    },
+  },
+  {
+    id: 'stacks-of-wheat',
+    room: 'light',
+    rows: 5,
+    cols: 7,
+    words: [
+      { text: 'HAZE', at: [0, 0, 0, 6] },
+      { text: 'HILLS', at: [1, 0, 1, 6] },
+      { text: 'WHEAT', at: [2, 0, 3, 1] },
+      { text: 'HOUSE', at: [2, 2, 2, 3] },
+      { text: 'STACK', at: [1, 4, 3, 6] },
+      { text: 'SHADOW', at: [3, 2, 3, 4] },
+      { text: 'FIELD', at: [4, 0, 4, 6] },
+    ],
+    art: {
+      slug: 'stacks-of-wheat-end-of-summer-monet',
+      title: 'Stacks of Wheat (End of Summer)',
+      artist: 'Claude Monet',
+      year: '1890–91',
+      holder: 'Art Institute of Chicago',
+      credit: AIC,
+      story:
+        'After the harvest, farmers near Monet\'s house at Giverny piled the wheat in tall stacks in the field. Monet painted them about 25 times, from summer to the snows of winter, at dawn, noon and dusk. He would carry several canvases out at once and switch to the next one as soon as the light changed. The stacks themselves hardly matter: the subject is the warm haze, the long blue shadow, the glow on the hills, at one moment of one day.',
+      crop: [0.13, 0, 1, 1],
+    },
+  },
+  {
+    id: 'the-cradle',
+    room: 'light',
+    rows: 7,
+    cols: 6,
+    seed: 1,
+    words: [
+      { text: 'CURTAIN', at: [0, 0, 1, 3] },
+      { text: 'VEIL', at: [0, 4, 3, 5] },
+      { text: 'MOTHER', at: [2, 1, 4, 2] },
+      { text: 'RIBBON', at: [3, 1, 3, 2] },
+      { text: 'HAND', at: [3, 2, 3, 3] },
+      { text: 'GAUZE', at: [3, 3, 4, 5] },
+      { text: 'BABY', at: [4, 4, 5, 5] },
+      { text: 'CRADLE', at: [5, 1, 6, 5] },
+    ],
+    art: {
+      slug: 'the-cradle-morisot',
+      title: 'The Cradle',
+      artist: 'Berthe Morisot',
+      year: '1872',
+      holder: "Musée d'Orsay, Paris",
+      credit: COMMONS,
+      story:
+        "Berthe Morisot's sister Edma watches her baby daughter sleep, chin resting on her hand. A thin veil of gauze hangs over the cradle like a tent, and through it we glimpse the baby's face. Edma had painted too, but gave it up when she married; Berthe kept going, and became one of the founders of Impressionism. She showed this picture at the group's very first exhibition, in 1874, the only woman among them.",
     },
   },
 ];

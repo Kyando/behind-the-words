@@ -1,0 +1,59 @@
+{
+  "id": "grande-jatte",
+  "room": "icons",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "RSLTREE",
+    "EVORATS",
+    "RISAPRI",
+    "ATGSSGK",
+    "HSODARS"
+  ],
+  "words": [
+    {
+      "text": "TREES",
+      "path": [3, 4, 5, 6, 13],
+      "at": [0, 1, 0, 6]
+    },
+    {
+      "text": "RIVER",
+      "path": [14, 15, 8, 7, 0],
+      "at": [0, 0, 2, 1]
+    },
+    {
+      "text": "PARASOLS",
+      "path": [18, 11, 10, 17, 16, 9, 2, 1],
+      "at": [0, 2, 2, 4]
+    },
+    {
+      "text": "HATS",
+      "path": [28, 21, 22, 29],
+      "at": [3, 0, 4, 1]
+    },
+    {
+      "text": "DOG",
+      "path": [31, 30, 23],
+      "at": [3, 2, 4, 3]
+    },
+    {
+      "text": "GRASS",
+      "path": [26, 33, 32, 25, 24],
+      "at": [3, 3, 4, 5]
+    },
+    {
+      "text": "SKIRT",
+      "path": [34, 27, 20, 19, 12],
+      "at": [2, 5, 4, 6]
+    }
+  ],
+  "art": {
+    "slug": "a-sunday-on-la-grande-jatte-seurat",
+    "title": "A Sunday on La Grande Jatte",
+    "artist": "Georges Seurat",
+    "year": "1884–86",
+    "holder": "Art Institute of Chicago",
+    "credit": "CC0 · Art Institute of Chicago",
+    "story": "On Sundays, Parisians escaped to La Grande Jatte, an island in the river Seine, to stroll under the trees with parasols, top hats and dogs. Georges Seurat spent two years on this huge canvas, three metres wide, building it out of tiny dots of pure colour placed side by side, which mix in the eye of whoever looks. Everyone is strangely still, like figures in a toy theatre. Look for the woman in the big bustled skirt on the right: she has a monkey on a lead."
+  }
+}

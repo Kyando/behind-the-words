@@ -10,7 +10,8 @@ npm run levels:generate   # lay out scripts/level-specs.ts into src/levels/ and 
 npm test                  # every level is a valid board with its painting
 ```
 
-Four levels in Room 1 (Starry Night, Great Wave, Girl with a Pearl Earring, Hiroshige's Sudden Shower).
+Twenty levels: Room 1, Icons (Starry Night, Great Wave, Pearl Earring, Sudden Shower, Mona Lisa, Sunflowers, The Scream, Water Lilies, La Grande Jatte, The Kiss) and Room 2, Light and Leisure (ten Impressionists, from Impression, Sunrise to Morisot's Cradle).
+- **Words sit on their things:** every word in `scripts/level-specs.ts` names something visible and says where it is on the board (`at`, in cells). The generator lays each word over its thing, so finding TURBAN uncovers the turban. `node scripts/board-grid.ts <slug>:<rows>x<cols>` draws a painting with the board's cells numbered, to read the areas off; `--levels` draws the generated pieces over each painting to check them.
 - **Screens:** the trail (`src/ui/trail.ts`) → a level (`src/ui/level-view.ts`) → the restored painting with its label and story (`src/ui/story.ts`).
 - **Engine from Twice Told Tales:** grid, steering, generator, session, sounds. The reveal paints each word's piece in full colour (`src/ui/pieces.ts`).
 - **Look:** Tidy desk (`src/styles/theme-desk.css`, after A Little to the Left): cream paper, muted pastels, wobbly brown outlines, flat shadows, the board as a tray and taped prints, all in Mali. Other palettes stay previewable with `?theme=` and `?fx=` (`src/styles/themes.css`); `node scripts/capture-themes.ts [palettes|woodblock|lttl]` screenshots them into `docs/palettes/`.

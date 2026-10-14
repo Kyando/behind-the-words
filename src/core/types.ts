@@ -2,7 +2,13 @@
 export interface WordDef {
   text: string;
   path: number[];
+  /** Where the thing it names is in the painting, as board cells [top row, left col, bottom row,
+   *  right col]: the word is laid over it, so finding it uncovers that thing. */
+  at?: Area;
 }
+
+/** A block of board cells: [top row, left col, bottom row, right col], inclusive. */
+export type Area = [number, number, number, number];
 
 /** The painting behind a level, and what the player reads once it is restored. */
 export interface ArtDef {

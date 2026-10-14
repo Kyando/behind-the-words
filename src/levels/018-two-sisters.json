@@ -1,0 +1,66 @@
+{
+  "id": "two-sisters",
+  "room": "light",
+  "rows": 7,
+  "cols": 6,
+  "grid": [
+    "TREESR",
+    "GDRIVE",
+    "NRHATS",
+    "IESLFR",
+    "LISOWE",
+    "RABAGL",
+    "TEKSIR"
+  ],
+  "words": [
+    {
+      "text": "TREES",
+      "path": [0, 1, 2, 3, 4],
+      "at": [0, 0, 0, 5]
+    },
+    {
+      "text": "RIVER",
+      "path": [8, 9, 10, 11, 5],
+      "at": [1, 1, 1, 4]
+    },
+    {
+      "text": "HAT",
+      "path": [14, 15, 16],
+      "at": [2, 2, 2, 3]
+    },
+    {
+      "text": "RAILING",
+      "path": [30, 31, 25, 24, 18, 12, 6],
+      "at": [3, 0, 4, 1]
+    },
+    {
+      "text": "DRESS",
+      "path": [7, 13, 19, 20, 26],
+      "at": [3, 2, 5, 2]
+    },
+    {
+      "text": "FLOWERS",
+      "path": [22, 21, 27, 28, 29, 23, 17],
+      "at": [4, 3, 4, 5]
+    },
+    {
+      "text": "GIRL",
+      "path": [34, 40, 41, 35],
+      "at": [5, 3, 6, 4]
+    },
+    {
+      "text": "BASKET",
+      "path": [32, 33, 39, 38, 37, 36],
+      "at": [6, 0, 6, 2]
+    }
+  ],
+  "art": {
+    "slug": "two-sisters-on-the-terrace-renoir",
+    "title": "Two Sisters (On the Terrace)",
+    "artist": "Pierre-Auguste Renoir",
+    "year": "1881",
+    "holder": "Art Institute of Chicago",
+    "credit": "CC0 · Art Institute of Chicago",
+    "story": "Two girls sit on a terrace above the river Seine, with a basket of balls of wool on their laps. The older one wears a bright red hat; the little girl in front has flowers on hers and stares straight at us. Behind the iron railing, leaves and trees blur into a haze of green and blue. In fact they were not sisters: Renoir painted them on the terrace of the same riverside restaurant where he set his Boating Party, the same summer."
+  }
+}

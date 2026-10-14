@@ -4,40 +4,47 @@
   "rows": 5,
   "cols": 7,
   "grid": [
-    "BOFUSDN",
-    "TAEJIUE",
-    "SSVALOM",
-    "RPMWCOS",
-    "AYAOFAR"
+    "FOASDUO",
+    "ESMINEL",
+    "VPRJUMC",
+    "AWAYFSO",
+    "STAOBRA"
   ],
   "words": [
     {
       "text": "WAVE",
-      "path": [24, 17, 16, 9]
+      "path": [22, 21, 14, 7],
+      "at": [1, 0, 4, 2]
     },
     {
       "text": "FOAM",
-      "path": [32, 31, 30, 23]
+      "path": [0, 1, 2, 9],
+      "at": [0, 1, 1, 3]
     },
     {
       "text": "FUJI",
-      "path": [2, 3, 10, 11]
+      "path": [25, 18, 17, 10],
+      "at": [2, 3, 3, 5]
     },
     {
       "text": "BOATS",
-      "path": [0, 1, 8, 7, 14]
+      "path": [32, 31, 30, 29, 28],
+      "at": [4, 2, 4, 5]
     },
     {
       "text": "SPRAY",
-      "path": [15, 22, 21, 28, 29]
+      "path": [8, 15, 16, 23, 24],
+      "at": [2, 2, 3, 3]
     },
     {
       "text": "CLOUDS",
-      "path": [25, 18, 19, 12, 5, 4]
+      "path": [20, 13, 6, 5, 4, 3],
+      "at": [0, 4, 2, 6]
     },
     {
       "text": "OARSMEN",
-      "path": [26, 33, 34, 27, 20, 13, 6]
+      "path": [27, 34, 33, 26, 19, 12, 11],
+      "at": [3, 4, 4, 6]
     }
   ],
   "art": {
@@ -47,6 +54,6 @@
     "year": "c. 1831",
     "holder": "The Metropolitan Museum of Art, New York",
     "credit": "CC0 · The Met Open Access",
-    "story": "Hokusai was about seventy when he made this woodblock print of a giant wave about to crash over three fast boats off the coast of Kanagawa. The oarsmen bow their heads and hold on; the foam breaks into curling claws. Far behind, small and calm, sits Mount Fuji, the sacred mountain the whole series was about. Because prints were cheap, thousands of copies were sold, and the wave travelled the world, inspiring Van Gogh, Monet and Debussy."
+    "story": "Hokusai was about seventy when he made this woodblock print of a giant wave about to crash over three fast boats off the coast of Kanagawa. The oarsmen bow their heads and hold on; the foam breaks into curling claws and the spray falls like snow. Far behind, small and calm under the clouds, sits Mount Fuji, the sacred mountain the whole series was about. Because prints were cheap, thousands of copies were sold, and the wave travelled the world, inspiring Van Gogh, Monet and Debussy."
   }
 }

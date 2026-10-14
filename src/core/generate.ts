@@ -1,6 +1,6 @@
-import { neighbors, turns } from './grid.ts';
+import { colOf, neighbors, rowOf, turns } from './grid.ts';
 import { HOLE_LETTER, validateLevel } from './puzzle.ts';
-import type { ArtDef, LevelDef, WordDef } from './types.ts';
+import type { Area, ArtDef, LevelDef, WordDef } from './types.ts';
 
 /** What a level contains; the generator decides where the words go. */
 export interface LevelSpec {
@@ -8,11 +8,36 @@ export interface LevelSpec {
   room: string;
   rows: number;
   cols: number;
-  /** The words to find, all things you can see in the painting; their letters must add up to rows * cols. */
-  words: string[];
+  /** The words to find, each a thing you can see in the painting and where it is on the board;
+   *  their letters must add up to rows * cols. */
+  words: SpecWord[];
   art: ArtDef;
+  /** Picks another of the generator's layouts, once one has been chosen by eye (default 0). */
+  seed?: number;
   /** Cells left empty, for boards that aren't a full rectangle. */
   holes?: number[];
+}
+
+export interface SpecWord {
+  text: string;
+  /** The cells the thing covers on this board (see board-grid.ts to read them off the picture). */
+  at: Area;
+}
+
+/** Steps from a cell to the nearest cell of an area (0 inside it). */
+export function distance(cell: number, cols: number, [r0, c0, r1, c1]: Area): number {
+  const r = rowOf(cell, cols);
+  const c = colOf(cell, cols);
+  return Math.max(r0 - r, 0, r - r1) + Math.max(c0 - c, 0, c - c1);
+}
+
+/**
+ * How well a word sits on its thing, 0 to 1: its letters over the area, out of as many as could be
+ * (the whole word for a big area, the whole area for a small one, like a pearl under a long word).
+ */
+export function fit(path: number[], cols: number, at: Area): number {
+  const size = (at[2] - at[0] + 1) * (at[3] - at[1] + 1);
+  return path.filter((c) => distance(c, cols, at) === 0).length / Math.min(path.length, size);
 }
 
 export function mulberry32(seed: number): () => number {
@@ -35,8 +60,8 @@ function shuffle<T>(items: T[], rng: () => number): T[] {
   return a;
 }
 
-/** Random self-avoiding walks of `length` empty cells starting at `start`. */
-function randomPaths(start: number, length: number, owner: Int16Array, rows: number, cols: number, rng: () => number, max: number): number[][] {
+/** Self-avoiding walks of `length` empty cells from `start`, leaning towards `at`. */
+function randomPaths(start: number, length: number, owner: Int16Array, rows: number, cols: number, rng: () => number, max: number, at: Area): number[][] {
   const out: number[][] = [];
   const path = [start];
   const used = new Set(path);
@@ -47,7 +72,8 @@ function randomPaths(start: number, length: number, owner: Int16Array, rows: num
       out.push([...path]);
       return;
     }
-    for (const next of shuffle(neighbors(path[path.length - 1], rows, cols), rng)) {
+    const steps = neighbors(path[path.length - 1], rows, cols).map((c) => ({ c, d: distance(c, cols, at) + rng() * 1.5 }));
+    for (const { c: next } of steps.sort((a, b) => a.d - b.d)) {
       if (owner[next] >= 0 || used.has(next)) continue;
       path.push(next);
       used.add(next);
@@ -73,14 +99,20 @@ function subsetSum(lengths: number[], size: number): boolean {
 
 /**
  * Tiles the grid with one path per word. Only shapes here; letters come later.
- * Fills the first empty cell each step, so dead ends show up early.
+ * First the words with the tightest areas (small things, like a pearl) are laid straight onto them;
+ * then the rest of the board is filled from its first empty cell, so dead ends show up early.
  */
-function tile(lengths: number[], rows: number, cols: number, holes: number[], rng: () => number): number[][] | null {
+function tile(lengths: number[], areas: Area[], rows: number, cols: number, holes: number[], rng: () => number): number[][] | null {
   const n = rows * cols;
   const owner = new Int16Array(n).fill(-1);
   for (const h of holes) owner[h] = HOLE;
   const paths: (number[] | null)[] = lengths.map(() => null);
   let budget = 4000;
+  const cellsOf = ([r0, c0, r1, c1]: Area) => {
+    const out: number[] = [];
+    for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) out.push(r * cols + c);
+    return out;
+  };
 
   // Every empty region must be fillable by some of the remaining words.
   const feasible = (): boolean => {
@@ -110,8 +142,10 @@ function tile(lengths: number[], rows: number, cols: number, holes: number[], rn
     if (--budget < 0) return false;
     const start = owner.indexOf(-1);
     if (start < 0) return true;
-    for (const i of shuffle(lengths.map((_, k) => k).filter((k) => !paths[k]), rng)) {
-      for (const cells of randomPaths(start, lengths[i], owner, rows, cols, rng, 6)) {
+    // The words whose things are here (or nearest) are tried first.
+    const order = shuffle(lengths.map((_, k) => k).filter((k) => !paths[k]), rng).sort((a, b) => distance(start, cols, areas[a]) - distance(start, cols, areas[b]));
+    for (const i of order) {
+      for (const cells of randomPaths(start, lengths[i], owner, rows, cols, rng, 6, areas[i])) {
         cells.forEach((c) => (owner[c] = i));
         // The walk starts on the top-left-most empty cell; reading it backwards doubles the shapes.
         paths[i] = rng() < 0.5 ? cells : [...cells].reverse();
@@ -124,19 +158,53 @@ function tile(lengths: number[], rows: number, cols: number, holes: number[], rn
     return false;
   };
 
+  // Tight words first: a random number of them (up to all), smallest area per letter first, each onto its thing.
+  const tight = lengths
+    .map((len, i) => ({ i, room: cellsOf(areas[i]).length / len + rng() * 0.8 }))
+    .sort((a, b) => a.room - b.room)
+    .slice(0, Math.floor(rng() * (lengths.length + 1)));
+  for (const { i } of tight) {
+    const starts = shuffle(cellsOf(areas[i]).filter((c) => owner[c] < 0), rng).slice(0, 8);
+    let laid = false;
+    for (const start of starts) {
+      for (const cells of randomPaths(start, lengths[i], owner, rows, cols, rng, 4, areas[i])) {
+        if (fit(cells, cols, areas[i]) < 0.6) continue;
+        cells.forEach((c) => (owner[c] = i));
+        paths[i] = cells;
+        if (feasible()) {
+          laid = true;
+          break;
+        }
+        cells.forEach((c) => (owner[c] = -1));
+        paths[i] = null;
+      }
+      if (laid) break;
+    }
+  }
+
   return place() ? (paths as number[][]) : null;
 }
 
-/** Bendier boards feel more like Tetris: reward turns, and a little variety in shapes. */
+/**
+ * Words over their things first, by far, with the worst-placed word counting most (one word lost
+ * away from its thing reads worse than all of them a little off); then bendier boards, which feel
+ * more like Tetris.
+ */
 function score(def: LevelDef): number {
   const bent = def.words.filter((w) => turns(w.path) > 0).length;
-  return def.words.reduce((sum, w) => sum + Math.min(turns(w.path), 3), 0) + bent * 2;
+  const fits = def.words.map((w) => fit(w.path, def.cols, w.at!));
+  const over = fits.reduce((sum, f) => sum + f, 0) + Math.min(...fits) * def.words.length * 0.6;
+  return over * 100 + def.words.reduce((sum, w) => sum + Math.min(turns(w.path), 3), 0) + bent * 2;
 }
 
-/** Best of `attempts` random valid layouts, or null if none passed validation. */
-export function generateLevel(spec: LevelSpec, seed: number, attempts = 400): LevelDef | null {
+/**
+ * Best of `attempts` random valid layouts, or null if none passed validation. While some word still
+ * covers less than half of its thing, it keeps looking, up to four times as long.
+ */
+export function generateLevel(spec: LevelSpec, seed: number, attempts = 2500): LevelDef | null {
   const { rows, cols } = spec;
-  const texts = spec.words.map((w) => w.toUpperCase());
+  const texts = spec.words.map((w) => w.text.toUpperCase());
+  const areas = spec.words.map((w) => w.at);
   const total = texts.reduce((s, t) => s + t.length, 0);
   const holes = spec.holes ?? [];
   if (total !== rows * cols - holes.length) throw new Error(`${spec.id}: words have ${total} letters for ${rows * cols - holes.length} cells`);
@@ -144,10 +212,11 @@ export function generateLevel(spec: LevelSpec, seed: number, attempts = 400): Le
   const rng = mulberry32(seed);
   let best: LevelDef | null = null;
   let bestScore = -Infinity;
-  for (let i = 0; i < attempts; i++) {
-    const paths = tile(texts.map((t) => t.length), rows, cols, holes, rng);
+  const worst = (def: LevelDef) => Math.min(...def.words.map((w) => fit(w.path, cols, w.at!)));
+  for (let i = 0; i < attempts * 4 && (i < attempts || !best || worst(best) < 0.5); i++) {
+    const paths = tile(texts.map((t) => t.length), areas, rows, cols, holes, rng);
     if (!paths) continue;
-    const words: WordDef[] = texts.map((text, k) => ({ text, path: paths[k] }));
+    const words: WordDef[] = texts.map((text, k) => ({ text, path: paths[k], at: areas[k] }));
     const letters = new Array<string>(rows * cols).fill(HOLE_LETTER);
     words.forEach((w) => w.path.forEach((cell, k) => (letters[cell] = w.text[k])));
     const def: LevelDef = {

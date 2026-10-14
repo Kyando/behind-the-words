@@ -1,0 +1,55 @@
+{
+  "id": "water-lilies",
+  "room": "icons",
+  "rows": 6,
+  "cols": 6,
+  "grid": [
+    "LLOSEI",
+    "ISWLIL",
+    "WOUDST",
+    "CLSMOE",
+    "BLOSSN",
+    "PADSMO"
+  ],
+  "words": [
+    {
+      "text": "WILLOWS",
+      "path": [12, 6, 0, 1, 2, 8, 7],
+      "at": [0, 0, 2, 2]
+    },
+    {
+      "text": "LILIES",
+      "path": [9, 10, 11, 5, 4, 3],
+      "at": [0, 2, 2, 5]
+    },
+    {
+      "text": "CLOUDS",
+      "path": [18, 19, 13, 14, 15, 16],
+      "at": [2, 0, 3, 4]
+    },
+    {
+      "text": "BLOSSOMS",
+      "path": [24, 25, 26, 27, 28, 22, 21, 20],
+      "at": [4, 0, 4, 4]
+    },
+    {
+      "text": "PADS",
+      "path": [30, 31, 32, 33],
+      "at": [4, 0, 5, 3]
+    },
+    {
+      "text": "MONET",
+      "path": [34, 35, 29, 23, 17],
+      "at": [5, 4, 5, 5]
+    }
+  ],
+  "art": {
+    "slug": "water-lilies-monet",
+    "title": "Water Lilies",
+    "artist": "Claude Monet",
+    "year": "1906",
+    "holder": "Art Institute of Chicago",
+    "credit": "CC0 · Art Institute of Chicago",
+    "story": "At Giverny, Claude Monet dug a pond, filled it with water lilies, and spent the last thirty years of his life painting it, around 250 times. There is no bank and no horizon here, only the surface of the water: round green pads, pink blossoms opening, and between them the reflections of things we cannot see, white clouds and the dark trailing willows on the shore. Monet signed it in the corner, as if on the water itself."
+  }
+}

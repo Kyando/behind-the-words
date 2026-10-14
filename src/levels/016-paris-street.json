@@ -1,0 +1,49 @@
+{
+  "id": "paris-street",
+  "room": "light",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "GNTSSLE",
+    "DIBOALR",
+    "LIUPUMB",
+    "SSTPLTC",
+    "ENOMAAO"
+  ],
+  "words": [
+    {
+      "text": "BUILDING",
+      "path": [9, 16, 15, 14, 7, 8, 1, 0],
+      "at": [0, 0, 1, 2]
+    },
+    {
+      "text": "LAMPPOST",
+      "path": [25, 32, 31, 24, 17, 10, 3, 2],
+      "at": [0, 3, 3, 3]
+    },
+    {
+      "text": "UMBRELLAS",
+      "path": [18, 19, 20, 13, 6, 5, 12, 11, 4],
+      "at": [1, 3, 2, 6]
+    },
+    {
+      "text": "STONES",
+      "path": [22, 23, 30, 29, 28, 21],
+      "at": [3, 0, 4, 3]
+    },
+    {
+      "text": "COAT",
+      "path": [27, 34, 33, 26],
+      "at": [3, 4, 4, 6]
+    }
+  ],
+  "art": {
+    "slug": "paris-street-rainy-day-caillebotte",
+    "title": "Paris Street; Rainy Day",
+    "artist": "Gustave Caillebotte",
+    "year": "1877",
+    "holder": "Art Institute of Chicago",
+    "credit": "CC0 · Art Institute of Chicago",
+    "story": "A wet afternoon at a crossroads in the brand-new Paris, rebuilt with wide streets and tall cream buildings. A well-dressed couple under one umbrella walks towards us; the paving stones shine with rain; a green lamppost cuts the picture in two. Everyone keeps to themselves, like strangers in a modern city. Caillebotte was a rich young painter who also helped his friends: he bought their work when no one else would, and left it to the nation."
+  }
+}

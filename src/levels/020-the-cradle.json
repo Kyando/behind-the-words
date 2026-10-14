@@ -1,0 +1,66 @@
+{
+  "id": "the-cradle",
+  "room": "light",
+  "rows": 7,
+  "cols": 6,
+  "grid": [
+    "CUNILI",
+    "RRTAVE",
+    "EHTDHE",
+    "NOONAZ",
+    "BBMGAU",
+    "IRYBAB",
+    "ELDARC"
+  ],
+  "words": [
+    {
+      "text": "CURTAIN",
+      "path": [0, 1, 7, 8, 9, 3, 2],
+      "at": [0, 0, 1, 3]
+    },
+    {
+      "text": "VEIL",
+      "path": [10, 11, 5, 4],
+      "at": [0, 4, 3, 5]
+    },
+    {
+      "text": "MOTHER",
+      "path": [26, 20, 14, 13, 12, 6],
+      "at": [2, 1, 4, 2]
+    },
+    {
+      "text": "RIBBON",
+      "path": [31, 30, 24, 25, 19, 18],
+      "at": [3, 1, 3, 2]
+    },
+    {
+      "text": "HAND",
+      "path": [16, 22, 21, 15],
+      "at": [3, 2, 3, 3]
+    },
+    {
+      "text": "GAUZE",
+      "path": [27, 28, 29, 23, 17],
+      "at": [3, 3, 4, 5]
+    },
+    {
+      "text": "BABY",
+      "path": [35, 34, 33, 32],
+      "at": [4, 4, 5, 5]
+    },
+    {
+      "text": "CRADLE",
+      "path": [41, 40, 39, 38, 37, 36],
+      "at": [5, 1, 6, 5]
+    }
+  ],
+  "art": {
+    "slug": "the-cradle-morisot",
+    "title": "The Cradle",
+    "artist": "Berthe Morisot",
+    "year": "1872",
+    "holder": "Musée d'Orsay, Paris",
+    "credit": "Public domain · image via Wikimedia Commons",
+    "story": "Berthe Morisot's sister Edma watches her baby daughter sleep, chin resting on her hand. A thin veil of gauze hangs over the cradle like a tent, and through it we glimpse the baby's face. Edma had painted too, but gave it up when she married; Berthe kept going, and became one of the founders of Impressionism. She showed this picture at the group's very first exhibition, in 1874, the only woman among them."
+  }
+}

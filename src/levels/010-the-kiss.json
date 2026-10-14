@@ -1,0 +1,66 @@
+{
+  "id": "the-kiss",
+  "room": "icons",
+  "rows": 7,
+  "cols": 7,
+  "grid": [
+    "FASSIKG",
+    "GESNAIL",
+    "OLQDHTT",
+    "LDUSSEE",
+    "FLASCLR",
+    "WORERFE",
+    "ERSCITE"
+  ],
+  "words": [
+    {
+      "text": "KISS",
+      "path": [5, 4, 3, 2],
+      "at": [0, 3, 1, 4]
+    },
+    {
+      "text": "HANDS",
+      "path": [18, 11, 10, 17, 24],
+      "at": [1, 3, 2, 4]
+    },
+    {
+      "text": "SQUARES",
+      "path": [9, 16, 23, 30, 37, 38, 31],
+      "at": [1, 2, 4, 2]
+    },
+    {
+      "text": "CIRCLES",
+      "path": [45, 46, 39, 32, 33, 26, 25],
+      "at": [2, 4, 4, 5]
+    },
+    {
+      "text": "GOLDLEAF",
+      "path": [7, 14, 21, 22, 15, 8, 1, 0],
+      "at": [0, 0, 4, 1]
+    },
+    {
+      "text": "GLITTER",
+      "path": [6, 13, 12, 19, 20, 27, 34],
+      "at": [0, 5, 4, 6]
+    },
+    {
+      "text": "FEET",
+      "path": [40, 41, 48, 47],
+      "at": [5, 5, 5, 5]
+    },
+    {
+      "text": "FLOWERS",
+      "path": [28, 29, 36, 35, 42, 43, 44],
+      "at": [5, 0, 6, 6]
+    }
+  ],
+  "art": {
+    "slug": "the-kiss-klimt",
+    "title": "The Kiss",
+    "artist": "Gustav Klimt",
+    "year": "1907–08",
+    "holder": "Belvedere, Vienna",
+    "credit": "Public domain · image via Wikimedia Commons (Google Art Project)",
+    "story": "A couple kneel at the edge of a meadow of flowers, wrapped together in one golden cloak, his covered in black and white squares, hers in bright circles. He holds her face in his hands; her bare feet curl over the edge, as if the meadow ends in a cliff. Klimt painted it with real gold leaf, and the glitter around them makes the moment float outside time. The Austrian state bought it in 1908, the year it was first shown, and it has hung in Vienna ever since."
+  }
+}

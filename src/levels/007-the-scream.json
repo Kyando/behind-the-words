@@ -1,0 +1,66 @@
+{
+  "id": "the-scream",
+  "room": "icons",
+  "rows": 7,
+  "cols": 6,
+  "grid": [
+    "SUNSEY",
+    "BFECTK",
+    "RJOAES",
+    "IDRFDI",
+    "DDNAHS",
+    "GSOLHL",
+    "EKACIL"
+  ],
+  "words": [
+    {
+      "text": "SUNSET",
+      "path": [0, 1, 2, 3, 4, 10],
+      "at": [0, 0, 1, 5]
+    },
+    {
+      "text": "SKY",
+      "path": [17, 11, 5],
+      "at": [0, 3, 1, 5]
+    },
+    {
+      "text": "FJORD",
+      "path": [7, 13, 14, 20, 19],
+      "at": [2, 0, 3, 5]
+    },
+    {
+      "text": "BRIDGE",
+      "path": [6, 12, 18, 24, 30, 36],
+      "at": [3, 0, 6, 2]
+    },
+    {
+      "text": "HILLSIDE",
+      "path": [34, 40, 41, 35, 29, 23, 22, 16],
+      "at": [3, 4, 6, 5]
+    },
+    {
+      "text": "FACE",
+      "path": [21, 15, 9, 8],
+      "at": [3, 3, 4, 3]
+    },
+    {
+      "text": "HANDS",
+      "path": [28, 27, 26, 25, 31],
+      "at": [4, 2, 4, 4]
+    },
+    {
+      "text": "CLOAK",
+      "path": [39, 33, 32, 38, 37],
+      "at": [5, 2, 6, 3]
+    }
+  ],
+  "art": {
+    "slug": "the-scream-munch",
+    "title": "The Scream",
+    "artist": "Edvard Munch",
+    "year": "1893",
+    "holder": "National Museum, Oslo",
+    "credit": "Public domain · image via Wikimedia Commons",
+    "story": "Edvard Munch was out walking with two friends above the fjord at Oslo when the sunset turned the sky blood red. His friends walked on; he stopped, shaking, and felt a huge scream pass through nature. Later he painted that moment: a figure on a bridge, hands pressed to a face like a skull, while the sky, the water and the hillside swirl around it in the same long waves. Munch made several versions in paint, pastel and print, and the cry has echoed ever since."
+  }
+}

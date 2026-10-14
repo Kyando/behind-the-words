@@ -8,7 +8,7 @@
 import { existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import sharp from 'sharp';
-import { generateLevel } from '../src/core/generate.ts';
+import { fit, generateLevel } from '../src/core/generate.ts';
 import { SPECS } from './level-specs.ts';
 
 const root = join(import.meta.dirname, '..');
@@ -35,7 +35,7 @@ for (const [i, spec] of SPECS.entries()) {
   const prefix = `${String(n).padStart(3, '0')}-`;
   const file = `${prefix}${spec.id}.json`;
   const started = performance.now();
-  const def = generateLevel(spec, hash(spec.id) + seedOffset);
+  const def = generateLevel(spec, hash(spec.id) + (spec.seed ?? 0) + seedOffset);
   const ms = Math.round(performance.now() - started);
   if (!def) {
     console.error(`✗ ${file}: no valid layout (${ms} ms) — try another --seed`);
@@ -48,7 +48,20 @@ for (const [i, spec] of SPECS.entries()) {
   const src = join(root, 'art', 'images', `${spec.art.slug}.jpg`);
   const out = join(artOut, `${spec.art.slug}.jpg`);
   if (!existsSync(src)) console.error(`  ! no image at art/images/${spec.art.slug}.jpg (run npm run art:download)`);
-  else if (!existsSync(out)) await sharp(src).resize(1600, 1600, { fit: 'inside' }).jpeg({ quality: 84, mozjpeg: true }).toFile(out);
-  console.log(`✓ ${file} (${ms} ms)\n${def.grid.map((r) => `    ${r.split('').join(' ')}`).join('\n')}`);
+  else if (!existsSync(out)) {
+    // A crop is cut into the served image itself, so the board shows exactly that part.
+    let img = sharp(src);
+    if (spec.art.crop) {
+      const { width = 0, height = 0 } = await img.metadata();
+      const [l, t, r, b] = spec.art.crop;
+      img = sharp(src).extract({ left: Math.round(l * width), top: Math.round(t * height), width: Math.round((r - l) * width), height: Math.round((b - t) * height) });
+    }
+    await img.resize(1600, 1600, { fit: 'inside' }).jpeg({ quality: 84, mozjpeg: true }).toFile(out);
+  }
+  // How much of each word lies over the thing it names; under half, its area may need rethinking.
+  const fits = def.words.map((w) => ({ text: w.text, share: fit(w.path, def.cols, w.at!) }));
+  const mean = fits.reduce((s, w) => s + w.share, 0) / fits.length;
+  const poor = fits.filter((w) => w.share < 0.5).map((w) => `${w.text} ${Math.round(w.share * 100)}%`);
+  console.log(`✓ ${file} (${ms} ms) over their things: ${Math.round(mean * 100)}%${poor.length ? `; poor: ${poor.join(', ')}` : ''}`);
 }
 process.exit(failed ? 1 : 0);

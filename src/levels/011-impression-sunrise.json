@@ -1,0 +1,59 @@
+{
+  "id": "impression-sunrise",
+  "room": "light",
+  "rows": 5,
+  "cols": 7,
+  "grid": [
+    "DAWNSMA",
+    "EKSRUNS",
+    "TOMOGST",
+    "AOBWLOW",
+    "SELPPIR"
+  ],
+  "words": [
+    {
+      "text": "DAWN",
+      "path": [0, 1, 2, 3],
+      "at": [0, 0, 0, 6]
+    },
+    {
+      "text": "SUN",
+      "path": [4, 11, 12],
+      "at": [1, 4, 1, 4]
+    },
+    {
+      "text": "SMOKE",
+      "path": [9, 16, 15, 8, 7],
+      "at": [1, 1, 1, 2]
+    },
+    {
+      "text": "MASTS",
+      "path": [5, 6, 13, 20, 19],
+      "at": [1, 5, 2, 6]
+    },
+    {
+      "text": "GLOW",
+      "path": [18, 25, 26, 27],
+      "at": [2, 4, 3, 4]
+    },
+    {
+      "text": "ROWBOAT",
+      "path": [10, 17, 24, 23, 22, 21, 14],
+      "at": [3, 2, 3, 3]
+    },
+    {
+      "text": "RIPPLES",
+      "path": [34, 33, 32, 31, 30, 29, 28],
+      "at": [4, 0, 4, 6]
+    }
+  ],
+  "art": {
+    "slug": "impression-sunrise-monet",
+    "title": "Impression, Sunrise",
+    "artist": "Claude Monet",
+    "year": "1872",
+    "holder": "Musée Marmottan Monet, Paris",
+    "credit": "Public domain · image via Wikimedia Commons",
+    "story": "Dawn over the harbour of Le Havre, where Monet grew up. Through the mist we can just make out the masts of ships and the smoke of factory chimneys; a small rowboat slides by, and an orange sun lays its glow across the ripples in a few quick strokes. When Monet showed it in 1874, a critic mocked its title and called the whole group of painters \"Impressionists\". The insult stuck, and became the name of the most popular movement in art."
+  }
+}
