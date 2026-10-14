@@ -1,0 +1,65 @@
+{
+  "id": "the-night-watch",
+  "room": "golden-age",
+  "rows": 6,
+  "cols": 7,
+  "grid": [
+    "HAHIDSL",
+    "CRSELEA",
+    "TEIGNCN",
+    "SKRCIAD",
+    "UMLAPTR",
+    "BOOTSMU"
+  ],
+  "words": [
+    {
+      "text": "ARCH",
+      "path": [1, 8, 7, 0],
+      "at": [0, 0, 1, 3]
+    },
+    {
+      "text": "SHIELD",
+      "path": [9, 2, 3, 10, 11, 4],
+      "at": [0, 4, 1, 4]
+    },
+    {
+      "text": "LANCES",
+      "path": [6, 13, 20, 19, 12, 5],
+      "at": [0, 5, 2, 6]
+    },
+    {
+      "text": "MUSKET",
+      "path": [29, 28, 21, 22, 15, 14],
+      "at": [2, 0, 4, 1]
+    },
+    {
+      "text": "GIRL",
+      "path": [17, 16, 23, 30],
+      "at": [3, 2, 4, 2]
+    },
+    {
+      "text": "CAPTAIN",
+      "path": [24, 31, 32, 33, 26, 25, 18],
+      "at": [3, 3, 4, 3]
+    },
+    {
+      "text": "DRUM",
+      "path": [27, 34, 41, 40],
+      "at": [3, 6, 4, 6]
+    },
+    {
+      "text": "BOOTS",
+      "path": [35, 36, 37, 38, 39],
+      "at": [5, 2, 5, 5]
+    }
+  ],
+  "art": {
+    "slug": "the-night-watch-rembrandt",
+    "title": "The Night Watch",
+    "artist": "Rembrandt van Rijn",
+    "year": "1642",
+    "holder": "Rijksmuseum, Amsterdam",
+    "credit": "Public domain · image via Wikimedia Commons (Rijksmuseum)",
+    "story": "Amsterdam's citizen guards march out from under an arch: the captain in black, with a red sash and tall boots, gives the order, a drum rolls, lances and a musket bristle, and a small girl in gold glows among them with a chicken tied to her belt, the company's sign. Group portraits usually lined people up in rows; Rembrandt made his a moment of movement instead. It isn't even night: the scene went dark under old varnish. The painting is huge, and was once cut down at the edges to fit a wall."
+  }
+}

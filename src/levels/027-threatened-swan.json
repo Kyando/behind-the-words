@@ -1,0 +1,75 @@
+{
+  "id": "threatened-swan",
+  "room": "golden-age",
+  "rows": 6,
+  "cols": 7,
+  "grid": [
+    "UDSSDEN",
+    "OLEAREE",
+    "WCBKNSS",
+    "INGSAWT",
+    "ODFEETE",
+    "GDNOPGG"
+  ],
+  "words": [
+    {
+      "text": "CLOUDS",
+      "path": [15, 8, 7, 0, 1, 2],
+      "at": [0, 1, 0, 3]
+    },
+    {
+      "text": "REEDS",
+      "path": [11, 12, 5, 4, 3],
+      "at": [0, 4, 1, 6]
+    },
+    {
+      "text": "WINGS",
+      "path": [14, 21, 22, 23, 24],
+      "at": [2, 0, 3, 2]
+    },
+    {
+      "text": "BEAK",
+      "path": [16, 9, 10, 17],
+      "at": [2, 3, 2, 3]
+    },
+    {
+      "text": "SWAN",
+      "path": [19, 26, 25, 18],
+      "at": [3, 3, 4, 5]
+    },
+    {
+      "text": "NEST",
+      "path": [6, 13, 20, 27],
+      "at": [3, 5, 3, 6]
+    },
+    {
+      "text": "EGG",
+      "path": [34, 41, 40],
+      "at": [4, 6, 4, 6]
+    },
+    {
+      "text": "FEET",
+      "path": [30, 31, 32, 33],
+      "at": [4, 3, 5, 4]
+    },
+    {
+      "text": "DOG",
+      "path": [29, 28, 35],
+      "at": [5, 0, 5, 0]
+    },
+    {
+      "text": "POND",
+      "path": [39, 38, 37, 36],
+      "at": [5, 1, 5, 6]
+    }
+  ],
+  "art": {
+    "slug": "the-threatened-swan-asselijn",
+    "title": "The Threatened Swan",
+    "artist": "Jan Asselijn",
+    "year": "c. 1650",
+    "holder": "Rijksmuseum, Amsterdam",
+    "credit": "Public domain · image via Wikimedia Commons (Rijksmuseum)",
+    "story": "A swan rears up with its wings spread wide and its beak open, hissing at a dog that swims across the pond towards its nest in the reeds. Beside its feet lies an egg. Jan Asselijn painted it as a scene from nature, life-size. After his death someone wrote words on it: on the egg, \"Holland\", and by the dog, \"the enemy of the state\". The swan became a fierce statesman defending his country. In 1800 it was the very first painting bought for the national museum that became the Rijksmuseum."
+  }
+}

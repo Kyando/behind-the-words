@@ -1,0 +1,65 @@
+{
+  "id": "view-of-delft",
+  "room": "golden-age",
+  "rows": 6,
+  "cols": 7,
+  "grid": [
+    "SCLTHGS",
+    "DUOERIU",
+    "YKSWOLN",
+    "FOORTTA",
+    "SRGESEG",
+    "BAWATER"
+  ],
+  "words": [
+    {
+      "text": "CLOUDS",
+      "path": [1, 2, 9, 8, 7, 0],
+      "at": [0, 0, 1, 6]
+    },
+    {
+      "text": "SKY",
+      "path": [16, 15, 14],
+      "at": [1, 0, 2, 2]
+    },
+    {
+      "text": "SUNLIGHT",
+      "path": [6, 13, 20, 19, 12, 5, 4, 3],
+      "at": [1, 3, 2, 6]
+    },
+    {
+      "text": "ROOFS",
+      "path": [24, 23, 22, 21, 28],
+      "at": [3, 0, 3, 3]
+    },
+    {
+      "text": "TOWER",
+      "path": [25, 18, 17, 10, 11],
+      "at": [3, 4, 3, 4]
+    },
+    {
+      "text": "GATE",
+      "path": [34, 27, 26, 33],
+      "at": [3, 5, 4, 6]
+    },
+    {
+      "text": "BARGES",
+      "path": [35, 36, 29, 30, 31, 32],
+      "at": [4, 0, 4, 6]
+    },
+    {
+      "text": "WATER",
+      "path": [37, 38, 39, 40, 41],
+      "at": [4, 0, 5, 6]
+    }
+  ],
+  "art": {
+    "slug": "view-of-delft-vermeer",
+    "title": "View of Delft",
+    "artist": "Johannes Vermeer",
+    "year": "c. 1660",
+    "holder": "Mauritshuis, The Hague",
+    "credit": "Public domain · image via Wikimedia Commons (Mauritshuis)",
+    "story": "Vermeer's home town seen from across the water on a still morning after rain. Heavy clouds drift across a pale sky over the red roofs; the clock on the town gate says ten past seven; barges are moored along the quay, and a few people chat on the sandy bank. Behind it all, sunlight falls on one tower: the New Church, where the princes of Orange are buried. Vermeer moved a few buildings to make the view more balanced. The writer Marcel Proust called it the most beautiful painting in the world."
+  }
+}

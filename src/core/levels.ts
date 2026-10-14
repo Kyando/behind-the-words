@@ -21,7 +21,7 @@ export interface Room {
 export const ROOMS: Room[] = [
   { id: 'icons', name: 'Icons', tagline: 'The paintings everyone knows', color: '#ffb020', edge: '#d98a00', gate: 0, planned: 10 },
   { id: 'light', name: 'Light and Leisure', tagline: 'The Impressionists paint a Sunday afternoon', color: '#1cb0f6', edge: '#1186c2', gate: 10, planned: 10 },
-  { id: 'golden-age', name: 'The Golden Age', tagline: 'Amsterdam, 1650: candles, canals and milk', color: '#ff7a45', edge: '#d9541f', gate: 22, planned: 10 },
+  { id: 'golden-age', name: 'The Golden Age', tagline: 'Amsterdam, 1650: candles, canals and milk', color: '#ff7a45', edge: '#d9541f', gate: 20, planned: 10 },
   { id: 'woodblocks', name: 'Waves and Woodblocks', tagline: 'Hokusai, Hiroshige and the floating world', color: '#2bc4a4', edge: '#159a80', gate: 36, planned: 10 },
 ];
 
