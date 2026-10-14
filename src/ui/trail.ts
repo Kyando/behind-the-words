@@ -24,7 +24,10 @@ interface Piece {
   room: Room;
   /** Its number in the room, from 1. */
   n: number;
+  /** locked: made, not reached yet; soon: not made yet (an empty spot on the wall). */
   state: 'done' | 'next' | 'locked' | 'soon';
+  /** Every painting made so far is restored: this is the spot the next one will hang in. */
+  waiting?: boolean;
 }
 
 /**
@@ -55,7 +58,7 @@ export class Trail {
     this.el = h('main', { class: 'screen trail' }, top, this.wall(rooms));
 
     // The paintings drop in outward from the one in focus (just restored, or next), nearest first.
-    this.focus = this.el.querySelector<HTMLElement>(opts.justDone ? `[data-id="${opts.justDone}"]` : '.node.is-next') ?? this.el.querySelector<HTMLElement>('.node.is-next');
+    this.focus = this.el.querySelector<HTMLElement>(opts.justDone ? `[data-id="${opts.justDone}"]` : '.node.is-next, .node.is-waiting') ?? this.el.querySelector<HTMLElement>('.node.is-next, .node.is-waiting');
     const slots = [...this.el.querySelectorAll<HTMLElement>('.spot')];
     const at = slots.findIndex((s) => this.focus && s.contains(this.focus));
     slots.forEach((s, i) => s.style.setProperty('--n', String(Math.min(14, Math.abs(i - Math.max(0, at))))));
@@ -65,6 +68,7 @@ export class Trail {
   /** Every room with its pieces, in trail order. */
   private pieces(): { room: Room; open: boolean; done: number; pieces: Piece[] }[] {
     const next = LEVELS.find((l) => !this.opts.isDone(l.id));
+    let waiting = !next;
     return ROOMS.map((room) => {
       const levels = LEVELS.filter((l) => l.room === room.id);
       const open = this.opts.stars >= room.gate;
@@ -72,7 +76,9 @@ export class Trail {
       const pieces = Array.from({ length: count }, (_, i): Piece => {
         const level = levels[i];
         const state = !level ? 'soon' : open && this.opts.isDone(level.id) ? 'done' : open && level === next ? 'next' : 'locked';
-        return { level, room, n: i + 1, state };
+        const piece: Piece = { level, room, n: i + 1, state, waiting: waiting && open && state === 'soon' };
+        if (piece.waiting) waiting = false;
+        return piece;
       });
       return { room, open, done: pieces.filter((p) => p.state === 'done').length, pieces };
     });
@@ -115,12 +121,14 @@ export class Trail {
         ? h('span', { class: 'node-art', style: `background-image: url("${artUrl(level!.art.slug)}")` })
         : state === 'next'
           ? svg(ICONS.palette)
-          : h('span', { class: 'node-num' }, String(p.n));
+          : state === 'soon'
+            ? h('span', { class: 'node-soon' }, p.waiting ? 'New art soon' : '')
+            : h('span', { class: 'node-num' }, String(p.n));
     return h(
       playable ? 'button' : 'span',
       {
         type: playable ? 'button' : undefined,
-        class: `node is-${state}${extra}`,
+        class: `node is-${state}${p.waiting ? ' is-waiting' : ''}${extra}`,
         'data-id': level?.id,
         style: state === 'done' && this.opts.justDone === level?.id ? 'view-transition-name: painting' : undefined,
         'aria-label': state === 'done' ? `${level!.art.title} (restored)` : state === 'next' ? 'Next painting' : state === 'soon' ? 'Coming soon' : 'Locked painting',
@@ -149,10 +157,10 @@ export class Trail {
       const frames = pieces.map((p) =>
             h(
               'div',
-              { class: `spot frame-spot is-${p.state}`, 'data-room': room.id, style: `--tilt: ${(((p.n * 7) % 5) - 2) * 0.8}deg` },
+              { class: `spot frame-spot is-${p.state}${p.waiting ? ' is-waiting' : ''}`, 'data-room': room.id, style: `--tilt: ${(((p.n * 7) % 5) - 2) * 0.8}deg` },
               h('span', { class: 'nail', 'aria-hidden': 'true' }),
               this.button(p, ' hung'),
-              h('span', { class: 'plaque' }, p.state === 'done' ? p.level!.art.title : p.state === 'next' ? 'Start' : `No. ${p.n}`),
+              h('span', { class: 'plaque' }, p.state === 'done' ? p.level!.art.title : p.state === 'next' ? 'Start' : p.state === 'soon' ? 'Soon' : `No. ${p.n}`),
             ),
       );
       hangs.push([hang, frames]);

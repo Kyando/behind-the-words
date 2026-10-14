@@ -17,7 +17,9 @@ const LAYOUTS = [
 ];
 const pick = process.argv[2]?.split(',');
 const layouts = pick ? LAYOUTS.filter((l) => pick.includes(l.id)) : LAYOUTS;
-const save = { version: 1, levels: { 'starry-night': { done: true }, 'great-wave': { done: true } }, settings: { sound: false } };
+// ALL=1: every level made so far restored (the wall then shows where new art will hang).
+const done = process.env.ALL ? ['starry-night', 'great-wave', 'pearl-earring', 'sudden-shower'] : ['starry-night', 'great-wave'];
+const save = { version: 1, levels: Object.fromEntries(done.map((id) => [id, { done: true }])), settings: { sound: false } };
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 async function main(): Promise<void> {
@@ -31,7 +33,7 @@ async function main(): Promise<void> {
       await ctx.addInitScript((s) => localStorage.setItem('behind-the-words:v1', s), JSON.stringify(save));
       const page = await ctx.newPage();
       await page.goto(`http://localhost:${PORT}/`);
-      await page.waitForSelector('.node.is-next');
+      await page.waitForSelector('.node.is-next, .node.is-waiting');
       await wait(1400);
       await page.screenshot({ path: join(outDir, `trail-${l.id}-1.png`) });
       // One screen further down the walls.

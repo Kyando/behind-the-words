@@ -89,3 +89,13 @@
 .trail .room-banner.is-locked { --paper: color-mix(in srgb, var(--room) 16%, color-mix(in srgb, var(--wall) 60%, var(--panel))); color: var(--ink-dim); }
 .trail .room-banner.is-locked::after { border-style: solid; border-color: var(--ink-dim); box-shadow: 0.125rem 0.1875rem 0 rgb(75 58 53 / 0.12); }
 .trail .room-banner.is-locked .room-gate { border-color: var(--ink-dim); }
+
+/* Not made yet: an empty spot on the wall, a pencilled outline where a frame will go, rather than a
+   covered frame. The first one, once everything made so far is restored, says more art is coming. */
+.trail .node.hung.is-soon { --face: color-mix(in srgb, var(--wall) 40%, var(--panel)); background: var(--face); border-style: solid; box-shadow: none; }
+.trail .node.hung.is-soon::before { content: ''; position: absolute; inset: 0.5rem; border: 0.125rem dashed color-mix(in srgb, var(--ink-dim) 55%, var(--panel)); border-radius: 0.25rem; }
+.trail .node.hung { position: relative; }
+.node-soon { padding: 0 0.5rem; font-family: var(--font-game); font-weight: 700; font-size: 0.875rem; line-height: 1.2; text-align: center; color: var(--ink); }
+.trail .node.hung.is-waiting { --face: var(--panel); border-color: var(--ink-line); outline: 0.1875rem dashed color-mix(in srgb, var(--ink-line) 45%, transparent); outline-offset: 0.3125rem; animation: btn-breathe 2.2s ease-in-out infinite; }
+.frame-spot.is-soon .plaque { border-style: dashed; }
+.frame-spot.is-waiting .plaque { border-style: solid; border-color: var(--ink-line); color: var(--ink); }
